@@ -1,0 +1,95 @@
+-- -*- mode: lua; encoding: windows-1251 -*-
+local actor      = db.actor
+local monster    = nil
+local snd        = nil
+
+local knife_tbl  = {
+    [ "mutant_flesh_eye"         ] = { 2000, 0.05, 0.010 },
+    [ "mutant_boar_leg"          ] = { 4000, 0.10, 0.020 },
+    [ "mutant_dog_tail"          ] = { 2000, 0.04, 0.010 },
+    [ "mutant_psevdodog_tail"    ] = { 3000, 0.10, 0.015 },
+    [ "mutant_krovosos_jaw"      ] = { 4000, 0.15, 0.020 },
+    [ "mutant_burer_hand"        ] = { 4000, 0.16, 0.030 },
+    [ "mutant_zombie_hand"       ] = { 3000, 0.10, 0.020 },
+    [ "mutant_snork_leg"         ] = { 4000, 0.16, 0.035 },
+    [ "mutant_face_tushkano"     ] = { 2000, 0.05, 0.015 },
+    [ "mutant_hand_kontroler"    ] = { 5000, 0.22, 0.045 },
+    [ "mutant_poltergeist_glas"  ] = { 3000, 0.08, 0.015 },
+    [ "mutant_psevdogigant_hand" ] = { 6000, 0.20, 0.045 },
+    [ "mutant_tail_cat"          ] = { 3000, 0.10, 0.020 },
+    [ "mutant_chimera_kogot"     ] = { 5000, 0.18, 0.035 },
+    [ "mutant_flesh_shkura"      ] = { 8000, 0.22, 0.045 },
+    [ "mutant_e_chimera_kidney"  ] = { 6000, 0.15, 0.045 }
+}
+
+
+function on_part_take( obj )
+    local mutant_part = obj:section() or ""
+    if not ( monster and strposx( mutant_part, "mutant_" ) ) then return end
+    local knife_sect, knife_cond, time_koeff
+	local knife = actor:item_in_slot( 0 )
+	if knife and strpos( knife:section(), "knife" ) then
+		knife_sect = knife:section()
+		knife_cond = math.max( knife:condition(), 0.05 )
+	end
+
+    time_koeff = ( knife_sect and knife_sect == "wpn_knife_m1" and 0.5 ) or 1
+    level.start_stop_menu( level.main_input_receiver(), true )
+    sak.actor_hide_weapon()
+    level.add_cam_effector( "camera_effects\\item_use.anm", 8553, false, "" )
+    local break_chance = knife_tbl[ mutant_part ][ 2 ]
+    if
+        knife_cond < ( 0.1 + time_koeff * 0.5 ) and
+        dsh.get_next_random( "monster_parts.on_part_take" ) <
+        time_koeff * ( break_chance + break_chance * ( 1 - knife_cond ) )
+    then
+        schedule.add( "knife_break_snd", "monster_parts.knife_break()", 300 )
+        if dsh.get_next_random( "monster_parts.on_part_take" ) >
+            ( ( knife_sect and knife_sect == "wpn_knife_m1" and 0.85 ) or 0.65 )
+        then
+            misc.release_obj( obj )
+        end
+        schedule.add( "loot_monster_finish", "monster_parts.stop_loot_already()", 6000 )
+    else
+        schedule.add( "loot_monster_snd", "monster_parts.loot_monster_sound()", 300 )
+        params.add_condition( knife, -( time_koeff * knife_tbl[ mutant_part ][ 3 ] ) )
+        time_koeff = (knife_sect == "wpn_knife" and time_koeff * 1.5) or time_koeff
+        schedule.add( "loot_monster_finish", "monster_parts.stop_loot_already()",
+            (time_koeff * (1000 + knife_tbl[mutant_part][1]) + (500 / knife_cond)) )
+    end
+end
+
+function stop_loot_already()
+    if snd and snd:playing() then snd:stop() end
+    sak.restore_weap()
+end
+
+function loot_monster_sound()
+    snd = xr_sound.get_safe_sound_object( "zwuk_short\\loot_long_1" )
+    snd:play_at_pos( actor, vector(), 0, sound_object.s2d )
+end
+
+function knife_break()
+    local itm = actor:item_in_slot( 0 )
+    if not itm then return end
+    snd = xr_sound.get_safe_sound_object( "zwuk_short\\knife_break" )
+    misc.release_obj( itm )
+    sak.send_tip( "Хана ножику, похоже...", "Да что ж такое!", 5, 20,   "uniq", "sak", "red" )
+    snd:play_no_feedback( actor, sound_object.s2d, 0, vector(), 1.0 )
+end
+
+function on_monster_use( victim, who )
+    xr_s.register_callback( "on_item_take", monster_parts.on_part_take )
+    monster = victim
+end
+
+function unreg_callback()
+    xr_s.unregister_callback( "on_item_take", monster_parts.on_part_take, true )
+end
+
+function on_monster_stop_use()
+    schedule.add( "unreg_timer", "monster_parts.unreg_callback()", 200 )
+    monster = nil
+end
+
+

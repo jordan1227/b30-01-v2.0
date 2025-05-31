@@ -1,0 +1,266 @@
+--local processed_info = {}
+local scr_name       = script_name() or "nlc_fixes"
+--local vname        = "fixes.version"
+
+function on_late_init()
+    local fixes = {
+        this.fix_tiski_mil_dv,
+        this.fix_gar_bandit_wpn,
+        this.fix_mp5_m1_in_inventory,
+        this.fix_mil_svoboda_light_bron,
+        this.fix_aver_bandit_corpse,
+        this.fix_all_pda_condition,
+        this.fix_trup_x16,
+        this.start_gambling_stats_tbl,
+        this.remove_yan_ac_barrels,
+        this.remove_chairs,
+        this.fix_mil_wpn_gm94,
+        this.fix_vertel_kishka,
+        this.fix_prices_blokpost_kishka,
+        this.store_r_treas_items_to_nlc_vars,
+        this.delete_playboy10,
+        this.generate_rnd_treas_table
+    }
+    local stored_fixes_num = nlc_vars.fixes_num or 0
+    log2(
+        "[ %s.script ]: fixes_done = %s, fixes_all = %s",
+        scr_name, stored_fixes_num, table.getn( fixes )
+    )
+    if stored_fixes_num < table.getn( fixes ) then
+        for i = stored_fixes_num + 1, table.getn( fixes ) do
+            fixes[ i ]( stored_fixes_num )
+        end
+        nlc_vars.fixes_num = table.getn( fixes )
+    end
+    ----------------------------------------------------------------------------------
+    --local fixes_on_info = {}
+                --   local fixes_on_info = {
+                -- [ "vitamin_reyd_zadan_done" ] = {
+                --   this.free_warlab_svobodovzu,
+                -- },
+                -- [ "borman_glushitel_done" ] = {
+                --   this.free_freedom_limansk,
+                -- },
+    -- for k, v in pairs( fixes_on_info ) do
+    --     if db.actor:has_info( k ) and not processed_info[ k ] then
+    --         log2( "[nlc_fixes]: found fixes for '%s', applying...", k )
+    --         for _, f in ipairs( v ) do
+    --             f()
+    --             processed_info[ k ] = true
+    --             local processed = xray_vars.load_table( nlc_vars, "fixes_processed_info", {} )
+    --             table.insert( processed, k )
+    --             nlc_vars.fixes_processed_info = processed
+    --         end
+    --     end
+    -- end
+    --------------------------------------------------------------------------------
+end
+
+function generate_rnd_treas_table()
+    test.generate_random_treasure_tbl()
+end
+
+function delete_playboy10()
+    for id = 1, BAD_OBJ_ID, 1 do
+        local obj = g_sim:object( id )
+        if obj then
+            if obj:section_name() == "playboy10" then
+                log2( "[ %s.script ]: found object: %s, releasing...", scr_name, obj:section_name())
+                misc.release_obj( obj.id )
+            end
+        end
+    end
+end
+
+function store_r_treas_items_to_nlc_vars()
+    local a = amk_vars.r_treas_items or 1
+    nlc_vars.stored_r_treas_items = a
+end
+
+function fix_prices_blokpost_kishka()
+    local tbl = {
+        { "dsc_greens_flesh_shkura_done", "price_kishka_shkura"  },
+        { "private_blockpost_vodka_ok",   "price_blokpost_night" },
+        { "mar_boryan_what_need_info",    "price_boryan"         }
+    }
+    for k, v in pairs( tbl ) do
+        if
+            db.actor:has_info( v[ 1 ] )
+            and not db.actor:has_info( v[ 2 ] )
+        then
+            db.actor:give_info_portion( v[ 2 ] )
+        end
+    end
+end
+
+function fix_vertel_kishka()
+    local obj = g_sim:object( "dsc_vertel_boar" )
+    if obj then misc.release_obj( obj.id ) end
+end
+
+function fix_mil_wpn_gm94()
+    local obj = g_sim:object( "mil_wpn_gm94" )
+    if obj then misc.release_obj( obj.id ) end
+end
+
+function remove_chairs()
+    for _, name in ipairs({
+        "val_phd_stul_0001",
+        "val_phd_stul_0000",
+        "val_phd_stul_0003",
+        "val_phd_stul_0002",
+        "val_physic_destroyable_object_0000",
+        "val_physic_destroyable_object_0001",
+        "esc_stul_vergas_esc_0002",
+        "sak_stul_bar",
+        "mil_stul_1a_0000",
+        "vedro0014",
+        "mil_stul_1a_0032",
+        "mil_stul_1a_0018",
+        "mil_stul_1c_0000",
+        "mil_stul_1c_0001",
+        "mil_physic_object_0027",
+        "mil_physic_object_0115",
+        "mil_physic_object_0114",
+        "mil_physic_object_0116",
+        "mil_physic_object_0045",
+        "mil_physic_destroyable_object_0025",
+        "mil_physic_destroyable_object_0024"
+    }) do
+        local sobj = g_sim:object( name )
+        if sobj then
+            log2(
+                "[ %s.script ]: found object: %s, releasing...",
+                scr_name, sobj:section_name()
+            )
+            misc.release_obj( sobj.id )
+        end
+    end
+end
+
+function remove_yan_ac_barrels()
+    for _, name in ipairs({
+        "yan_explosive_barrel_0006",
+        "yan_explosive_barrel_0007",
+        "yan_explosive_barrel_0008",
+        "mil_physic_object_0004",
+        "mil_physic_object_0003",
+        "mil_physic_object_0002",
+        "bochka_open0020",
+        "bochka_open0009",
+        "bochka_open0021"
+    }) do
+        local sobj = g_sim:object( name )
+        if sobj then
+            log2(
+                "[ %s.script ]: found object: %s, releasing...",
+                scr_name, sobj:section_name()
+            )
+            misc.release_obj( sobj.id )
+        end
+    end
+end
+
+function start_gambling_stats_tbl()
+    local tbl = xray_vars.load_table( nlc_vars, "tbl_gambling", {} )
+    for _, name in ipairs({ "stas", "lysyi", "mongol" }) do
+        if tbl[ name ] == nil then tbl[ name ] = { wins = 0, loses = 0 } end
+    end
+    misc.dump_table( tbl )
+    nlc_fixes.tbl_gambling = tbl
+end
+
+function fix_trup_x16()
+    if nlc_vars.tmp_prizrak_outfit then
+        log2( "[ %s.script ]: nlc_vars.tmp_prizrak_outfit exists, proceed...", scr_name )
+        test.prizrak_outfit_prize()
+        nlc_vars.tmp_prizrak_outfit = nil
+    end
+end
+
+function fix_all_pda_condition()
+    for id = 1, BAD_OBJ_ID, 1 do
+        local obj = g_sim:object( id )
+        if obj then
+            if obj:section_name() == "device_pda_npc" then
+                test.set_pda_condition( id )
+            end
+        end
+    end
+end
+
+function fix_mil_svoboda_light_bron()
+    local obj = g_sim:object( "mil_svoboda_light_bron" )
+    if obj then misc.release_obj( obj.id ) end
+end
+
+function fix_tiski_mil_dv()
+    for _, v in ipairs({ "mil_tiski_repair_03", "val_tiski_repair" }) do
+        local sobj = g_sim:object( v )
+        if sobj then
+            local pk         = get_netpk( sobj, 1 )
+            local data       = pk:get()
+            data.custom_data = "[logic]\ncfg = scripts\\repair_tiski_3.ltx"
+            pk:set( data )
+            sak.off_on( sobj )
+        end
+    end
+end
+
+function fix_gar_bandit_wpn()
+    local pobj = g_sim:object( "gar_sniper_bandit" )
+    if pobj then
+        log2( "[ %s.script ]: gar_sniper_bandit exists", scr_name )
+        local ids, cnt = registry.inv_objects( pobj.id, true )
+        for n = 1, cnt do
+            local obj = g_sim:object( ids[ n ] )
+            if obj and obj.section_name then
+                if strposx( obj:section_name(), "wpn_" ) then
+                    log2(
+                        "[ %s.script ]: gar_sniper_bandit has weapon %s, releasing...",
+                        scr_name, obj:section_name()
+                    )
+                    misc.release_obj( obj.id )
+                end
+            end
+        end
+        misc.spawn_to( "wpn_bm16",        pobj.id )
+        misc.spawn_to( "ammo_12x70_buck", pobj.id )
+        log2( "[ %s.script ]: gar_sniper_bandit now is with obrez...probably...", scr_name )
+    end
+end
+
+function fix_mp5_m1_in_inventory()
+    local items = get_shadow_inv():get_content( true )
+    for i, rec in items:ipairs() do
+        if rec.sect == "wpn_mp5_m1" and rec.obj:condition() < 0.63 then
+            params.upd_condition( rec.id, 0.63 )
+        end
+    end
+end
+
+function fix_aver_bandit_corpse()
+    local pobj = g_sim:object( "aver_stalker_corps_01" )
+    if pobj then
+        log2( "[ %s.script ]: aver_stalker_corps_01 exists", scr_name )
+        local ids, cnt = registry.inv_objects( pobj.id, true )
+        for n = 1, cnt do
+            local obj = g_sim:object( ids[ n ] )
+            if obj and obj.section_name then
+                if strposx( obj:section_name(), "belt_4_art" ) then
+                    log2(
+                        "[ %s.script ]: aver_stalker_corps_01 has %s, releasing...",
+                        scr_name, obj:section_name()
+                    )
+                    misc.release_obj( obj.id )
+                end
+            end
+        end
+        misc.spawn_to( "ammo_12x76_zhekan", pobj.id )
+        misc.spawn_to( "ammo_12x76_zhekan", pobj.id )
+        log2(
+            "[ %s.script ]: aver_stalker_corps_01 now is with ammo_12x76_zhekan...probably...",
+            scr_name
+        )
+    end
+end

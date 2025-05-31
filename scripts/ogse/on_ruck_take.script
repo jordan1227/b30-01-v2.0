@@ -1,0 +1,14 @@
+function attach( sm )
+	sm:subscribe({ signal = "on_take_from_box", fun = this.on_take_from_ruck })
+end
+
+function on_take_from_ruck( box, item )
+	if not strposx( box:name(), "rukzak_inventory_box" ) then return end
+	test.remove_box_protection( box:name() )
+	--if box:id() == tonumber( nlc_vars.rad_zil_treasure ) then nlc_vars.rad_zil_treasure = true end
+	if box:is_inv_box_empty() then
+		level.start_stop_menu( level.main_input_receiver(), true )
+		misc.release_obj( box:id() )
+		--sak.create_items( "rucksack", 1 )
+	end
+end

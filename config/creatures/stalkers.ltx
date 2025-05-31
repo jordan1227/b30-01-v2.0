@@ -1,0 +1,59 @@
+#include "m_stalker.ltx"
+#include "m_person.ltx"
+#include "immunities.ltx"
+#include "damages.ltx"
+#include "m_stalker_zombied.ltx"
+#include "m_stalker_monolith.ltx"
+#include "m_stalker_sniper.ltx"
+#include "m_stalker_antisniper.ltx"
+
+[stalkers_common]
+corpse_remove_game_time_interval = 12 ; in hours
+stay_after_death_time_interval	 = 12 ; in hours
+
+[dsh.enemy.ignore.l01_escape]
+esc_bridge 						= esc2_st_fox_place, esc_farm_lager, esc_stalker_camp, esc_doctor, esc_wolf, esc_shustryi, esc_stone_lager, esc_provodnik, esc_oksana, esc_vagon_wounded, gar_dm_novice, val_vlad
+esc_blokpost 					= esc_lager, esc_doctor, esc_provodnik, esc_oksana, esc_vagon_wounded, esc_vergas, esc_shustryi, esc_wolf, gar_dm_novice, val_vlad
+esc_bridge_kovalchuk 			= esc_lager, esc_doctor, esc_provodnik, esc_oksana, esc_vagon_wounded, esc_vergas, esc_shustryi, esc_wolf, gar_dm_novice, val_vlad
+monster 						= esc_vagon_wounded
+esc_shustryi 					= monster, stalker, bandit				; Помирим неадеквата со всем, чем можно
+esc_fabrika_bandit 				= military, green, esc_lager			; АТП Бандиты с охотниками и военными, сталкерами
+
+[dsh.enemy.ignore.limansk]
+lim_lager_freedom_stalkers		= lim_lager_bandits, val_bandit_borov
+
+[dsh.enemy.ignore.l02_garbage]
+dolg 							= agr_muller
+gar_bandit_agr_12 				= gar_hellcar_group_2
+gar_stalker_binoc				= monster								; Апостол с монстрами
+
+[dsh.enemy.ignore.l04_darkvalley]
+val_escort 						= mongol, gar_dolg_blokpost	; Помирим эскорт
+val_lager_bandits	 			= gar_dolg_blokpost, val_prisoner_captive, val_sacrifice_victim, dolg	; Бандиты Борова с Пулей и Любером,
+monster							= val_bandit_borov, val_bandit_trader, val_lager_bodyguard1, val_lager_bodyguard2	; Боров, Жила, 2 охранника с монстрами
+val_vlad						= dolg, val_lager_bandits, val_watchtower2, val_watchtower3							; Влад с долгом, бандитами и лохами на вышках
+val_sacrifice_victim			= val_escort, gar_dolg_blokpost, mongol
+mongol							= monster
+
+[dsh.enemy.ignore.l03_agroprom]
+agr_ratcatcher					= monster, bandit, military, stalker	; Дезертир и монстры, бандит, военные
+
+[dsh.enemy.ignore.l03u_agr_underground]
+monster 						= klyk, kat_stalker						; Монстры с Крыком и Доктором
+
+[dsh.enemy.ignore.l05_bar]
+dolg 							= agr_muller							; Мюллер и долговцы в баре
+art_exchanger					= stalker, military, dolg, monster		; Меняла со всеми на всякий случай
+
+[dsh.enemy.ignore.l08_yantar]
+;yan_dolg_petrenko				= monster, ecolog, dolg, zombied
+yantar_semenov					= monster, dolg, zombied
+
+[dsh.enemy.ignore.l07_military]
+killer							= esc_wolf, freedom, vorobey, stalker, dolg	; Наемники и волк, свобода, воробей, сталкеры
+art_exchanger2					= stalker, military, dolg, monster			; Меняла со всеми на всякий случай
+
+[dsh.enemy.ignore.marsh]
+shersh 							= monster
+mar_boryan						= monster, stalker, ecolog
+marsh_ecolog1_sev_khutor		= stalker, military, bandit

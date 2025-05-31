@@ -1,0 +1,121 @@
+;HK416C
+[wpn_g36c]:wpn_g36
+$spawn								= "weapons\g36c"
+class								= WP_LR300
+description							= enc_weapons1_wpn-g36c
+min_radius							= 0
+max_radius							= 150
+dialog_description		    		= desc_dialog_wpn-g36c
+inv_name							= wpn-g36c
+inv_name_short						= HK416C
+inv_weight							= 2.9
+icon_group          				= 5
+inv_grid_width                      = 4
+inv_grid_height                     = 2
+inv_grid_x                          = 7
+inv_grid_y                          = 4
+default_to_ruck						= false
+slot								= 1,2
+ammo_mag_size						= 30
+ammo_class		 					= ammo_5.56x45_ss190,ammo_5.56x45_ap,ammo_5.56x45_merc
+fire_modes							= 1, -1
+fire_dispersion_base				= 0.27
+control_inertion_factor				= 1.1f
+cost								= 15000
+cam_relax_speed         			= 4.0
+cam_dispersion          			= 0.2
+cam_dispersion_inc					= 0.25
+cam_dispertion_frac					= 0.75
+cam_max_angle						= 20
+cam_max_angle_horz					= 10
+cam_step_angle_horz					= 0.25
+fire_dispersion_condition_factor 	= 1.5
+misfire_probability 				= 0.003
+misfire_condition_k					= 0.05
+condition_shot_dec 					= 0.0002
+fire_point 							= 0.0,0.2,0.33
+PDM_disp_base 				        = 1.0
+PDM_disp_vel_factor 		        = 1.2
+PDM_disp_accel_factor 		        = 1.2
+PDM_crouch	 				        = 1.0
+PDM_crouch_no_acc 			        = 1.0
+visual                  			= weapons\hk416\wpn_hk416c_eotech.ogf
+hud                      			= wpn_g36c_hud
+position							= -0.026,-0.172,0
+orientation							= 0, 0, 0
+strap_position         				= -0.16,-0.36,0.15
+strap_orientation      				= -10,-5,10
+strap_bone0							= bip01_spine2
+strap_bone1							= bip01_spine1
+hit_power							= 1.0
+hit_impulse							= 1
+hit_type							= fire_wound
+fire_distance						= 150
+bullet_speed						= 500
+rpm									= 700
+scope_status						= 2
+silencer_status						= 2
+grenade_launcher_status				= 0
+scope_mode 							= 3
+scope_name 							= wpn_addon_eotech, wpn_addon_acog
+silencer_name  						= wpn_addon_sil_556_ar
+scope_x                             = 57		; offset in inventory icon
+scope_y                             = -7
+silencer_x                          = 153		; offset in inventory icon
+silencer_y                          = 9
+grenade_launcher_x                  = 0		; offset in inventory icon
+grenade_launcher_y                  = 0
+zoom_enabled						= true
+scope_zoom_factor           		= 90
+snd_draw							= weapons\ak_74x\rifle_draw
+snd_holster							= weapons\ak_74x\rifle_holster
+snd_shoot							= weapons\m16_like\m16_shot
+snd_silncer_shot					= weapons\m16_like\m16_shot_suppressed
+snd_empty							= weapons\ak_74x\rifle_empty, 0.5
+snd_reload							= weapons\hk417\hk417_reload
+
+[wpn_g36c_hud]:wpn_g36_hud
+fire_point					        = 0.001000,-0.035,-0.04
+position					        = 0.020000,0.000000,-0.100000
+orientation      			        = 1.5, 0.0, 0.0
+visual                  			= weapons\hk416\wpn_hk416c_eotech_hud.ogf
+anim_idle					        = idle
+anim_idle_aim				        = idle_aim
+anim_reload					        = reload
+anim_draw					        = draw
+anim_holster				        = holster
+anim_shoot					        = shoot
+anim_idle_sprint			        = idle_sprint
+zoom_offset			                = -0.113150,0.031220,-0.250000
+zoom_rotate_x		                = -0.000600
+zoom_rotate_y		                = 0.025700
+zoom_rotate_time					= 0.25
+rotate_time							= 0.25
+
+[wpn_g36c_eotech]:wpn_g36c
+visual                  			= weapons\hk416\wpn_hk416c_eotech.ogf
+hud                     			= wpn_g36c_eotech_hud
+scope_attached         				= 0
+control_inertion_factor				= 1.12f
+
+[wpn_g36c_eotech_hud]: wpn_g36c_hud
+visual                  			= weapons\hk416\wpn_hk416c_eotech_hud.ogf
+zoom_offset			                = -0.112950,0.010920,-0.250000
+zoom_rotate_x		                = 0.011100
+zoom_rotate_y		                = 0.025900
+zoom_rotate_time					= 0.18
+rotate_time							= 0.18
+
+[wpn_g36c_acog]:wpn_g36c
+visual                  			= weapons\hk416\wpn_hk416c_acog.ogf
+hud                     			= wpn_g36c_acog_hud
+scope_attached         				= 0
+control_inertion_factor				= 1.12f
+
+[wpn_g36c_acog_hud]: wpn_g36c_hud
+visual                  			= weapons\hk416\wpn_hk416c_acog_hud.ogf
+zoom_offset			                = -0.112950,0.005420,1.510000
+zoom_rotate_x		                = 0.000700
+zoom_rotate_y		                = 0.025900
+zoom_rotate_time					= 0.27
+rotate_time							= 0.27

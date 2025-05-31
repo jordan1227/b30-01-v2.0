@@ -1,0 +1,1502 @@
+-- mikelik
+
+local arts = {
+    { "af_unknown_1_new",  "af_unknown_22_new", "af_unknown_31_new" },
+    { "af_unknown_2_new",  "af_unknown_16_new", "af_unknown_28_new" },
+    { "af_unknown_3_new",  "af_unknown_5_new",  "af_unknown_25_new" },
+    { "af_unknown_4_new",  "af_unknown_14_new", "af_unknown_20_new" },
+    { "af_unknown_6_new",  "af_unknown_9_new",  "af_unknown_21_new" },
+    { "af_unknown_8_new",  "af_unknown_18_new", "af_unknown_26_new" },
+    { "af_unknown_7_new",  "af_unknown_19_new", "af_unknown_23_new" },
+    { "af_unknown_12_new", "af_unknown_24_new", "af_unknown_29_new" },
+    { "af_unknown_11_new", "af_unknown_15_new", "af_unknown_30_new" }
+}
+
+local name_arts = {
+    { "A-239", "O-477", "S-753" },
+    { "B-274", "K-346", "S-804" },
+    { "C-247", "D-396", "P-702" },
+    { "D-845", "J-060", "M-609" },
+    { "D-654", "G-024", "N-766" },
+    { "E-545", "K-683", "Q-317" },
+    { "D-781", "L-614", "P-049" },
+    { "J-244", "P-877", "S-237" },
+    { "I-182", "J-790", "S-357" }
+}
+
+local sborka = false
+local actor  = db.actor
+
+local mayat = {
+    "af_mayatnik_tuman_new_capsule",
+    "af_mayatnik_les_new_capsule",
+    "af_mayatnik_radar_new_capsule",
+    "af_mayatnik_tesla_new_capsule",
+    "af_mayatnik_stadion_new_capsule",
+    "af_mayatnik_chaes_new_capsule"
+}
+
+function give_semena()
+    local i = lua_random( 1, 9 )
+    nlc_vars.set = i
+    if i then
+        sak.create_items( actor, arts[ i ][ 1 ], 1 )
+        sak.create_items( actor, arts[ i ][ 2 ], 1 )
+        sak.create_items( actor, arts[ i ][ 3 ], 1 )
+    end
+end
+
+function memory_module_no_have()
+    return sak.have_items_count( "memory_module", 2 ) == false
+end
+
+function gg_decoder_no_have()
+    return sak.have_items_count( "self_made_decoder", 1 ) == false
+end
+
+function give_med()
+    sak.create_items( db.actor, "antirad", 2 )
+    sak.create_items( db.actor, "medkit_army", 2 )
+end
+
+function give_med_plus()
+    sak.create_items( db.actor, "suhpay", 1 )
+    sak.create_items( db.actor, "medkit_army", 1 )
+end
+
+function gg_sick()
+    return actor_params.cond_prop( "health" ) < 0.4
+end
+
+function gg_very_sick()
+    return actor_params.cond_prop( "health" ) < 0.15
+end
+
+function add_ivar_treasure()
+    local obj = amk.spawn_item( "rukzak_inventory_box",
+        sak.v3f( 521.59063720703, -47.673824310303, -181.69540405273 ), 2056, 176701
+    )
+    level.map_add_object_spot( obj.id, "crlc_big_treasure3", "Где-то тут хабар Ивара" )
+    misc.process_spawn()
+    if obj then
+        test.add_box_protection( obj:name() )
+        local tbl = {
+            "af_dummy_spring_capsule",
+            "af_dummy_battery_capsule",
+            "af_dummy_pellicle_capsule"
+        }
+        for _, v in ipairs({
+            "ammo_5.56x45_ap",
+            "ammo_5.56x45_ap",
+            "ammo_5.56x45_ap",
+            "ammo_5.56x45_ap",
+            "suhpay"
+        }) do
+            misc.spawn_to( v, obj )
+        end
+        misc.spawn_to( tbl[ amk_vars.r_treas_items ], obj )
+        sak.off_on( obj )
+    end
+end
+
+function give_ivar_weapon()
+    sak_inventory.release_actor_items( "wpn_colt1911", 1 )
+    sak_inventory.release_actor_items( "wpn_spas12", 1 )
+    sak_inventory.release_actor_items( "wpn_sig550", 1 )
+end
+
+function take_ivar_weapon()
+    sak_inventory.release_actor_items( "quest_manycase_01", 1 )
+    sak.create_items( db.actor, "wpn_colt1911", 1 )
+    sak.create_items( db.actor, "wpn_spas12", 1 )
+    sak.create_items( db.actor, "wpn_sig550", 1 )
+end
+
+function add_rygyi_habar()
+    local obj = amk.spawn_item( "rukzak_inventory_box",
+        sak.v3f( -29.826679229736, 15.82318687439, 72.517303466797 ), 3810, 221161
+    )
+    level.map_add_object_spot( obj.id, "crlc_big_treasure3", "Где-то тут хабар Рыжего" )
+    misc.process_spawn()
+    if obj then
+        test.add_box_protection( obj:name() )
+        for _, v in ipairs({
+            "af_spirit_3",
+            "af_dummy_dummy_capsule",
+            "af_star_new"
+        }) do
+            misc.spawn_to( v, obj )
+        end
+        sak.off_on( obj )
+    end
+end
+
+function timer_prizrak()
+    timers.start_timer( "timer_prizrak", 0, 0, 20, "mike.timer_prizrak_end()" )
+end
+
+function timer_prizrak_end()
+    sak.send_tip(
+        "Меченный, это Призрак. Приходи на Янтарь, буду ждать у Сахарова. Пора поговорить.",
+        "Сообщение от Призрака", 11, 20, "prizrak", "sak", "green"
+    )
+    actor:give_info_portion( "prizrak_message" )
+end
+
+function final_message()
+    sak.send_tip(
+        "На этом сюжетная линия завершена. Можно продолжать фриплей, если есть желание. Спасибо за терпение.",
+        "Финальное сообщение", 11, 20, nil, "news", "sky_blue"
+    )
+end
+
+function talk_about_set()
+    local i = nlc_vars.set
+    for j = 1, 3 do
+        actor:give_talk_message(
+            name_arts[ i ][ j ], "ui\\ui_iconsTotal",
+            Frect():set( 0, 0, 0, 0 ), "simple_answer_item"
+        )
+    end
+end
+
+function timer_sanek()
+    timers.start_timer( "timer_sanek", 0, 2, 0, "mike.timer_sanek_end()" )
+end
+
+function timer_sanek_end()
+    actor:give_info_portion( "timer_sanek_end" )
+end
+
+function timer_voron()
+    timers.start_timer( "timer_voron", 0, 2, 0, "mike.timer_voron_end()" )
+end
+
+function timer_voron_end()
+    actor:give_info_portion( "timer_voron_end" )
+end
+
+function timer_scarman()
+    timers.start_timer( "timer_scarman", 1, 0, 0, "mike.timer_scarman_end()" )
+end
+
+function timer_scarman_end()
+    actor:give_info_portion( "timer_scarman_end" )
+end
+
+function give_3_dart() sak_dialog.give_n_dart( 3 ) end
+
+function take_art1() sak.create_items( db.actor, arts[ nlc_vars.set ][ 1 ], 1 ) end
+function take_art2() sak.create_items( db.actor, arts[ nlc_vars.set ][ 2 ], 1 ) end
+function take_art3() sak.create_items( db.actor, arts[ nlc_vars.set ][ 3 ], 1 ) end
+
+function give_3_cheque2()
+    if sak.have_items_count( "bearer_cheque", 3 ) then
+        sak_inventory.release_actor_items( "bearer_cheque", 3 )
+    end
+end
+
+function af_transform( af, anom_sect )
+    local af_sect = af:section()
+    local pos     = af:position()
+    local i       = nlc_vars.set or 1
+    local infop   = false
+    local lvl     = level.name()
+    local row     = arts[ i ]
+    -- семечки
+    if strposx( anom_sect, "_psi_field" ) and actor:has_info( "semena_start_info" ) then
+        if lvl == "generators"  and af_sect == row[ 1 ] then infop = "sema_one_info"   end
+        if lvl == "deadcity"    and af_sect == row[ 2 ] then infop = "sema_two_info"   end
+        if lvl == "l11_pripyat" and af_sect == row[ 3 ] then infop = "sema_three_info" end
+        if infop then
+            amk_mod.af_flash( af )
+            sak.send_tip(
+                "Оно благодарит тебя.", "Сообщение от Связующего",
+                11, 20, "teleport", "sak", "green"
+            )
+            actor:give_info_portion( infop )
+            local tt = amk_mod.af_start_transform( 100, 0, af_sect, "af_dummy_buliz" )
+            return amk_mod.af_start_transform_timer( tt, pos, 6, 0, 0, "Нечто" )
+        end
+    end
+    return false
+end
+
+function timer_lebedev()
+    timers.start_timer( "timer_lebedev", 0, 0, 30, "mike.timer_lebedev_end()" )
+end
+
+function timer_lebedev_end()
+    sak.send_tip(
+        "Брат Меченный, тебя призывает Связующий. Приди и исполни то, что должен. Оно ждёт тебя.",
+        "Сообщение от Лебедя Связующего", 11, 20, "teleport", "sak", "green"
+    )
+    actor:give_info_portion( "lebedev_message" )
+end
+
+function last_sheet()
+    sak.send_tip( "Последний отрывок из записок Стрелка.", "", 0, 20, "g_g", "news", "blue" )
+end
+-- пусть по рандому, будет или не будет
+function spawn_in_x12()
+    if amk_vars.r_task_reward < 3 then return end
+    amk.spawn_item( "af_dummy_dummy_new",
+        sak.v3f( 8.1679067611694, -22.772760391235, 8.207935333252 ), 2703, 7794
+    )
+end
+
+function spawn_on_st2()
+    local obj = amk.spawn_item( "marsh_inventory_box",
+        sak.v3f( 705.16, -21.93, 318.56 ), 4543, 401069
+    )
+    misc.process_spawn()
+    if obj then
+        local tbl = {
+            "belt_6_art",
+            "af_full_akkum",
+            "flask_army",
+            "flask_army",
+            "suhpay",
+            "suhpay",
+            "medkit_scientic",
+            "medkit_scientic",
+            "antirad",
+            "antirad",
+            "antirad",
+            "repair_item_weapon_feik",
+            "repair_item_weapon_feik",
+            "repair_itemoutfit_feik",
+            "repair_itemoutfit_feik",
+            "matches",
+            "matches",
+            "matches",
+            "matches"
+        }
+        for _, v in ipairs( tbl ) do misc.spawn_to( v, obj ) end
+        sak.off_on( obj )
+    end
+    local tbl1 = {
+        { "af_unknown_1_new",   6.99000,  4.37000, 181.70, 4299, 35022  },
+        { "af_unknown_2_new",   334.010, -0.00140, 422.02, 4390, 189862 },
+        { "af_unknown_3_new",   813.300, -0.00120, 432.23, 4506, 461261 },
+        { "af_unknown_4_new",   986.890, -0.00140, 96.329, 4533, 569544 },
+        { "af_unknown_5_new",   783.460, -0.00170, 120.24, 4487, 444671 },
+        { "af_unknown_6_new",   204.690, -0.00200, 295.69, 4353, 115451 },
+        { "af_unknown_7_new",   208.820, -0.00040, 200.47, 4356, 117314 },
+        { "af_unknown_8_new",   265.430, -0.00035, 84.410, 4375, 145278 },
+        { "af_unknown_9_new",   738.370,  0.00180, 363.08, 4482, 418643 },
+        { "af_unknown_10_new",  1032.57, -0.00110, 177.91, 4539, 584846 },
+        { "af_unknown_11_new",  820.580, -0.00540, 243.81, 4490, 466788 },
+        { "af_unknown_12_new",  357.500, -0.00040, 223.25, 4399, 205023 },
+        { "af_unknown_13_new", -55.1020, -0.00200, 120.50, 4291, 8365   },
+        { "af_unknown_14_new",  280.500, -0.00115, 284.80, 4373, 155817 },
+        { "af_unknown_15_new",  938.230, -0.00270, 348.45, 4521, 546693 },
+        { "af_unknown_16_new",  929.370, -0.00060, 203.43, 4518, 539174 },
+        { "af_unknown_17_new",  407.910, -0.00070, 170.15, 4408, 241905 },
+        { "af_unknown_18_new", -56.1080, -0.00100, 212.55, 4292, 8212   },
+        { "af_unknown_19_new",  419.770, -0.00750, 373.81, 4410, 249749 },
+        { "af_unknown_20_new",  930.460, -0.00070, 442.62, 4516, 540407 },
+        { "af_unknown_21_new",  988.840, -0.00200, 167.38, 4528, 569961 },
+        { "af_unknown_22_new",  620.925, -0.01400, 165.71, 4457, 360030 },
+        { "af_unknown_23_new",  48.0680,  4.99900, 98.382, 4312, 53447  },
+        { "af_unknown_24_new",  509.330, -0.00170, 162.37, 4424, 299283 },
+        { "af_unknown_25_new",  1035.82, -0.00130, 343.56, 4542, 586406 },
+        { "af_unknown_26_new",  831.500, -0.02600, 173.61, 4502, 472872 },
+        { "af_unknown_27_new",  273.050, -0.00130, 318.06, 4373, 150633 },
+        { "af_unknown_28_new",  933.740, -0.00450, 289.28, 4520, 543195 },
+        { "af_unknown_29_new",  618.530, -0.00220, 359.61, 4456, 357082 },
+        { "af_unknown_30_new",  1023.23, -0.00030, 255.96, 4534, 581978 },
+        { "af_unknown_31_new",  618.730, -0.00120, 160.66, 4457, 358056 },
+        { "strelok_book1",      701.130, -21.1300, 319.51, 4543, 398864 },
+        { "strelok_book2",      704.850, -20.9500, 325.18, 4543, 401081 }
+    }
+    for i = 1, #tbl1 do
+        amk.spawn_item(
+            tbl1[ i ][ 1 ],
+            sak.v3f( tbl1[ i ][ 2 ], tbl1[ i ][ 3 ], tbl1[ i ][ 4 ] ),
+            tbl1[ i ][ 5 ],
+            tbl1[ i ][ 6 ]
+        )
+    end
+end
+
+function info_strelok1()
+    sak.send_tip(
+        "Исписанные страницы, похоже на вырванные наспех рукописные листы из конспектов каких-то лекций или расчётов.",
+        "Обрывочные записи", 0, 10, "g_g", "pda_news", "sky_blue"
+    )
+    local tbl = { 9803, 9804, 9805, 9806, 9807, 9808 }
+    for _, v in ipairs( tbl ) do
+        local obj = g_sim:story_object( v )
+        if obj then amk.add_spot_on_map( obj.id, "crlc_very_big", "..." ) end
+    end
+end
+
+function info_strelok2()
+    sak.send_tip(
+        "Блокнот с записями... Стрелка?", "Блокнот",
+        0, 10, "g_g", "pda_news", "sky_blue"
+    )
+end
+-- рандомный перенос в нужное место из рестриктора при наличии артов
+function gg_on_spot()
+    local randi = lua_random( 1, 6 )
+    local z     = { 101, 396, 411, 340, 104, 252 }
+    local pos   = actor:position()
+    if
+        math.abs( math.floor( pos.z ) - z[ randi ] ) <= 1
+        and sborka == true
+    then
+        level.add_pp_effector( "teleport.ppe", 1527, false )
+        actor:set_actor_position( sak.v3f( 5.0570355, 5.1950564, 65.282631 ) )
+    end
+end
+
+local mem = false
+-- последние воспоминания при пропадании в рестриктор
+function gg_last_memory()
+    if mem == false then
+        local count = nlc_vars.rem_count or 0
+        if count <= 9 then
+            sak.send_tip(
+                "Я вспомнил, как попал в Зону.", "Воспоминание",
+                1, 20, "g_g", "rememb", "yellow"
+            )
+            local character = math.floor(
+                ( ( amk_vars.r_task_reward or 1 ) + ( amk_vars.x18_iq_check or 1 ) ) / 2
+            )
+            repeat
+                local info = "rem_" .. tostring( character ) .. "_" .. tostring( count )
+                actor:give_info_portion( info )
+                count = count + 1
+            until count == 10
+        end
+        mem = true
+        nlc_vars.rem_count = 10
+    end
+end
+-- проверка нужных артов на поясе
+function art_new_collection()
+    if actor:has_info( "strelok_book" ) then
+        if not sak.arts_operate then return end
+        local sum      = 0
+        local delta    = 10
+        local arts_new = {
+            { "af_unknown_1_new",  239 },
+            { "af_unknown_2_new",  274 },
+            { "af_unknown_3_new",  247 },
+            { "af_unknown_4_new",  845 },
+            { "af_unknown_5_new",  396 },
+            { "af_unknown_6_new",  654 },
+            { "af_unknown_7_new",  781 },
+            { "af_unknown_8_new",  545 },
+            { "af_unknown_9_new",  24  },
+            { "af_unknown_10_new", 121 },
+            { "af_unknown_11_new", 182 },
+            { "af_unknown_12_new", 244 },
+            { "af_unknown_13_new", 142 },
+            { "af_unknown_14_new", 60  },
+            { "af_unknown_15_new", 790 },
+            { "af_unknown_16_new", 346 },
+            { "af_unknown_17_new", 162 },
+            { "af_unknown_18_new", 683 },
+            { "af_unknown_19_new", 614 },
+            { "af_unknown_20_new", 609 },
+            { "af_unknown_21_new", 766 },
+            { "af_unknown_22_new", 477 },
+            { "af_unknown_23_new", 49  },
+            { "af_unknown_24_new", 877 },
+            { "af_unknown_25_new", 702 },
+            { "af_unknown_26_new", 317 },
+            { "af_unknown_27_new", 51  },
+            { "af_unknown_28_new", 804 },
+            { "af_unknown_29_new", 237 },
+            { "af_unknown_30_new", 357 },
+            { "af_unknown_31_new", 753 }
+        }
+        for i = 1, 31 do
+            if sak_inventory.belt_items[ arts_new[ i ][ 1 ] ] then
+                sum = sum + arts_new[ i ][ 2 ]
+            end
+        end
+        if ( sum > ( 1600 + delta ) or sum < ( 1600 - delta ) ) then
+            sborka = false
+        else
+            sak.send_tip(
+                "Вроде набран нужный вес, в допустимых пределах.", "Неужели сборка!",
+                0, 10, "artmod", "rememb", "green"
+            )
+            sborka = true
+        end
+    end
+end
+
+local table_capsule = {
+    "af_night_star_capsule",
+    "af_gold_fish_capsule",
+    "af_cristall_capsule",
+    "af_soul_capsule",
+    "af_electra_moonlight_capsule",
+    "af_rusty_sea-urchin_capsule",
+    "af_ameba_mica_capsule",
+    "af_dummy_spring_capsule",
+    "af_dummy_dummy_capsule",
+    "af_dummy_battery_capsule",
+    "af_dummy_pellicle_capsule",
+    "af_dummy_kolobok_capsule",
+    "af_dummy_glassbeads_capsule",
+    "af_mayatnik_tuman_new_capsule",
+    "af_mayatnik_les_new_capsule",
+    "af_mayatnik_radar_new_capsule",
+    "af_mayatnik_tesla_new_capsule",
+    "af_mayatnik_stadion_new_capsule",
+    "af_mayatnik_chaes_new_capsule"
+}
+
+function fill_red_treasure()
+    local obj = g_sim:story_object( story_ids.red_inventory_box_01 )
+    if obj then
+        local ind = amk_vars.r_task_reward + amk_vars.r_treas_items - 1
+        local tbl = { "red_shtreck_letter", "monolit_gaz_outfit_m1", "suhpay" }
+        for _, v in ipairs( tbl ) do misc.spawn_to( v, obj ) end
+        misc.spawn_to( test.tbl_arts.lvl6[ ind ], obj )
+        misc.spawn_to( test.tbl_arts.lvl2[ ind ] .. "_dyn5d", obj )
+        misc.spawn_to( test.tbl_arts.lvl3[ ind ] .. "_dyn5d", obj )
+        sak.off_on( obj )
+    end
+end
+
+function timer_lim_scaner()
+    timers.start_timer( "timer_lim_scaner", 3, 0, 0, "mike.timer_lim_scaner_end()" )
+end
+
+function timer_lim_scaner_end() actor:give_info_portion( "scaner_artefact_done" ) end
+
+function lim_botan_add_prize()
+    sak.create_items( actor, "antirad", 3 )
+    sak.create_items( actor, "medkit_scientic", 3 )
+    sak.create_items( actor, "ammo_11.43x23_fmj", 15 )
+end
+
+function fill_food_prip()
+    local rand = lua_random( 3, 5 )
+    for a = 1, rand do
+        g_sim:create( "bread",
+            sak.v3f( -2.82 + ( a * 0.03 ), -4.05, 192.28 + ( a * 0.03 ) ), 97081, 2195
+        )
+    end
+    rand = lua_random( 3, 6 )
+    for a = 1, rand do
+        g_sim:create( "kolbasa",
+            sak.v3f( -2.82 + ( a * 0.05 ), -4.05, 193.12 + ( a * 0.03 ) ), 97951, 2195
+        )
+    end
+end
+
+function scarman_pda_give()
+    sak_inventory.release_actor_items( "scarman_pda", 1 )
+    sak_dialog.transfer_any_cart()
+end
+
+function manometr_vodka_no_have()
+    return sak.have_items_count( "vodka", 10 ) == false
+end
+
+function timer_tesla_free()
+    timers.start_timer( "timer_tesla_free", 3, 0, 0, "mike.timer_tesla_free_end()" )
+    actor:give_info_portion( "tesla_free" )
+end
+
+function timer_tesla_free_end() actor:disable_info_portion( "tesla_free" ) end
+
+function fill_aes_treasure()
+    local obj = g_sim:story_object( story_ids.aes_inventory_box_0001 )
+    if obj then
+        amk.add_spot_on_map(
+            obj.id, "crlc_big_treasure3",
+            "Стрелок зачем-то отметил и это место"
+        )
+        for _, v in ipairs({
+            "af_dummy_buliz",
+            "af_dummy_simbion",
+            "wpn_g36",
+            "ammo_5.56x45_ap",
+            "ammo_5.56x45_ap",
+            "ammo_5.56x45_ap",
+            "flask_army",
+            "suhpay",
+            "medkit_scientic",
+            "medkit_scientic",
+        }) do
+            misc.spawn_to( v, obj )
+        end
+    end
+    obj = g_sim:story_object( story_ids.strelok_spot )
+    if obj then
+        amk.add_spot_on_map(
+            obj.id, "crlc_very_big",
+            "Что-то тут есть в этой части карты"
+        )
+    end
+end
+
+function add_rjaboi_kontainer()
+    local sobj = amk.spawn_item( "arc_art_box_8basic",
+        sak.v3f( 179.959, -0.19, -187.105 ), 3309, 119951
+    )
+    if sobj then
+        local pk         = get_netpk( sobj )
+        local data       = pk:get()
+        data.custom_data = "af_compass_dyn5d_50"
+        pk:set( data )
+    end
+    local obj = g_sim:story_object( story_ids.mil_rjaboi )
+    if obj then
+        local pk        = get_netpk( obj )
+        local data      = pk:get()
+        data.health     = 0
+        data.upd.health = 0
+        pk:set( data )
+    end
+end
+
+function add_1_pda_npc()
+    add_device_pda_npc( 2 )
+    sak.send_tip( "1 шт.", "Получен ПДА", 0, 5, "g_g", "", "green" )
+end
+
+function add_12_pda_npc()
+    for i = 1, 12 do
+        if dsh.get_next_random( "generic_rnd" ) <= 0.2 then
+            add_device_pda_npc( 3 )
+        else
+            add_device_pda_npc( 2 )
+        end
+    end
+    sak.send_tip( "12 шт.", "Получены ПДА", 0, 5, "g_g", "", "green" )
+end
+
+function add_n_pda_broken_discharged( amount, threshold )
+    for i = 1, tonumber( amount ) do
+        if dsh.get_next_random( "generic_rnd" ) > tonumber( threshold ) then
+            add_device_pda_npc( 3 )
+        else
+            add_device_pda_npc( 2 )
+        end
+    end
+    sak.send_tip( tostring( amount ) .. " шт.", "Получены ПДА", 0, 5, "g_g", "", "green" )
+end
+
+function add_device_pda_npc( status )
+    local obj = misc.spawn_to( "device_pda_npc", actor )
+    if obj then
+        vergas_pda.add_tbl_pda( actor:id(), obj.id, tonumber( status ) )
+        test.set_pda_condition( obj.id, tonumber( status ) )
+    end
+end
+
+function PDA_3_have()
+    return test.find_n_specific_pda( 1, 3, true ) ~= false
+end
+
+function give_3PDA()
+    local obj
+    for i = 1, 3 do
+        obj = test.find_specific_pda( 1 )
+        if obj then misc.release_obj( obj:id() ) end
+    end
+    sak.relocate_item( db.actor, "out", "device_pda_npc", 3 )
+end
+
+function u_agr_tele()
+    local start_tele  = false
+    local obj_id, obj = -1, nil
+    local bo          = false
+    local komp        = false
+    for i, k in pairs( sak_inventory.belt_items ) do
+        if
+            strpos( i, "af_compass", 1, true )
+            and not strpos( i, "_dyn6d", 1, true )
+        then
+            komp   = true
+            obj_id = k[ 1 ]
+            obj    = g_sim:object( obj_id )
+        elseif
+            strpos( i, "af_electra_sparkler", 1, true )
+            and not strpos( i, "_dyn6d", 1, true )
+        then
+            bo     = true
+            obj_id = k[ 1 ]
+            obj    = g_sim:object( obj_id )
+        end
+        start_tele = true
+        if bo and komp then komp = false end
+    end
+    if obj == nil then return end
+    if sak.arts_operate and start_tele then
+        local pk   = get_netpk( obj, 1 )
+        local data = pk:get()
+        local cond = data.condition + 0.0004
+        if cond >= 1 then cond = 0.9999 end
+        if cond > 0.25 then
+            local new_cond = cond - 0.20
+            params.obj_condition( obj_id, new_cond )
+            data.condition = new_cond
+            pk:set( data )
+            level.add_pp_effector( "blink.ppe", 234, false )
+            level.add_pp_effector( "teleport.ppe", 2006, false )
+            sak.eff_vodka()
+            if new_cond < 0.25 then
+                coord_params.set_obj_section( obj_id, "af_electra_sparkler_dyn6d" )
+            end
+            if bo then
+                actor:set_actor_position( patrol( "klyk_teleport" ):point( 0 ) )
+                local dir = patrol(
+                    "klyk_teleport" ):point( 0 ):sub( patrol( "klyk_teleport" ):point( 0 )
+                )
+                actor:set_actor_direction( -dir:getH() )
+            elseif komp then
+                actor:set_actor_position( patrol( "agru_tele_aver" ):point( 0 ) )
+            end
+            return
+        end
+    end
+end
+
+-- Добавлено в 2017 --
+function info_mon_tupik()
+    sak.send_tip(
+        "Всё зря!..\\nРазве что попытаться через затопленный туннель, про который Ивар что-то говорил... \\nТолько бы выбраться отсюда.",
+        "Так тут же тупик везде!!", 5, 15, "g_g", "sak", "yellow"
+    )
+end
+
+function mon_no_flame()
+    misc.release_by_name( "mon_big_fire_zone_0001" )
+    misc.release_by_name( "mon_big_fire_zone_0002" )
+    misc.release_by_name( "mon_big_fire_zone_0003" )
+end
+
+function timer_esc_lamp()
+    timers.start_timer( "timer_esc_lamp", 3, 12, 0, "mike.timer_esc_lamp_end()" )
+end
+
+function timer_esc_lamp_end() actor:give_info_portion( "time_lampa_order_info" ) end
+
+function timer_lim_zub()
+    timers.start_timer( "timer_lim_zub", 0, 2, 0, "mike.timer_lim_zub_end()" )
+end
+
+function timer_lim_zub_end() actor:give_info_portion( "lim_zub_tunnel" ) end
+
+function gg_1_caps_have() return gg_n_caps_have( 1 ) end
+function gg_2_caps_have() return gg_n_caps_have( 2 ) end
+function gg_4_caps_have() return gg_n_caps_have( 4 ) end
+function gg_5_caps_have() return gg_n_caps_have( 5 ) end
+
+function give_1_caps() give_n_caps( 1 ) end
+function give_2_caps() give_n_caps( 2 ) end
+function give_4_caps() give_n_caps( 4 ) end
+function give_5_caps() give_n_caps( 5 ) end
+
+function gg_n_caps_have( n )
+    local amount = 0
+    for a = 1, #table_capsule do
+        for i, k in pairs( sak_inventory.rucksack ) do
+            if strpos( i, table_capsule[ a ], 1, true ) then
+                local kolvo = #k
+                amount = amount + kolvo
+            end
+        end
+    end
+    if amount >= n then return true end
+end
+
+function give_n_caps( n )
+    local amount
+    local art_kol = n
+    for a = 1, #table_capsule do
+        amount = 0
+        for i, k in pairs( sak_inventory.rucksack ) do
+            if strpos( i, table_capsule[ a ], 1, true ) then
+                local kolvo = #k
+                for m = 1, kolvo do
+                    if art_kol > 0 then
+                        local obj = g_sim:object( k[ m ] )
+                        if obj then g_sim:release( obj, true ) end
+                        amount  = amount + 1
+                        art_kol = art_kol - 1
+                    end
+                end
+            end
+        end
+        if amount ~= 0 then
+            sak.relocate_item( actor, "out", table_capsule[ a ], amount )
+        end
+    end
+end
+
+function give_fanat_gun( first_speaker, second_speaker )
+    dialogs.relocate_item_section( second_speaker, "wpn_mp153", "out" )
+    dialogs.relocate_item_section( second_speaker, "wpn_addon_eotech", "out" )
+end
+
+function have_fanat_gun()
+    return
+        sak.have_items_count( "wpn_mp153", 1 ) ~= false
+        and sak.have_items_count( "wpn_addon_eotech", 1 ) ~= false
+end
+
+function timer_zub()
+    timers.start_timer( "timer_zub", 0, 0, 30, "mike.timer_zub_end()" )
+end
+
+function timer_zub_end()
+    sak.send_tip(
+        "Не забудь закрыть воду! \\nЧё там по нашему делу? Если есть уже что-то - подваливай.",
+        "Адресат неизвестен", 11, 20, "prizrak", "sak", "green"
+    )
+end
+
+function spawn_in_sarcofag()
+    local table_skelets = {
+        "physics\\dead_body\\skelet_combine_pose_00.ogf",
+        "physics\\dead_body\\skelet_combine_pose_01.ogf",
+        "physics\\dead_body\\skelet_combine_pose_02.ogf",
+        "physics\\dead_body\\skelet_combine_pose_03.ogf"
+    }
+    local tbl = {
+        {  14.52, -0.100,  35.53, 2411, 4219, 1 },
+        {  10.56, -0.430,  8.120, 2424, 3592, 2 },
+        {  21.13,  16.84,  30.60, 2459, 4984, 3 },
+        {  51.46,  12.23, -10.43, 2456, 8805, 2 },
+        { -4.510,  11.80,  28.64, 2443, 898,  1 }
+    }
+    for i = 1, #tbl do
+        local obj = amk.spawn_item( "sak_skelet",
+            sak.v3f( tbl[ i ][ 1 ], tbl[ i ][ 2 ], tbl[ i ][ 3 ] ),
+            tbl[ i ][ 4 ], tbl[ i ][ 5 ]
+        )
+        if obj then
+            local pk          = get_netpk( obj, 1 )
+            local data        = pk:get()
+            data.object_flags = -197
+            data.visual_name  = table_skelets[ tbl[ i ][ 6 ] ]
+            data.physic_type  = 3
+            data.mass         = 10
+            pk:set( data )
+        end
+    end
+    amk.spawn_item( "antirad",     sak.v3f(  14.93, -0.090,  35.02 ), 2411, 4219 )
+    amk.spawn_item( "antirad",     sak.v3f(  14.95, -0.090,  35.05 ), 2411, 4219 )
+    amk.spawn_item( "flask_army",  sak.v3f(  10.60, -0.430,  8.200 ), 2424, 3592 )
+    amk.spawn_item( "antirad",     sak.v3f(  10.60, -0.430,  8.200 ), 2424, 3592 )
+    amk.spawn_item( "antirad",     sak.v3f(  21.25,  16.84,  31.01 ), 2459, 4984 )
+    amk.spawn_item( "medkit_army", sak.v3f(  21.27,  16.84,  31.08 ), 2459, 4984 )
+    amk.spawn_item( "flask_army",  sak.v3f(  51.60,  12.23, -10.00 ), 2456, 8805 )
+    amk.spawn_item( "medkit_army", sak.v3f(  51.60,  12.23, -10.00 ), 2456, 8805 )
+    amk.spawn_item( "antirad",     sak.v3f( -4.300,  11.80,  28.90 ), 2443,  898 )
+    amk.spawn_item( "medkit_army", sak.v3f( -4.200,  11.80,  28.40 ), 2443,  898 )
+end
+
+function spawn_gross_merc()
+    g_sim:create( "gross_merc", sak.v3f( -351.54, -13.72, 399.51 ), 6400, 1848 )
+end
+
+function spawn_radar_mercs()
+    g_sim:create( "new_killer_leader",   sak.v3f( 636.83, -43.82, 190.43 ), 225906, 1911 )
+    g_sim:create( "new_killer_general1", sak.v3f( 636.83, -43.82, 190.43 ), 225906, 1911 )
+    g_sim:create( "new_killer_general2", sak.v3f( 636.83, -43.82, 190.43 ), 225906, 1911 )
+    g_sim:create( "new_killer_veteran2", sak.v3f( 636.83, -43.82, 190.43 ), 225906, 1911 )
+    g_sim:create( "new_killer_exo",      sak.v3f( 636.83, -43.82, 190.43 ), 225906, 1911 )
+    g_sim:create( "new_killer_general3", sak.v3f( 662.84, -43.88, 173.26 ), 227150, 1914 )
+end
+
+function spawn_after_x12()
+    timers.start_timer( "timer_merc_after", 0, 0, 5, "mike.timer_merc_after_end()" )
+    g_sim:create( "new_killer_general4", sak.v3f( 533.82, -41.32, 115.9 ), 182672, 1903 )
+    g_sim:create( "new_killer_veteran3", sak.v3f( 533.82, -41.32, 115.9 ), 182672, 1903 )
+    g_sim:create( "new_killer_general5", sak.v3f( 543.81, -39.64, 144.7 ), 187917, 1904 )
+    g_sim:create( "new_killer_veteran4", sak.v3f( 543.81, -39.64, 144.7 ), 187917, 1904 )
+    misc.release_by_name( "new_killer_x12" )
+    actor:disable_info_portion( "red_scaut_pass_on" )
+    actor:give_info_portion( "red_scaut_pass_fire" )
+end
+
+function timer_merc_after_end()
+    g_sim:create( "new_killer_veteran5", sak.v3f( 661.4, -43.9, 178.0 ), 227126, 1914 )
+    g_sim:create( "new_killer_veteran6", sak.v3f( 661.4, -43.9, 178.0 ), 227126, 1914 )
+end
+
+function timer_merc()
+    timers.start_timer( "timer_merc", 0, 0, 30, "mike.timer_merc_end()" )
+end
+
+function timer_merc_end()
+    sak.send_tip(
+        "Меченный, ждём на Радаре. \\nСоветую не затягивать, в твоих же интересах.",
+        "Адресат неизвестен", 11, 20, "killer", "sak", "red"
+    )
+    actor:give_info_portion( "mercs_call" )
+    --db.actor:disable_info_portion( "lx8_door_unlocked" )
+end
+
+function timer_merc_enemy()
+    timers.start_timer( "timer_merc_enemy", 0, 0, 15, "mike.timer_merc_enemy_end()" )
+end
+
+function timer_merc_enemy_end() actor:give_info_portion( "mil_mercs_fire" ) end
+
+function spawn_x12_mercs()
+    g_sim:create( "new_killer_x12", sak.v3f( 3.38, -7.45, -80.06 ), 6844, 2790 )
+end
+
+function tools_have()
+    if sak_inventory.rucksack[ "quest_tools" ] then
+        if lua_random() < 0.028 then
+            level.add_pp_effector( "black_tip_eff.ppe", 1031, false )
+        end
+    end
+end
+
+function agru_add_pusirek()
+    local obj = g_sim:story_object( story_ids.u_agr_inventory_box_klyk )
+    if obj then misc.spawn_to( "af_dummy_fire", obj ) end
+end
+
+function assistant_marker()
+    if db.actor:has_info( "ass_marker_done" ) then return end
+    if
+        db.actor:has_info( "sakharov_matveev" )
+        and not db.actor:has_info( "assistant_out" )
+    then
+        db.actor:give_info_portion( "ass_marker_done" )
+    end
+end
+
+function repa()
+--просто так, за красивые глаза, чтобы уже в начале игры не попадать в глупые ситуации
+--db.actor:change_character_reputation( 300 )
+--db.actor:set_character_rank( db.actor:character_rank() +100 )
+end
+
+function saharov_teleport_start()
+   timers.start_timer( "saharov_teleport_start", 0, 4, 15, "mike.saharov_teleport_start_end()" )
+end
+
+function saharov_teleport_start_end() actor:give_info_portion( "saharov_teleport_info" ) end
+function clear_time_saharov_teleport() actor:disable_info_portion( "saharov_teleport_info" ) end
+
+function take_mutant_psevdodog_tail( first_speaker, second_speaker )
+    local obj = misc.spawn_to( "mutant_psevdodog_tail", actor )
+    misc.process_spawn()
+    if obj then
+        params.upd_condition( obj, 0.51 )
+        sak.relocate_item( second_speaker, "in", "mutant_psevdodog_tail", 1 )
+    end
+end
+
+function add_nagrad_saharov()
+    sak.create_items( actor,
+        { medkit_scientic = 1, antirad = 3 }
+    )
+end
+
+function not_bad_job()
+    actor:change_character_reputation( 10 )
+end
+
+function good_job()
+    actor:change_character_reputation( 20 )
+    actor:set_character_rank( actor:character_rank() + 5 )
+end
+
+function very_good_job()
+    actor:change_character_reputation( 30 )
+    actor:set_character_rank( actor:character_rank() + 10 )
+end
+
+function mercs_no_enemy() actor:disable_info_portion( "mil_mercs_fire" ) end
+
+function vlad_rand()     -- переделаем на рандом с НИ
+    local tbl = {
+        "vlad_rand_1_info",
+        "vlad_rand_2_info",
+        "vlad_rand_3_info"
+    }
+    local i = amk_vars.r_treas_items or 3
+    actor:give_info_portion( tbl[ i ] )
+end
+
+function give_dsc_gigant( first_speaker, second_speaker )
+    local obj = misc.spawn_to( "mutant_psevdogigant_hand", actor )
+    misc.process_spawn()
+    if obj then
+        params.upd_condition( obj, lua_random( 30, 45 ) )
+        sak.relocate_item( second_speaker, "in", "mutant_psevdogigant_hand", 1 )
+    end
+end
+
+function marsh_pribor_on( obj_id )
+    schedule.add( "check_drop", "mike.marsh_pribor_start("..obj_id..")", 200 )
+end
+---- ?????????? -----
+function marsh_pribor_start( obj_id )
+    local obj = client_obj( obj_id )
+    if obj == nil or obj:parent() ~= nil then return end
+    timers.start_timer(
+        "marsh_pribor", 0, lua_random( 16, 25 ), 10,
+        "mike.marsh_pribor_end()"
+    )
+    sak.send_tip(
+        "Начата работа регистратора. До завершения прибор не поднимать. \\nПо завершении придёт сообщение. Продолжительность работы приблизительно сутки.",
+        "Статус прибора", 2, 10, "pribor", "pda_news", "green"
+    )
+end
+
+function marsh_pribor_end()
+    sak.send_tip(
+        "Работа регистратора завершена.", "Статус прибора",
+        2, 10, "pribor", "pda_news", "green"
+    )
+    actor:give_info_portion( "marsh_pribor_done" )
+    actor:give_info_portion( "remove_marsh_pribor_spot" )
+end
+---- ?????????? -----
+function marsh_pribor_aver_on( obj_id )
+    schedule.add( "check_drop", "mike.marsh_pribor_aver_start("..obj_id..")", 200 )
+end
+
+function marsh_pribor_aver_start( obj_id )
+    local obj = client_obj( obj_id )
+    if obj == nil or obj:parent() ~= nil then return end
+    sak.send_tip(
+        "Начата работа регистратора. По завершении придёт сообщение.",
+        "Статус прибора", 2, 10, "pribor", "pda_news", "green"
+    )
+    actor:give_info_portion( "marsh_pribor_aver_start" )
+end
+
+function marsh_pribor_aver_end()
+    if has_alife_info( "marsh_pribor_aver_done" ) then
+        return
+    else
+        sak.send_tip(
+            "Работа регистратора завершена.", "Статус прибора",
+            2, 10, "pribor", "pda_news", "green"
+        )
+        actor:give_info_portion( "marsh_pribor_aver_done" )
+        actor:disable_info_portion( "marsh_pribor_aver_start" )
+    end
+end
+
+function add_marsh_pribor()
+    sak.create_items( actor, "marsh_pribor", 1 )
+end
+
+function give_marsh_pribor()
+    sak_inventory.release_actor_items( "marsh_pribor", 1 )
+end
+
+function have_marsh_pribor()
+    return sak.have_items_count( "marsh_pribor", 1 )
+end
+
+function add_marsh_pribor_spot()
+    local obj = g_sim:story_object( 9810 )
+    if obj then
+        amk.add_spot_on_map(
+            obj.id, "crlc_small",
+            "Место обитания гигантов. Тут нужно расположить регистратор событий."
+        )
+    end
+end
+
+function remove_marsh_pribor_spot()
+    local obj = g_sim:story_object( 9810 )
+    if obj then
+        amk.remove_spot_from_map( obj.id, "crlc_small" )
+    end
+end
+
+function timer_new_theme()
+    timers.start_timer( "timer_new_theme", 1, 12, 00, "mike.timer_new_theme_end()" )
+end
+
+function timer_new_theme_end() actor:give_info_portion( "new_theme_info" ) end
+
+-- Добавка для 7.53 --
+function timer_petrenko_mdata()
+    timers.start_timer( "timer_petrenko_mdata", 1, 12, 00, "mike.timer_petrenko_mdata_end()" )
+end
+
+function timer_petrenko_mdata_end()
+  actor:give_info_portion( "petrenko_mdata_timer_end" )
+end
+
+function timer_petrenko_tesla()
+    timers.start_timer( "timer_petrenko_tesla", 2, 1, 00, "mike.timer_petrenko_tesla_end()" )
+end
+
+function timer_petrenko_tesla_end()
+  actor:give_info_portion( "petrenko_tesla_timer_end" )
+end
+
+function take_gauss_akk()
+    sak.create_items( db.actor, "ammo_super_gauss", 1 )
+end
+
+function give_gauss_akk()
+    vergas_lib.search_items( "ammo_super_gauss", 1, 2 )
+end
+
+function gauss_akk_have()
+    return vergas_lib.search_items( "ammo_super_gauss", 1, 1 )~= false
+end
+
+function gauss_akk_no_have()
+    return vergas_lib.search_items( "ammo_super_gauss", 1, 1 ) == false
+end
+
+function timer_marsh_ecolog_akk()
+    timers.start_timer( "timer_marsh_ecolog_akk", 1, 12, 00, "mike.timer_marsh_ecolog_akk_end()" )
+end
+
+function timer_marsh_ecolog_akk_end()
+    actor:give_info_portion( "marsh_ecolog_akk_finish_info" )
+end
+
+function add_kamaz_accum()
+    sak.create_items( db.actor, "item_kamaz_accum", 1 )
+end
+
+function have_kamaz_accum()
+    return sak.have_items_count( "item_kamaz_accum", 1 ) ~= false
+end
+
+function have_no_kamaz_accum()
+    return sak.have_items_count( "item_kamaz_accum", 1 ) == false
+end
+
+function give_kamaz_accum()
+    sak_inventory.release_actor_items( "item_kamaz_accum", 1 )
+    amk.spawn_item( "item_kamaz_accum", sak.v3f( -280.11, 1.4, 36.2 ), 3351, 7090 )
+end
+
+function give_kamaz_accum_pet()
+    sak_inventory.release_actor_items( "item_kamaz_accum", 1 )
+end
+
+function add_aver_akk_spot()
+    -- временно болт, пока не сделано sid для монолита
+    local obj = amk.spawn_item( "testsak", sak.v3f( -343.35, -24.13, 167.6 ), 2891, 299077 )
+    if obj then
+        level.map_add_object_spot(
+            obj.id, "crlc_very_big",
+            "Место концентрации потоков энергии. Где-то тут нужно расположить аккумулятор поближе к какой-то массе."
+        )
+    end
+end
+
+function akk_aver_on()
+    if has_alife_info( "akk_aver_done" ) then
+        return
+    else
+        sak.send_tip( "", "Вроде тут сгодится.", 2, 10, "pribor", "pda_news", "green" )
+        actor:give_info_portion( "akk_aver_start" )
+    end
+end
+
+function akk_aver_end()
+    if has_alife_info( "akk_aver_done" ) then
+        return
+    else
+        sak.send_tip(
+            "", "Не забыть бы аккумулятор забрать из Туманной чащи.",
+            2, 12, "g_g", "rememb", "yellow"
+        )
+        actor:give_info_portion( "akk_aver_done" )
+    end
+end
+
+function timer_full_akk()
+    timers.start_timer( "timer_full_akk", 0, 1, 05, "mike.timer_full_akk_end()" )
+end
+
+function timer_full_akk_end()
+    actor:give_info_portion( "marsh_ecolog_second_part" )
+end
+
+function pet_small_gift()
+    sak.create_items( actor, "vodka", 1 )
+    sak.create_items( actor, "ammo_7.62x39_fmj", 2 )
+end
+
+function pet_big_gift()
+    sak.create_items( actor, "vodka", 2 )
+    sak.create_items( actor, "ammo_7.62x39_ap", 2 )
+    sak.create_items( actor, "ammo_7.62x54_ap", 3 )
+    sak.create_items( actor, "medkit_army", 3 )
+end
+
+function mayatnik_aver_will_be( obj_id )
+    schedule.add( "check_drop", "mike.mayatnik_aver_start("..obj_id..")", 200 )
+end
+
+function mayatnik_aver_start( obj_id )
+    local obj = client_obj( obj_id )
+    if obj == nil or obj:parent() ~= nil then return end
+    local a = obj:name()
+    amk_mod.af_flash( af )
+    misc.release_by_name( a )
+    db.actor:give_info_portion( "mayatnik_aver_start_info" )
+end
+
+function mayatnik_aver_ready()
+  if has_alife_info( "mayatnik_aver_ready_info" ) then return
+  else
+    sak.send_tip( "", "Надо бы проверить мой маятник.", 2, 12, "g_g", "rememb", "yellow" )
+    db.actor:give_info_portion( "mayatnik_aver_ready_info" )
+    db.actor:disable_info_portion( "mayatnik_aver_start_info" )
+  end
+end
+
+function add_mayatnik_aver()
+    local a    = lua_random( 1, 6 )
+    local caps = mayat[ a ]
+    misc.spawn_obj( caps, sak.v3f( 350.91, -6.01, -21.23 ) )
+end
+
+function mayatnik_prip_will_be( obj_id )
+    schedule.add( "check_drop", "mike.mayatnik_prip_start( "..obj_id.." )", 200 )
+end
+
+function mayatnik_prip_start( obj_id )
+    local obj = client_obj( obj_id )
+    if obj == nil or obj:parent() ~= nil then return end
+    local a = obj:name()
+    amk_mod.af_flash( af )
+    misc.release_by_name( a )
+    db.actor:give_info_portion( "mayatnik_prip_start_info" )
+end
+
+function mayatnik_prip_ready()
+    if has_alife_info( "mayatnik_prip_ready_info" ) then
+        return
+    else
+        sak.send_tip( "", "Надо бы проверить мой маятник.", 2, 12, "g_g", "rememb", "yellow" )
+        actor:give_info_portion( "mayatnik_prip_ready_info" )
+        actor:disable_info_portion( "mayatnik_prip_start_info" )
+    end
+end
+
+function add_mayatnik_prip()
+    local a    = lua_random( 1, 6 )
+    local caps = mayat[ a ]
+    misc.spawn_obj( caps, sak.v3f( 29.7, 1.8, 355.8 ) )
+end
+
+function timer_takeup()
+    timers.start_timer( "timer_takeup", 0, 0, 15, "mike.timer_takeup_end()" )
+end
+
+function timer_takeup_end() sleep_manager.slip_mayat() end
+
+function takeup_mayatnik()
+    if level.name() == "aver" and actor:has_info( "mayatnik_aver_ready_info" ) then
+        local pos = actor:position()
+        if
+                ( pos.x > 320 and pos.x < 361 )
+            and ( pos.z > -41 and pos.z < -10 )
+        then
+            actor:disable_info_portion( "mayatnik_aver_ready_info" )
+            actor:disable_info_portion( "mayatnik_aver_info" )
+            timer_takeup()
+        end
+    end
+    if level.name() == "l11_pripyat" and actor:has_info( "mayatnik_prip_ready_info" ) then
+        local pos = actor:position()
+        if
+                ( pos.x > 15  and pos.x < 45  )
+            and ( pos.z > 340 and pos.z < 370 )
+        then
+            actor:disable_info_portion( "mayatnik_prip_ready_info" )
+            actor:disable_info_portion( "mayatnik_prip_info" )
+            timer_takeup()
+        end
+    end
+end
+
+function add_sanat_dinamit()
+    g_sim:create( "dynamite",
+        sak.v3f( -103.876633, 34.247833, 615.258545 ), 162, 3028
+    )
+end
+
+function timer_new_theme_last()
+    timers.start_timer( "timer_new_theme_last", 2, 1, 00, "mike.timer_new_theme_last_end()" )
+end
+
+function timer_new_theme_last_end()
+    actor:give_info_portion( "last_new_theme_info" )
+end
+
+function charge_akk_in_tesla()
+    if actor:has_info( "petrenko_tesla_job_done" ) then return end
+    if sak.have_items_count( "item_kamaz_accum", 1 ) == false then return end
+    actor:give_info_portion( "akk_is_ready" )
+end
+
+function pet_8_gift()
+    sak.create_items( actor, "bearer_cheque", 1 )
+    sak.create_items( actor, "medkit_army", 3 )
+    sak.create_items( actor, "antirad", 4 )
+end
+
+function marsh_gift()
+    sak.create_items( actor, "medkit_scientic", 2 )
+    sak.create_items( actor, "antirad", 2 )
+end
+
+function compass( obj_id )
+    schedule.add( "check_drop", "mike.compass_start("..obj_id..")", 200 )
+end
+
+function compass_start( obj_id )
+    local obj = client_obj( obj_id )
+    if obj == nil or obj:parent() ~= nil then return end
+    local a = obj:name()
+    amk_mod.af_flash( af )
+    misc.release_by_name( a )
+    mike.timer_compass()
+end
+
+function timer_compass()
+    timers.start_timer( "timer_compass", 1, 0, 5, "mike.timer_compass_end()" )
+end
+
+function timer_compass_end()
+    amk.spawn_item( "af_compass_dyn5d",
+        sak.v3f( 220.36, -11.27, -101.76 ), 3315, 138426
+    )
+end
+
+function add_gauss()
+    amk.spawn_item( "wpn_gungauss",
+        sak.v3f( 25.208681, -19.467064, -153.252975 ), 2897, 909203
+    )
+end
+
+function gen_tele()
+    local obj_id, obj = -1, nil
+    for i, k in pairs( sak_inventory.belt_items ) do
+        if strpos( i, "af_compass", 1, true ) and not strpos( i, "_dyn6d", 1, true ) then
+            obj_id = k[ 1 ]
+            obj    = g_sim:object( obj_id )
+        end
+    end
+    if obj == nil then return end
+    if sak.arts_operate then
+        local pk   = get_netpk( obj, 1 )
+        local data = pk:get()
+        local cond = data.condition + 0.0004
+        if cond >= 1 then cond = 0.9999 end
+        if cond > 0.25 then
+            local new_cond = cond - 0.20
+            params.obj_condition( obj_id, new_cond )
+            data.condition = new_cond
+            pk:set( data )
+            level.add_pp_effector( "blink.ppe", 234, false )
+            level.add_pp_effector( "teleport.ppe", 2006, false )
+            sak.eff_vodka()
+            if new_cond < 0.25 then
+                coord_params.set_obj_section( obj_id, "af_compass_dyn6d" )
+            end
+            actor:set_actor_position(
+                sak.v3f( -232.14703369141, 43.340000152588, -41.621490478516 )
+            )
+            return
+        end
+    end
+end
+
+function klyk_is_ready()
+    sak_inventory.release_actor_items( "item_psi_helmet_02", 1 )
+    sak_inventory.release_actor_items( "af_compass", 1 )
+end
+
+function timer_mar_factory()
+    timers.start_timer( "timer_mar_factory", 9, 30, 0, "mike.timer_mar_factory_end()" )
+end
+
+function timer_mar_factory_end()
+    actor:give_info_portion( "start_find_soldiers" )
+end
+
+function give_volk_set()
+    sak_inventory.release_actor_items( "af_medusa", 1 )
+    sak_inventory.release_actor_items( "af_drops", 1 )
+    sak_inventory.release_actor_items( "af_blood", 1 )
+    sak_inventory.release_actor_items( "af_rusty_thorn", 1 )
+    sak_inventory.release_actor_items( "volk_pda", 1 )
+end
+
+--смотреть в sak.script
+function add_strelok_spots_info()
+    if
+        actor:has_info( "agr_klyk_04_info" )
+        and actor:has_info( "marsh_zapiska_1" )
+        and not actor:has_info( "strelok_spots_info" )
+    then
+        actor:give_info_portion( "strelok_spots_info" )
+    end
+end
+--переходы
+function add_spots_esc_gar()
+    actor:give_info_portion( "info_way300a" )
+    local obj1 = g_sim:story_object( story_ids.exit_esc_to_garbage_01 )
+    local obj2 = g_sim:story_object( story_ids.exit_to_escape_01 )
+    if obj1 then
+        level.map_add_object_spot_ser( obj1.id, "level_changer_self", "to_garbage" )
+    end
+    if obj2 then
+        level.map_add_object_spot_ser( obj2.id, "level_changer_self", "to_escape" )
+    end
+    sak.info_received()
+end
+
+function add_spots_gar_bar()
+    actor:give_info_portion( "info_way302a" )
+    local obj1 = g_sim:story_object( story_ids.exit_gar_to_bar_01 )
+    local obj2 = g_sim:story_object( story_ids.exit_bar_to_garbage_01 )
+    if obj1 then
+        level.map_add_object_spot_ser( obj1.id, "level_changer_self", "to_bar" )
+    end
+    if obj2 then
+        level.map_add_object_spot_ser( obj2.id, "level_changer_self", "to_garbage" )
+    end
+    sak.info_received()
+end
+
+function add_spots_gar_agr()
+    actor:give_info_portion( "info_way301a" )
+    local obj1 = g_sim:story_object( story_ids.exit_to_agroprom_01 )
+    local obj2 = g_sim:story_object( story_ids.exit_to_garbage_02 )
+    if obj1 then
+        level.map_add_object_spot_ser( obj1.id, "level_changer_self", "to_agroprom" )
+    end
+    if obj2 then
+        level.map_add_object_spot_ser( obj2.id, "level_changer_self", "to_garbage" )
+    end
+    sak.info_received()
+end
+
+function add_spots_gar_dar()
+    actor:give_info_portion( "info_way303a" )
+    local obj1 = g_sim:story_object( story_ids.exit_gar_to_darkvalley_01 )
+    local obj2 = g_sim:story_object( story_ids.exit_dark_to_garbage_02 )
+    if obj1 then
+        level.map_add_object_spot_ser( obj1.id, "level_changer_self", "to_darkvalley" )
+    end
+    if obj2 then
+        level.map_add_object_spot_ser( obj2.id, "level_changer_self", "to_garbage" )
+    end
+    sak.info_received()
+end
+
+function add_spots_mil_rad()
+    actor:give_info_portion( "info_way306a" )
+    local obj1 = g_sim:story_object( story_ids.exit_mil_to_radar_01 )
+    local obj2 = g_sim:story_object( story_ids.rad_exit_to_military_01 )
+    if obj1 then
+        level.map_add_object_spot_ser( obj1.id, "level_changer_self", "to_radar" )
+    end
+    if obj2 then
+        level.map_add_object_spot_ser( obj2.id, "level_changer_self", "to_military" )
+    end
+    sak.info_received()
+end
+
+function add_spots_dead_pri()
+    actor:give_info_portion( "info_way307a" )
+    local obj1 = g_sim:story_object( story_ids.dead_exit_to_prip_193 )
+    local obj2 = g_sim:story_object( story_ids.prip_exit_to_deadcity_195 )
+    if obj1 then
+        level.map_add_object_spot_ser( obj1.id, "level_changer_self", "to_pripyat" )
+    end
+    if obj2 then
+        level.map_add_object_spot_ser( obj2.id, "level_changer_self", "to_deadcity" )
+    end
+    sak.info_received()
+end
+
+function add_spots_hospital()
+    actor:give_info_portion( "info_way159a" )
+    actor:give_info_portion( "info_way304a" )
+    local obj1 = g_sim:story_object( story_ids.exit_to_for )
+    local obj2 = g_sim:story_object( story_ids.gar_exit_to_hospital_177 )
+    local obj3 = g_sim:story_object( story_ids.dsc_exit_to_hospital_255 )
+    local obj4 = g_sim:story_object( story_ids.hos_lev_chang_door )
+    if obj1 then
+        level.map_add_object_spot_ser( obj1.id, "level_changer_self", "to_garbage" )
+    end
+    if obj2 then
+        level.map_add_object_spot_ser( obj2.id, "level_changer_self", "to_hospital" )
+    end
+    if obj3 then
+        level.map_add_object_spot_ser( obj3.id, "level_changer_self", "to_hospital" )
+    end
+    if obj4 then
+        level.map_add_object_spot_ser( obj4.id, "level_changer_self", "to_darkscape" )
+    end
+    sak.info_received()
+end
+
+function add_spots_av_pes()
+    actor:give_info_portion( "berloga_code_info" )
+    actor:give_info_portion( "info_way138a" )
+    local obj1 = g_sim:story_object( story_ids.aver_level_changer_to_av_peshera )
+    if obj1 then
+        level.map_add_object_spot_ser( obj1.id, "level_changer_self", "to_av_peshera" )
+    end
+    sak.info_received()
+end
+
+function add_spots_dv_k()
+    local obj1 = g_sim:story_object( story_ids.exit_to_escape )
+    if obj1 then
+        level.map_add_object_spot_ser( obj1.id, "level_changer_self", "to_darkscape" )
+    end
+end
+
+function add_spots_x18()
+    local obj1 = g_sim:story_object( story_ids.exit_to_labx18_01 )
+    if obj1 then
+        level.map_add_object_spot_ser( obj1.id, "level_changer_self", "to_x18" )
+    end
+end
+
+function add_spots_bar_mil()
+    actor:give_info_portion( "info_way113a" )
+    local obj1 = g_sim:story_object( story_ids.bar_space_restrictor )
+    --local obj1 = g_sim:story_object( story_ids.bar_exit_to_military_01 )
+    local obj2 = g_sim:story_object( story_ids.exit_mil_to_bar_01 )
+    if obj1 then
+        level.map_add_object_spot_ser( obj1.id, "level_changer_self", "to_military" )
+    end
+    if obj2 then
+        level.map_add_object_spot_ser( obj2.id, "level_changer_self", "to_bar" )
+    end
+end
+
+function add_spots_ros_yan()
+    actor:give_info_portion( "info_way305a" )
+    local obj1 = g_sim:story_object( story_ids.exit_to_yantar_01 )
+    local obj2 = g_sim:story_object( story_ids.exit_to_rostok_01 )
+    if obj1 then
+        level.map_add_object_spot_ser( obj1.id, "level_changer_self", "to_yantar" )
+    end
+    if obj2 then
+        level.map_add_object_spot_ser( obj2.id, "level_changer_self", "to_rostok" )
+    end
+end
