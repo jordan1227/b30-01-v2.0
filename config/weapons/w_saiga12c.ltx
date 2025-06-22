@@ -50,7 +50,7 @@ cam_max_angle						= 30
 cam_max_angle_horz					= 10
 cam_step_angle_horz					= 1.7
 fire_dispersion_condition_factor 	= 2.5
-misfire_probability 				= 0.025
+misfire_probability 				= 0.005
 misfire_condition_k					= 0.50
 condition_shot_dec 					= 0.00065
 fire_point             				=  0,0.216,0.71
@@ -78,7 +78,7 @@ strap_position           			= -0.37,-0.09,0.09
 strap_orientation      				= -05,-5,110
 strap_bone0							= bip01_spine2
 strap_bone1							= bip01_spine1
-visual         		        		= weaponsv\saiga\wpn_saiga.ogf
+visual              				= weapons\saiga12\wpn_saiga_cobra.ogf
 light_color							= 0.6,0.5,0.3
 light_range							= 5
 light_var_color						= 0.05
@@ -98,10 +98,10 @@ scope_zoom_factor           		= 50
 zoom_enabled						= true
 snd_draw							= weapons\ak_74x\rifle_draw
 snd_holster							= weapons\ak_74x\rifle_holster
-snd_shoot							= weapons\saiga12\saiga_shoot
-snd_shoot1							= weapons\saiga12\saiga_shoot1
+snd_shoot							= weapons\saiga12\saiga12_shoot
+snd_shoot1							= weapons\saiga12\saiga12_shoot
 snd_empty							= weapons\saiga12\saiga_empty, 0.7
-snd_reload                 			= weapons\saiga12\saiga_reload
+snd_reload                 			= weapons\saiga12\saiga12_reload
 snd_razgruzka						= weapons\razgruzka\ammo_1
 silencer_smoke_particles 			= weapons\generic_shoot_00
 silencer_light_color				= 0.6,0.5,0.3
@@ -117,64 +117,50 @@ shell_dir							= 0.0, 1.0, 0.0
 fire_point               			= 0.033000,-0.042000,0.185000
 fire_point2              			= 0.037,-0.040,0.085000
 fire_bone               			= wpn_body
-orientation      	        		= 1.7, 1.5, 0
-position			        		= 0.040000,-0.05,-0.0250
-visual                  			= weaponsv\saiga\wpn_saiga_hud.ogf
-anim_idle							= normal_idle
-anim_idle_aim						= normal_idle_aim
-anim_reload							= normal_reload
-anim_draw							= normal_draw
-anim_holster						= normal_holster
-anim_shoot							= normal_shoot
-anim_idle_sprint					= normal_idle_sprint
-anim_idle_hidden					= idle_hidden
-zoom_offset							= -0.138480,0.078600,-0.127230
-zoom_rotate_x						= 0.025850
-zoom_rotate_y						= 0.029400
+position			        		= 0.02,-0.02,0.0
+orientation      	        		= 0.0, 0.0, 0
+visual              				= weapons\saiga12\wpn_saiga_cobra_hud.ogf
+anim_idle							= idle
+anim_idle_aim						= idle_aim
+anim_reload							= reload_mag_std
+anim_draw							= draw
+anim_holster						= holster
+anim_shoot							= shoot
+anim_idle_sprint					= idle_sprint
+zoom_offset			                = -0.099680,0.042600,-0.129000
+zoom_rotate_x		                = 0.000850
+zoom_rotate_y		                = -0.000100
 zoom_rotate_time					= 0.27
 rotate_time							= 0.27
 zoom_hide_crosshair					= true
 
 [wpn_saiga12c_1pso]:wpn_saiga12c
-visual                  			= weaponsv\saiga\wpn_saiga
-hud  								= wpn_saiga12c_1pso_hud
-scope_attached         				= 0
-control_inertion_factor				= 1.25f
-
 [wpn_saiga12c_1pso_hud]:wpn_saiga12c_hud
-fire_point							= 0.400000,-0.500000,2.255000
-visual              				= weaponsv\saiga\wpn_saiga_hud.ogf
-zoom_offset							= -0.123480,0.034500,2.472870
-zoom_rotate_x						= 0.028250
-zoom_rotate_y						= 0.028850
-zoom_rotate_time					= 0.28
-rotate_time							= 0.28
 
 [wpn_saiga12c_1p78]:wpn_saiga12c
-visual                  			= weaponsv\saiga\wpn_saiga_1p78
+visual                  			= weapons\saiga12\wpn_saiga_1p78.ogf
 hud  								= wpn_saiga12c_1p78_hud
 scope_attached         				= 0
 control_inertion_factor				= 1.25f
 
 [wpn_saiga12c_1p78_hud]:wpn_saiga12c_hud
-fire_point							= 0.400000,-0.500000,2.255000
-visual              				= weaponsv\saiga\wpn_saiga_1p78_hud.ogf
-zoom_offset							= -0.139720,0.027000,1.380870
-zoom_rotate_x						= 0.026460
-zoom_rotate_y						= 0.030740
+visual              				= weapons\saiga12\wpn_saiga_1p78_hud.ogf
+zoom_offset			                = -0.100720,-0.008000,1.270870
+zoom_rotate_x		                = 0.001460
+zoom_rotate_y		                = 0.003140
 zoom_rotate_time					= 0.28
 rotate_time							= 0.28
 
 [wpn_saiga12c_cobra]:wpn_saiga12c
-visual                  			= weaponsv\saiga\wpn_saiga_cobra
+visual                  			= weapons\saiga12\wpn_saiga_cobra.ogf
 hud  								= wpn_saiga12c_cobra_hud
 scope_attached         				= 0
 control_inertion_factor				= 1.2f
 
 [wpn_saiga12c_cobra_hud]:wpn_saiga12c_hud
-visual              				= weaponsv\saiga\wpn_saiga_cobra_hud.ogf
-zoom_offset							= -0.136180,0.019300,-0.024130
-zoom_rotate_x						= 0.022250
-zoom_rotate_y						= 0.025850
-zoom_rotate_time					= 0.17
-rotate_time							= 0.17
+visual              				= weapons\saiga12\wpn_saiga_cobra_hud.ogf
+zoom_offset			                = -0.103680,-0.006200,-0.129000
+zoom_rotate_x		                = 0.015450
+zoom_rotate_y		                = 0.012150
+zoom_rotate_time					= 0.18
+rotate_time							= 0.18

@@ -414,6 +414,8 @@ function delay_close_inv()
     if db.actor:has_info( "ui_inventory" ) then sak.close_window() end
 end
 
+test.e_drink_shield = 1
+
 function anim_eat_middle()
     sak.actor_hide_weapon()
     if f_sect ~= "?" then
@@ -440,6 +442,7 @@ function anim_eat_middle()
         elseif f_sect == "energy_drink" then
             level.add_pp_effector( "brighten.ppe", 7851, true )
             sleep_manager.test_for_need_sleep_nrg()
+            test.e_drink_shield = 0.25
             schedule.add( "end_br", "test.end_bright()", 30000 )
         end
         local ttime = food_anim_time[ f_sect ][ 1 ]
@@ -462,6 +465,7 @@ end
 
 function end_bright()
     level.remove_pp_effector( 7851 )
+    test.e_drink_shield = 1
 end
 
 function garik_fix()
@@ -826,6 +830,12 @@ function on_late_init()
     schedule.add( "do_eternal", "test.eternal_start()", 6000 )
     if lua_random() > 0.5 then dsh.get_next_random( "sak.artmod" ) end -- чтобы, зная, что будет следующей зелень по варке, не откатывались назад
     sort_actor_pda_on_load()
+    params.command_unbind( "cam_1" )
+	params.command_unbind( "cam_2" )
+	params.command_unbind( "cam_3" )
+    sak.get_command( "unbind_sec cam_1" )
+    sak.get_command( "unbind_sec cam_2" )
+    sak.get_command( "unbind_sec cam_3" )
  end
 
 function add_art_to_vars( id )
@@ -1616,7 +1626,7 @@ function have_mercenary_items( flag )
     if     ind == 1 then return have_with_cond( "dolg_outfit",           3, 0.95, false, flag )
     elseif ind == 2 then return have_with_cond( "cs_light_outfit",       3, 0.95, false, flag )
     elseif ind == 3 then return have_with_cond( "neytral_gaz_outfit_m1", 3, 0.95, false, flag )
-    elseif ind == 4 then return have_with_cond( "specops_outfit",        3, 0.95, false, flag )
+    elseif ind == 4 then return have_with_cond( "specops_outfit",        2, 0.95, false, flag )
     elseif ind == 5 then return have_with_cond( "svoboda_gaz_outfit_m1", 2, 0.95, false, flag )
     end
 end
@@ -2490,7 +2500,7 @@ function spawn_ruckzack_chinaman()
     misc.process_spawn()
     if obj then
         test.add_box_protection( obj:name() )
-        misc.spawn_multi( 'vodka', obj.position, obj.id, 16 )
+        misc.spawn_multi( 'vodka', obj.position, obj.id, 10 )
         sak.off_on( obj )
     end
     chinaman_ruck_spawned = true
@@ -2657,10 +2667,10 @@ function add_wounded_reward()
     }
     local fuflo_tbl = { "batt_torch", "matches", "vodka", "conserva", "drag_cat_eyes" }
     local chanse = dsh.get_next_random( "transfer_medkit" )
-    if chanse <= 0.20 then
+    if chanse <= 0.15 then
         tbl = art_tbl
         amount = 1
-    elseif chanse <= 0.7 then
+    elseif chanse <= 0.6 then
         tbl = good_tbl
         amount = dsh.get_next_random( "transfer_medkit", 1, 2 )
     else

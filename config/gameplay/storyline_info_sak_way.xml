@@ -808,7 +808,7 @@
 	<text>tex_escape_lager_volk_document</text>
 </article>
 <article id="tex_bar_ivancov_playboy" name="Найти Плейбой" article_type="journal" group="enc_task">
-	<texture x="900" y="800" width="100" height="50">ui\ui_icon_equipment_4</texture>
+	<texture x="900" y="550" width="100" height="50">ui\ui_icon_equipment_3</texture>
 	<text>tex_bar_ivancov_playboy</text>
 </article>
 <article id="tex_mil_volk_resiver" name="Найти Радиостанцию" article_type="journal" group="enc_task">

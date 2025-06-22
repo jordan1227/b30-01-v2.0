@@ -625,10 +625,10 @@ function init_help_wounded_medkit_dialog( dlg )
 end
 
 function wounded_gives_reward()
-    local treasure_chanse = 0.4
+    local treasure_chanse = 0.3
 
-    if     medkit_help_section == "medkit_army"     then treasure_chanse = 0.5
-    elseif medkit_help_section == "medkit_scientic" then treasure_chanse = 0.6
+    if     medkit_help_section == "medkit_army"     then treasure_chanse = 0.4
+    elseif medkit_help_section == "medkit_scientic" then treasure_chanse = 0.5
     end
     log2("------------------------  TREASURE CHANCE = %s", treasure_chanse )
     medkit_help_section = ""

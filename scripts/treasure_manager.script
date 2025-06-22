@@ -3,8 +3,7 @@ local rare_list = {
         "bandit_outfit",
         "stalker_outfit",
         "outfit_soldier_m1",
-        "cs_light_outfit",
-        "svoboda_light_outfit",
+        "bandit_veteran_outfit",
 
         "wpn_toz34",
         "wpn_ak74",
@@ -43,17 +42,6 @@ local rare_list = {
         "vodka"
     },
     experienced_section = {
-        "svoboda_heavy_outfit",
-        "outfit_dolg_m1",
-        "outfit_killer_m1",
-        "bandit_veteran_outfit",
-        "monolit_gaz_outfit_m1",
-        "scientific_outfit",
-        "svoboda_light_outfit",
-        "specops_outfit",
-        "dolg_gaz_outfit_m1",
-        "killer_gaz_outfit_m1",
-
         "wpn_sig220",
         "wpn_winchester_m1",
         "wpn_ak47",
@@ -91,6 +79,12 @@ local rare_list = {
         "af_rusty_kristall",
         "af_rusty_thorn",
 
+        "cs_light_outfit",
+        "svoboda_light_outfit",
+        "outfit_killer_m1",
+        "dolg_gaz_outfit_m1",
+        "killer_gaz_outfit_m1",
+
         "playboy2",
         "flesh_leather",
         "repair_itemoutfit_feik",
@@ -99,10 +93,13 @@ local rare_list = {
         "antirad",
     },
     veteran_section = {
+        "svoboda_heavy_outfit",
+        "outfit_dolg_m1",
+        "monolit_gaz_outfit_m1",
+        "scientific_outfit",
         "bandit_master_outfit",
         "svoboda_gaz_outfit_m1",
-        "protection_outfit",
-        "military_outfit",
+
 
         "wpn_colt1911",
         "wpn_usp",
@@ -112,8 +109,7 @@ local rare_list = {
         "wpn_rpk74",
         "wpn_groza",
         "wpn_winchester_m1",                    -- обрез мп133
-        --"wpn_addon_grenade_launcher",
-        --"wpn_addon_grenade_launcher_m203",
+
         "wpn_akm",
         "wpn_sig550",
         "grenade_f1",
@@ -178,10 +174,12 @@ local rare_list = {
         "amk_ballon",
     },
     master_section = {
+        "protection_outfit",
+        "military_outfit",
         "svoboda_heavy_gaz_outfit_m1",
         "monolit_scientific_outfit",
-        "merc_scientific_outfit",
-        "freedom_scientific_outfit",
+        --"merc_scientific_outfit",
+        --"freedom_scientific_outfit",
         "outfit_svoboda_m1",
         "bandit_master_outfit_m1",
         "exo_bandit_outfit",

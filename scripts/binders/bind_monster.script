@@ -992,8 +992,9 @@ end
 
 -- Выбивание оружия собаками и прочими бюрерами
 function panic_item_drop( coeff )
-    local actor  = db.actor
-    local slot_k = 1
+    local actor    = db.actor
+    local slot_k   = 1
+    local e_shield = test.e_drink_shield or 1
     local sleep_k, sleep_curr = 0, sleep_manager.get_sleepiness()
     if     sleep_curr > 180 then sleep_k = 0.05
     elseif sleep_curr > 120 then sleep_k = 0.02
@@ -1008,7 +1009,7 @@ function panic_item_drop( coeff )
     end
     if actor_in_monolith_outfit() then slot_k = slot_k * 0.7 end
     if actor_in_exoskeleton() then slot_k = slot_k * 0.7 end
-    local drop = ( coeff + sleep_k + ( 0.03 * game_difficulty ) ) * dog_shield * slot_k
+    local drop = ( coeff + sleep_k + ( 0.03 * game_difficulty ) ) * dog_shield * slot_k * e_shield
     if lua_random() < drop then
         local active_item = actor:active_item()
         if active_item and active_item:section() ~= "bolt" then

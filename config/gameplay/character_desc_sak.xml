@@ -2798,7 +2798,7 @@
 	<crouch_type>1</crouch_type>
 	<supplies>
 		[spawn] \n
-			wpn_ump45 \n
+			wpn_sig220 \n
 			ammo_11.43x23_fmj = 2 \n
 			wpn_binoc = 1 \n
 	</supplies>

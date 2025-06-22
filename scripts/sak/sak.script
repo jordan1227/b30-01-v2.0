@@ -2234,12 +2234,12 @@ function check_used_item( obj )
     local rand = amk_vars.x18_iq_check or 2
     if strpos( sect, "ammo_" ) then return end
 
-    if     sect == "dollars1"  then add_money( 1 )  misc.release_obj( obj, 'sak.script:check_used_item_release' )
-    elseif sect == "dollars3"  then add_money( 3 )  misc.release_obj( obj, 'sak.script:check_used_item_release' )
-    elseif sect == "dollars5"  then add_money( 5 )  misc.release_obj( obj, 'sak.script:check_used_item_release' )
-    elseif sect == "dollars10" then add_money( 10 ) misc.release_obj( obj, 'sak.script:check_used_item_release' )
-    elseif sect == "dollars25" then add_money( 25 ) misc.release_obj( obj, 'sak.script:check_used_item_release' )
-    elseif sect == "dollars50" then add_money( 50 ) misc.release_obj( obj, 'sak.script:check_used_item_release' )
+    if     sect == "dollars1"  then add_money( 5 )  misc.release_obj( obj, 'sak.script:check_used_item_release' )
+    elseif sect == "dollars3"  then add_money( 10 )  misc.release_obj( obj, 'sak.script:check_used_item_release' )
+    elseif sect == "dollars5"  then add_money( 15 )  misc.release_obj( obj, 'sak.script:check_used_item_release' )
+    elseif sect == "dollars10" then add_money( 20 ) misc.release_obj( obj, 'sak.script:check_used_item_release' )
+    elseif sect == "dollars25" then add_money( 27 ) misc.release_obj( obj, 'sak.script:check_used_item_release' )
+    elseif sect == "dollars50" then add_money( 40 ) misc.release_obj( obj, 'sak.script:check_used_item_release' )
     --------------------------------------------------------------------------------------------------
     elseif strpos( sect, "mfake" ) then
         add_mfake_af( sect )
@@ -7903,7 +7903,7 @@ function out_many_for_rep_up()
 end
 
 function add_money( num )
-    local summa = lua_random( 15, 75 ) * num
+    local summa = lua_random( 35, 75 ) * num
     local actor = db.actor
     dialogs.relocate_money( actor, summa, "in" )
     if actor:has_info( "pda_is_broken" ) then
@@ -9628,7 +9628,7 @@ function damage_first_outfit()
         params.upd_condition( armor, 0.18 )
     else
         ODS( "~C0C[~T]. #ERROR:~C07 not found outfit in actor inventory" )
-        schedule( "dmg_first_outfit", "sak.damage_first_outfit()", 2500 )
+        schedule.add( "dmg_first_outfit", "sak.damage_first_outfit()", 2500 )
     end
 end
 

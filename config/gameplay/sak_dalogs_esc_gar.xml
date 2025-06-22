@@ -8031,7 +8031,7 @@
 			<action>dialogs.break_dialog</action>
 		</phrase>
 		<phrase id="425">
-		<precondition>sak_dialog.af_full_akkum_have</precondition>
+			<precondition>sak_dialog.af_full_akkum_have</precondition>
 			<text>esc_lager_generator_425</text>
 			<next>42511</next>
 			<!-- <next>42512</next> -->
