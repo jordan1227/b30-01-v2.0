@@ -1,0 +1,1516 @@
+date/time          : 2018-11-11, 00:55:04, 728ms
+computer name      : DESKTOP-6RM659S
+user name          : VeNoM
+registered owner   : VeNoM
+operating system   : Windows 10 x64 build 17134
+system language    : Russian
+system up time     : 14 hours 15 minutes
+program up time    : 20 seconds
+processors         : 8x AMD Ryzen 5 1400 Quad-Core Processor
+physical memory    : 3779/8145 MB (free/total)
+free disk space    : (C:) 157,83 GB (D:) 360,65 GB
+display mode       : 1920x1080, 32 bit
+process id         : $1bd0
+allocated memory   : 638,55 MB
+largest free block : 1,82 GB
+command line       : "D:\Games\NLC 3.01\bin\xr_3da.EXE" -noprefetch -no_intro -verbosity 5 -verb_filters PERF -debug_dialogs -start server(venommans_quicksave_bkp/single/alife/load) client(localhost)
+executable         : xr_3da.EXE
+current module     : luaicp.dll
+module date/time   : 2017-12-21 04:53
+version            : 7.1.6564.3224
+compiled with      : Delphi XE8
+madExcept version  : 4.0.18
+callstack crc      : $771db9ba, $fc49e9af, $bd728151
+exception number   : 1
+exception class    : EAccessViolation
+exception message  : Access violation at address 771DB9BA in module 'ntdll.dll'. Read of address 0000001E.
+
+gToolThread { TToolThread@=$0FA9A264:: luaicp.dll /ID=11504 } ($2cf0): <priority:1>
+771db9ba +019 ntdll.dll
+771db835 +015 ntdll.dll                                 RtlTimeToTimeFields
+75f57e66 +036 KERNELBASE.dll                            FileTimeToSystemTime
+75f57dfc +0ec KERNELBASE.dll                            GetLocalTime
+02458d6c +008 luaicp.dll     System.SysUtils 18864   +1 Now
+026c0797 +0cf luaicp.dll     XrayMM            434  +43 UniGetMem
+02406d93 +03f luaicp.dll     System           4757  +91 @ReallocMem
+0240d874 +0d8 luaicp.dll     System          34169  +58 DynArraySetLength
+0240d9ad +005 luaicp.dll     System          34266   +3 @DynArraySetLength
+02525696 +02e luaicp.dll     System.Classes   7050   +5 TStringList.SetCapacity
+0252540d +02d luaicp.dll     System.Classes   6960   +3 TStringList.Grow
+025254d5 +021 luaicp.dll     System.Classes   6985   +2 TStringList.InsertItem
+02525073 +053 luaicp.dll     System.Classes   6796   +9 TStringList.AddObject
+02525019 +005 luaicp.dll     System.Classes   6783   +1 TStringList.Add
+0266f75d +049 luaicp.dll     StrClasses        500   +4 TStrMap.Add
+02524a4b +103 luaicp.dll     System.Classes   6578  +20 TStrings.SetDelimitedText
+02675137 +4ef luaicp.dll     PsUtils          1114 +105 TModuleMap.LoadMap
+026b9350 +1dc luaicp.dll     LCGlobals        2232  +28 TToolThread.UpdateMaps
+026b826b +2cb luaicp.dll     LCGlobals        1984  +81 TToolThread.OnTimer
+0265f39c +14c luaicp.dll     WThreads         1390  +24 TWorkerThread.ProcessMessage
+0265fc11 +07d luaicp.dll     WThreads         1519  +16 WrapWindowProc
+76c779cb +00b USER32.dll                                DispatchMessageW
+0265d8f4 +114 luaicp.dll     WThreads         1006  +35 TWorkerThread.HandleMessages
+02660495 +089 luaicp.dll     WThreads         1663  +15 TWorkerThread.WorkProc
+026b9c1f +027 luaicp.dll     LCGlobals        2376   +1 TToolThread.WorkProc
+02660167 +0b3 luaicp.dll     WThreads         1603  +12 TWorkerThread.WorkCycle
+0265edb0 +09c luaicp.dll     WThreads         1309  +18 TWorkerThread.OleExec
+0265d131 +2d9 luaicp.dll     WThreads          864  +57 TWorkerThread.Execute
+02534e11 +049 luaicp.dll     System.Classes  14356  +21 ThreadProc
+0240b3a0 +028 luaicp.dll     System          24003  +45 ThreadWrapper
+767f8482 +022 KERNEL32.DLL                              BaseThreadInitThunk
+
+main ($f4c):
+>> internal error in CollectPossibleStackItems:
+02407074 +f8 luaicp.dll System 5956 +126 Move
+
+thread $11c0:
+767f8482 +22 KERNEL32.DLL  BaseThreadInitThunk
+
+thread $2968:
+767f8482 +22 KERNEL32.DLL  BaseThreadInitThunk
+
+thread $a60:
+767f8482 +22 KERNEL32.DLL  BaseThreadInitThunk
+
+THREAD_WATCHDOG { TThreadWatchdog@=$0FA99A90:: luaicp.dll /ID=8824 } ($2278):
+75f445c3 +093 KERNELBASE.dll                          WaitForSingleObjectEx
+75f4451d +00d KERNELBASE.dll                          WaitForSingleObject
+0265c30c +03c luaicp.dll     WThreads         561  +2 DbgWaitForSO
+0265ebdb +047 luaicp.dll     WThreads        1279  +4 TWorkerThread.WaitRqsPosted
+02660209 +155 luaicp.dll     WThreads        1616 +25 TWorkerThread.WorkCycle
+0265edb0 +09c luaicp.dll     WThreads        1309 +18 TWorkerThread.OleExec
+0265d131 +2d9 luaicp.dll     WThreads         864 +57 TWorkerThread.Execute
+02534e11 +049 luaicp.dll     System.Classes 14356 +21 ThreadProc
+0240b3a0 +028 luaicp.dll     System         24003 +45 ThreadWrapper
+767f8482 +022 KERNEL32.DLL                            BaseThreadInitThunk
+
+MemStatCollector { TMemStatCollector@=$0FA91A30:: luaicp.dll /ID=660 } ($294):
+75f445c3 +093 KERNELBASE.dll                          WaitForSingleObjectEx
+75f4451d +00d KERNELBASE.dll                          WaitForSingleObject
+0265c30c +03c luaicp.dll     WThreads         561  +2 DbgWaitForSO
+0265ebdb +047 luaicp.dll     WThreads        1279  +4 TWorkerThread.WaitRqsPosted
+02660209 +155 luaicp.dll     WThreads        1616 +25 TWorkerThread.WorkCycle
+0265edb0 +09c luaicp.dll     WThreads        1309 +18 TWorkerThread.OleExec
+0265d131 +2d9 luaicp.dll     WThreads         864 +57 TWorkerThread.Execute
+02534e11 +049 luaicp.dll     System.Classes 14356 +21 ThreadProc
+0240b3a0 +028 luaicp.dll     System         24003 +45 ThreadWrapper
+767f8482 +022 KERNEL32.DLL                            BaseThreadInitThunk
+
+late@00:54:44.392=9992 ($2708):
+767f8482 +22 KERNEL32.DLL  BaseThreadInitThunk
+
+TAppLoggingThread@=$0FD8F284_M02400000 ($280c): <priority:1>
+75f445c3 +093 KERNELBASE.dll                          WaitForSingleObjectEx
+75f4451d +00d KERNELBASE.dll                          WaitForSingleObject
+02680b01 +22d luaicp.dll     misc            4231 +52 TAppLoggingThread.Execute
+02534e11 +049 luaicp.dll     System.Classes 14356 +21 ThreadProc
+0240b3a0 +028 luaicp.dll     System         24003 +45 ThreadWrapper
+767f8482 +022 KERNEL32.DLL                            BaseThreadInitThunk
+
+TAppLoggingThread@=$0FCED2B4_M02400000 ($17e0): <priority:1>
+75f445c3 +093 KERNELBASE.dll                          WaitForSingleObjectEx
+75f4451d +00d KERNELBASE.dll                          WaitForSingleObject
+02680b01 +22d luaicp.dll     misc            4231 +52 TAppLoggingThread.Execute
+02534e11 +049 luaicp.dll     System.Classes 14356 +21 ThreadProc
+0240b3a0 +028 luaicp.dll     System         24003 +45 ThreadWrapper
+767f8482 +022 KERNEL32.DLL                            BaseThreadInitThunk
+
+late@00:54:44.397=11496 ($2ce8):
+75f5593d +12d KERNELBASE.dll  WaitForMultipleObjectsEx
+767f8482 +022 KERNEL32.DLL    BaseThreadInitThunk
+
+AsyncTexLoader#0 { TAsyncTexLoader@=$0FAA2624:: luaicp.dll /ID=9488 } ($2510):
+75f445c3 +093 KERNELBASE.dll                          WaitForSingleObjectEx
+75f4451d +00d KERNELBASE.dll                          WaitForSingleObject
+0265c30c +03c luaicp.dll     WThreads         561  +2 DbgWaitForSO
+0265ebdb +047 luaicp.dll     WThreads        1279  +4 TWorkerThread.WaitRqsPosted
+02660209 +155 luaicp.dll     WThreads        1616 +25 TWorkerThread.WorkCycle
+0265edb0 +09c luaicp.dll     WThreads        1309 +18 TWorkerThread.OleExec
+0265d131 +2d9 luaicp.dll     WThreads         864 +57 TWorkerThread.Execute
+02534e11 +049 luaicp.dll     System.Classes 14356 +21 ThreadProc
+0240b3a0 +028 luaicp.dll     System         24003 +45 ThreadWrapper
+767f8482 +022 KERNEL32.DLL                            BaseThreadInitThunk
+
+AsyncTexLoader#1 { TAsyncTexLoader@=$0FAA2DE4:: luaicp.dll /ID=1276 } ($4fc):
+75f445c3 +093 KERNELBASE.dll                          WaitForSingleObjectEx
+75f4451d +00d KERNELBASE.dll                          WaitForSingleObject
+0265c30c +03c luaicp.dll     WThreads         561  +2 DbgWaitForSO
+0265ebdb +047 luaicp.dll     WThreads        1279  +4 TWorkerThread.WaitRqsPosted
+02660209 +155 luaicp.dll     WThreads        1616 +25 TWorkerThread.WorkCycle
+0265edb0 +09c luaicp.dll     WThreads        1309 +18 TWorkerThread.OleExec
+0265d131 +2d9 luaicp.dll     WThreads         864 +57 TWorkerThread.Execute
+02534e11 +049 luaicp.dll     System.Classes 14356 +21 ThreadProc
+0240b3a0 +028 luaicp.dll     System         24003 +45 ThreadWrapper
+767f8482 +022 KERNEL32.DLL                            BaseThreadInitThunk
+
+AsyncTexLoader#2 { TAsyncTexLoader@=$0FAA3D64:: luaicp.dll /ID=1040 } ($410):
+75f445c3 +093 KERNELBASE.dll                          WaitForSingleObjectEx
+75f4451d +00d KERNELBASE.dll                          WaitForSingleObject
+0265c30c +03c luaicp.dll     WThreads         561  +2 DbgWaitForSO
+0265ebdb +047 luaicp.dll     WThreads        1279  +4 TWorkerThread.WaitRqsPosted
+02660209 +155 luaicp.dll     WThreads        1616 +25 TWorkerThread.WorkCycle
+0265edb0 +09c luaicp.dll     WThreads        1309 +18 TWorkerThread.OleExec
+0265d131 +2d9 luaicp.dll     WThreads         864 +57 TWorkerThread.Execute
+02534e11 +049 luaicp.dll     System.Classes 14356 +21 ThreadProc
+0240b3a0 +028 luaicp.dll     System         24003 +45 ThreadWrapper
+767f8482 +022 KERNEL32.DLL                            BaseThreadInitThunk
+
+AsyncTexLoader#3 { TAsyncTexLoader@=$0FAA4524:: luaicp.dll /ID=10984 } ($2ae8):
+75f445c3 +093 KERNELBASE.dll                          WaitForSingleObjectEx
+75f4451d +00d KERNELBASE.dll                          WaitForSingleObject
+0265c30c +03c luaicp.dll     WThreads         561  +2 DbgWaitForSO
+0265ebdb +047 luaicp.dll     WThreads        1279  +4 TWorkerThread.WaitRqsPosted
+02660209 +155 luaicp.dll     WThreads        1616 +25 TWorkerThread.WorkCycle
+0265edb0 +09c luaicp.dll     WThreads        1309 +18 TWorkerThread.OleExec
+0265d131 +2d9 luaicp.dll     WThreads         864 +57 TWorkerThread.Execute
+02534e11 +049 luaicp.dll     System.Classes 14356 +21 ThreadProc
+0240b3a0 +028 luaicp.dll     System         24003 +45 ThreadWrapper
+767f8482 +022 KERNEL32.DLL                            BaseThreadInitThunk
+
+AsyncTexLoader#4 { TAsyncTexLoader@=$0FAA35A4:: luaicp.dll /ID=4004 } ($fa4):
+75f445c3 +093 KERNELBASE.dll                          WaitForSingleObjectEx
+75f4451d +00d KERNELBASE.dll                          WaitForSingleObject
+0265c30c +03c luaicp.dll     WThreads         561  +2 DbgWaitForSO
+0265ebdb +047 luaicp.dll     WThreads        1279  +4 TWorkerThread.WaitRqsPosted
+02660209 +155 luaicp.dll     WThreads        1616 +25 TWorkerThread.WorkCycle
+0265edb0 +09c luaicp.dll     WThreads        1309 +18 TWorkerThread.OleExec
+0265d131 +2d9 luaicp.dll     WThreads         864 +57 TWorkerThread.Execute
+02534e11 +049 luaicp.dll     System.Classes 14356 +21 ThreadProc
+0240b3a0 +028 luaicp.dll     System         24003 +45 ThreadWrapper
+767f8482 +022 KERNEL32.DLL                            BaseThreadInitThunk
+
+AsyncTexLoader#5 { TAsyncTexLoader@=$0FAA4CE4:: luaicp.dll /ID=6704 } ($1a30):
+75f445c3 +093 KERNELBASE.dll                          WaitForSingleObjectEx
+75f4451d +00d KERNELBASE.dll                          WaitForSingleObject
+0265c30c +03c luaicp.dll     WThreads         561  +2 DbgWaitForSO
+0265ebdb +047 luaicp.dll     WThreads        1279  +4 TWorkerThread.WaitRqsPosted
+02660209 +155 luaicp.dll     WThreads        1616 +25 TWorkerThread.WorkCycle
+0265edb0 +09c luaicp.dll     WThreads        1309 +18 TWorkerThread.OleExec
+0265d131 +2d9 luaicp.dll     WThreads         864 +57 TWorkerThread.Execute
+02534e11 +049 luaicp.dll     System.Classes 14356 +21 ThreadProc
+0240b3a0 +028 luaicp.dll     System         24003 +45 ThreadWrapper
+767f8482 +022 KERNEL32.DLL                            BaseThreadInitThunk
+
+AsyncTexLoader#6 { TAsyncTexLoader@=$0FAA54A4:: luaicp.dll /ID=5608 } ($15e8):
+75f445c3 +093 KERNELBASE.dll                          WaitForSingleObjectEx
+75f4451d +00d KERNELBASE.dll                          WaitForSingleObject
+0265c30c +03c luaicp.dll     WThreads         561  +2 DbgWaitForSO
+0265ebdb +047 luaicp.dll     WThreads        1279  +4 TWorkerThread.WaitRqsPosted
+02660209 +155 luaicp.dll     WThreads        1616 +25 TWorkerThread.WorkCycle
+0265edb0 +09c luaicp.dll     WThreads        1309 +18 TWorkerThread.OleExec
+0265d131 +2d9 luaicp.dll     WThreads         864 +57 TWorkerThread.Execute
+02534e11 +049 luaicp.dll     System.Classes 14356 +21 ThreadProc
+0240b3a0 +028 luaicp.dll     System         24003 +45 ThreadWrapper
+767f8482 +022 KERNEL32.DLL                            BaseThreadInitThunk
+
+AsyncTexLoader#7 { TAsyncTexLoader@=$0FAA5C64:: luaicp.dll /ID=4184 } ($1058):
+75f445c3 +093 KERNELBASE.dll                          WaitForSingleObjectEx
+75f4451d +00d KERNELBASE.dll                          WaitForSingleObject
+0265c30c +03c luaicp.dll     WThreads         561  +2 DbgWaitForSO
+0265ebdb +047 luaicp.dll     WThreads        1279  +4 TWorkerThread.WaitRqsPosted
+02660209 +155 luaicp.dll     WThreads        1616 +25 TWorkerThread.WorkCycle
+0265edb0 +09c luaicp.dll     WThreads        1309 +18 TWorkerThread.OleExec
+0265d131 +2d9 luaicp.dll     WThreads         864 +57 TWorkerThread.Execute
+02534e11 +049 luaicp.dll     System.Classes 14356 +21 ThreadProc
+0240b3a0 +028 luaicp.dll     System         24003 +45 ThreadWrapper
+767f8482 +022 KERNEL32.DLL                            BaseThreadInitThunk
+
+late@00:54:57.576=9324 ($246c):
+75f5593d +12d KERNELBASE.dll  WaitForMultipleObjectsEx
+767f8482 +022 KERNEL32.DLL    BaseThreadInitThunk
+
+late@00:54:57.777=8632 ($21b8):
+767f8482 +22 KERNEL32.DLL  BaseThreadInitThunk
+
+late@00:54:57.777=11056 ($2b30): <priority:15>
+767f8482 +22 KERNEL32.DLL  BaseThreadInitThunk
+
+late@00:54:57.995=1584 ($630): <priority:15>
+75f5593d +12d KERNELBASE.dll  WaitForMultipleObjectsEx
+75f557f3 +013 KERNELBASE.dll  WaitForMultipleObjects
+767f8482 +022 KERNEL32.DLL    BaseThreadInitThunk
+
+late@00:54:58.000=3896 ($f38): <priority:15>
+75f5593d +12d KERNELBASE.dll  WaitForMultipleObjectsEx
+75f557f3 +013 KERNELBASE.dll  WaitForMultipleObjects
+767f8482 +022 KERNEL32.DLL    BaseThreadInitThunk
+
+late@00:54:58.041=8720 ($2210): <priority:14>
+75f5593d +12d KERNELBASE.dll  WaitForMultipleObjectsEx
+75f557f3 +013 KERNELBASE.dll  WaitForMultipleObjects
+767f8482 +022 KERNEL32.DLL    BaseThreadInitThunk
+
+late@00:54:58.069= 760 ($2f8): <priority:2>
+76c79ffe +5e USER32.dll    MsgWaitForMultipleObjectsEx
+767f8482 +22 KERNEL32.DLL  BaseThreadInitThunk
+
+late@00:54:58.122=2432 ($980): <priority:-15>
+75f445c3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+75f4451d +0d KERNELBASE.dll  WaitForSingleObject
+767f8482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+late@00:54:58.122=10052 ($2744): <priority:-15>
+75f445c3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+75f4451d +0d KERNELBASE.dll  WaitForSingleObject
+767f8482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+late@00:54:58.123=10852 ($2a64): <priority:-15>
+75f445c3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+75f4451d +0d KERNELBASE.dll  WaitForSingleObject
+767f8482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+late@00:54:58.123=8568 ($2178): <priority:-15>
+75f445c3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+75f4451d +0d KERNELBASE.dll  WaitForSingleObject
+767f8482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+late@00:54:58.132=6200 ($1838):
+767f8482 +22 KERNEL32.DLL  BaseThreadInitThunk
+
+late@00:54:58.169=2288 ($8f0): <priority:1>
+75f445c3 +093 KERNELBASE.dll  WaitForSingleObjectEx
+75f4451d +00d KERNELBASE.dll  WaitForSingleObject
+771efaf5 +075 ntdll.dll       bsearch
+771bc88e +2be ntdll.dll       LdrGetProcedureAddressForCaller
+75f5730b +04b KERNELBASE.dll  GetProcAddressForCaller
+767f4eee +00e KERNEL32.DLL    GetProcAddress
+767f8482 +022 KERNEL32.DLL    BaseThreadInitThunk
+
+late@00:54:58.594=11868 ($2e5c):
+75f445c3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+75f4451d +0d KERNELBASE.dll  WaitForSingleObject
+767f8482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+late@00:54:58.647=9328 ($2470):
+76c79f5e +5e USER32.dll    MsgWaitForMultipleObjects
+767f8482 +22 KERNEL32.DLL  BaseThreadInitThunk
+
+late@00:55:00.056=1148 ($47c): <priority:1>
+771bdf34 +044 ntdll.dll     RtlEnterCriticalSection
+04259aa5 +005 xrCore.dll    xrSyncronize.obj
+00522cda +07a xr_3da.EXE    device.obj
+771e299c +10c ntdll.dll     RtlUnwind
+771efaf5 +075 ntdll.dll     bsearch
+04215d98 +028 xrCore.dll    _math.obj
+6478c9f8 +07c MSVCR120.dll  _endthread
+767f8482 +022 KERNEL32.DLL  BaseThreadInitThunk
+
+modules:
+00400000 xr_3da.EXE             1.7.0.5799          D:\Games\NLC 3.01\bin
+02400000 luaicp.dll             7.1.6564.3224       D:\Games\NLC 3.01\bin
+041d0000 xrCore.dll                                 D:\Games\NLC 3.01\bin
+17ba0000 xrGame.dll                                 D:\Games\NLC 3.01\bin
+18890000 wrap_oal.dll           2.2.0.5             C:\Windows\system32
+38d60000 d3dx9_31.dll           9.15.779.0          C:\Windows\SYSTEM32
+5f9c0000 nvapi.dll              24.21.13.9836       C:\Windows\SYSTEM32
+5fde0000 nvspcap.dll            3.14.0.139          C:\Windows\system32
+60000000 nvSCPAPI.dll           7.17.13.9836        C:\Program Files (x86)\NVIDIA Corporation\3D Vision
+600b0000 Windows.UI.dll         6.2.17134.1         C:\Windows\System32
+60190000 midimap.dll            6.2.17134.1         C:\Windows\SYSTEM32
+601a0000 wdmaud.drv             6.2.17134.1         C:\Windows\SYSTEM32
+601e0000 dsound.dll             6.2.17134.1         C:\Windows\System32
+60270000 xrXMLParser.dll                            D:\Games\NLC 3.01\bin
+60290000 ODE.dll                                    D:\Games\NLC 3.01\bin
+602e0000 xrParticles.dll                            D:\Games\NLC 3.01\bin
+60300000 xrRender_R2.dll                            D:\Games\NLC 3.01\bin
+60410000 OpenAL32.dll           6.14.357.21         D:\Games\NLC 3.01\bin
+60440000 COMCTL32.dll           5.82.17134.48       C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_5.82.17134.345_none_40ff7c964511edcf
+604d0000 d3dx9_35.dll           9.19.949.1104       C:\Windows\SYSTEM32
+60880000 DINPUT8.dll            6.2.17134.254       C:\Windows\SYSTEM32
+608c0000 xrSound.dll                                D:\Games\NLC 3.01\bin
+60900000 xrCDB.dll                                  D:\Games\NLC 3.01\bin
+60920000 xrNetServer.dll                            D:\Games\NLC 3.01\bin
+60950000 AVIFIL32.dll           6.2.17134.1         C:\Windows\SYSTEM32
+60970000 FaultRep.dll           6.2.17134.1         C:\Windows\SYSTEM32
+609d0000 EasyECDSA.dll                              D:\Games\NLC 3.01\bin
+60b50000 sxs.dll                6.2.17134.1         C:\Windows\SYSTEM32
+60ce0000 msacm32.drv            6.2.17134.1         C:\Windows\SYSTEM32
+60cf0000 MSVFW32.dll            6.2.17134.1         C:\Windows\SYSTEM32
+63af0000 xrCPU_Pipe.dll                             D:\Games\NLC 3.01\bin
+63ba0000 xrAPI.dll                                  D:\Games\NLC 3.01\bin
+63bb0000 luabind.dll                                D:\Games\NLC 3.01\bin
+63bd0000 LZ4.dll                                    D:\Games\NLC 3.01\bin
+63be0000 SHFolder.dll           6.2.17134.1         C:\Windows\SYSTEM32
+63bf0000 lua5.1.dll                                 D:\Games\NLC 3.01\bin
+64710000 MSVCR120.dll           12.0.21005.1        C:\Windows\SYSTEM32
+64800000 MSVCP120.dll           12.0.21005.1        C:\Windows\SYSTEM32
+64df0000 ksuser.dll             6.2.17134.1         C:\Windows\SYSTEM32
+65290000 wsock32.dll            6.2.17134.1         C:\Windows\SYSTEM32
+66680000 sfc.dll                6.2.17134.1         C:\Windows\SYSTEM32
+67c60000 TextInputFramework.dll 6.2.17134.191       C:\Windows\System32
+6b0a0000 AUDIOSES.DLL           6.2.17134.137       C:\Windows\SYSTEM32
+6b270000 MMDevApi.dll           6.2.17134.1         C:\Windows\System32
+6b4c0000 AVRT.dll               6.2.17134.1         C:\Windows\SYSTEM32
+6cb10000 MSACM32.dll            6.2.17134.1         C:\Windows\SYSTEM32
+6dab0000 dcomp.dll              6.2.17134.1         C:\Windows\SYSTEM32
+6dbf0000 dxgi.dll               6.2.17134.112       C:\Windows\SYSTEM32
+6e4f0000 nvd3dum.dll            24.21.13.9836       C:\Windows\System32\DriverStore\FileRepository\nv_dispi.inf_amd64_485c1c3102021986
+6f3f0000 nvldumd.dll            24.21.13.9836       C:\Windows\System32\DriverStore\FileRepository\nv_dispi.inf_amd64_485c1c3102021986
+6f830000 d3d9.dll               6.2.17134.81        C:\Windows\SYSTEM32
+6fe30000 CoreUIComponents.dll   6.2.17134.112       C:\Windows\SYSTEM32
+70a10000 dwmapi.dll             6.2.17134.1         C:\Windows\system32
+70a40000 CoreMessaging.dll      6.2.17134.345       C:\Windows\SYSTEM32
+70ad0000 wintypes.dll           6.2.17134.112       C:\Windows\SYSTEM32
+70bb0000 inputhost.dll                              C:\Windows\SYSTEM32
+70dc0000 HID.DLL                6.2.17134.1         C:\Windows\SYSTEM32
+70e90000 DEVOBJ.dll             6.2.17134.1         C:\Windows\SYSTEM32
+72480000 uxtheme.dll            6.2.17134.1         C:\Windows\system32
+72550000 dbgcore.DLL            6.2.17134.1         C:\Windows\SYSTEM32
+72580000 dbghelp.dll            6.2.17134.1         C:\Windows\SYSTEM32
+72ae0000 WINSPOOL.DRV           6.2.17134.319       C:\Windows\SYSTEM32
+72b50000 AcLayers.DLL           6.2.17134.137       C:\Windows\SYSTEM32
+72de0000 apphelp.dll            6.2.17134.1         C:\Windows\SYSTEM32
+72f50000 PROPSYS.dll            7.0.17134.112       C:\Windows\SYSTEM32
+730f0000 WINMMBASE.dll          6.2.17134.1         C:\Windows\SYSTEM32
+73290000 WINMM.dll              6.2.17134.1         C:\Windows\SYSTEM32
+732c0000 sfc_os.DLL             6.2.17134.1         C:\Windows\SYSTEM32
+732d0000 MPR.dll                6.2.17134.1         C:\Windows\SYSTEM32
+73370000 cryptnet.dll           6.2.17134.1         C:\Windows\SYSTEM32
+733a0000 gpapi.dll              6.2.17134.1         C:\Windows\SYSTEM32
+73440000 rsaenh.dll             6.2.17134.254       C:\Windows\system32
+73470000 CRYPTSP.dll            6.2.17134.1         C:\Windows\SYSTEM32
+73490000 ntmarta.dll            6.2.17134.1         C:\Windows\SYSTEM32
+734c0000 bcrypt.dll             6.2.17134.112       C:\Windows\SYSTEM32
+735a0000 IPHLPAPI.DLL           6.2.17134.1         C:\Windows\SYSTEM32
+735d0000 version.dll            6.2.17134.1         C:\Windows\SYSTEM32
+73a30000 CRYPTBASE.dll          6.2.17134.1         C:\Windows\System32
+73a40000 SspiCli.dll            6.2.17134.1         C:\Windows\System32
+73a60000 powrprof.dll           6.2.17134.1         C:\Windows\System32
+73ab0000 GDI32.dll              6.2.17134.285       C:\Windows\System32
+73ae0000 cfgmgr32.dll           6.2.17134.1         C:\Windows\System32
+73b20000 gdi32full.dll          6.2.17134.345       C:\Windows\System32
+73e60000 msvcrt.dll             7.0.17134.1         C:\Windows\System32
+73f20000 bcryptPrimitives.dll   6.2.17134.345       C:\Windows\System32
+73f80000 ucrtbase.dll           6.2.17134.319       C:\Windows\System32
+740b0000 OLEAUT32.dll           6.2.17134.48        C:\Windows\System32
+74170000 MSCTF.dll              6.2.17134.319       C:\Windows\System32
+742c0000 msvcp_win.dll          6.2.17134.1         C:\Windows\System32
+743d0000 shcore.dll             6.2.17134.112       C:\Windows\System32
+74460000 sechost.dll            6.2.17134.319       C:\Windows\System32
+744b0000 windows.storage.dll    6.2.17134.345       C:\Windows\System32
+74a70000 SHELL32.dll            6.2.17134.320       C:\Windows\System32
+75dc0000 WINTRUST.dll           6.2.17134.81        C:\Windows\System32
+75e10000 win32u.dll             6.2.17134.1         C:\Windows\System32
+75e30000 MSASN1.dll             6.2.17134.1         C:\Windows\System32
+75e40000 kernel.appcore.dll     6.2.17134.112       C:\Windows\System32
+75e50000 KERNELBASE.dll         6.2.17134.319       C:\Windows\System32
+76040000 advapi32.dll           6.2.17134.319       C:\Windows\System32
+760c0000 shlwapi.dll            6.2.17134.1         C:\Windows\System32
+76110000 FLTLIB.DLL             6.2.17134.1         C:\Windows\System32
+76120000 imagehlp.dll           6.2.17134.1         C:\Windows\System32
+76140000 WS2_32.dll             6.2.17134.1         C:\Windows\System32
+761b0000 RPCRT4.dll             6.2.17134.112       C:\Windows\System32
+76270000 profapi.dll            6.2.17134.1         C:\Windows\System32
+76290000 SETUPAPI.dll           6.2.17134.1         C:\Windows\System32
+766c0000 clbcatq.dll            2001.12.10941.16384 C:\Windows\System32
+767b0000 IMM32.DLL              6.2.17134.1         C:\Windows\System32
+767e0000 KERNEL32.DLL           6.2.17134.1         C:\Windows\System32
+768c0000 comdlg32.dll           6.2.17134.1         C:\Windows\System32
+769a0000 ole32.dll              6.2.17134.137       C:\Windows\System32
+76aa0000 CRYPT32.dll            6.2.17134.1         C:\Windows\System32
+76c40000 USER32.dll             6.2.17134.319       C:\Windows\System32
+76e30000 combase.dll            6.2.17134.112       C:\Windows\System32
+77180000 ntdll.dll              6.2.17134.254       C:\Windows\SYSTEM32
+
+processes:
+0000 Idle                      0 0    0
+0004 System                    0 0    0
+0078 Registry                  0 0    0
+01b8 smss.exe                  0 0    0
+0278 csrss.exe                 0 0    0
+02d4 wininit.exe               0 0    0
+02dc csrss.exe                 1 0    0
+031c services.exe              0 0    0
+0324 lsass.exe                 0 0    0
+03a8 svchost.exe               0 0    0
+03c0 svchost.exe               0 0    0
+03c8 fontdrvhost.exe           0 0    0
+0188 svchost.exe               0 0    0
+0290 svchost.exe               0 0    0
+033c winlogon.exe              1 0    0
+041c fontdrvhost.exe           1 0    0
+0468 dwm.exe                   1 0    0
+04c8 svchost.exe               0 0    0
+0504 svchost.exe               0 0    0
+050c svchost.exe               0 0    0
+0514 svchost.exe               0 0    0
+0540 svchost.exe               0 0    0
+0598 svchost.exe               0 0    0
+05a8 svchost.exe               0 0    0
+05ec svchost.exe               0 0    0
+0614 svchost.exe               0 0    0
+0690 svchost.exe               0 0    0
+06c8 svchost.exe               0 0    0
+070c NVDisplay.Container.exe   0 0    0
+072c svchost.exe               0 0    0
+07b0 svchost.exe               0 0    0
+07b8 svchost.exe               0 0    0
+07c0 svchost.exe               0 0    0
+07d0 svchost.exe               0 0    0
+0788 svchost.exe               0 0    0
+081c Memory Compression        0 0    0
+0848 svchost.exe               0 0    0
+0894 svchost.exe               0 0    0
+089c svchost.exe               0 0    0
+08a4 svchost.exe               0 0    0
+093c svchost.exe               0 0    0
+0964 svchost.exe               0 0    0
+0a1c NVDisplay.Container.exe   1 0    0
+0ab4 svchost.exe               0 0    0
+0af8 svchost.exe               0 0    0
+0b28 svchost.exe               0 0    0
+0b30 svchost.exe               0 0    0
+0b58 svchost.exe               0 0    0
+0b98 svchost.exe               0 0    0
+0bc0 spoolsv.exe               0 0    0
+0acc svchost.exe               0 0    0
+0cf0 schedul2.exe              0 0    0
+0cfc svchost.exe               0 0    0
+0d04 svchost.exe               0 0    0
+0d10 svchost.exe               0 0    0
+0d18 svchost.exe               0 0    0
+0d20 nvcontainer.exe           0 0    0
+0d28 svchost.exe               0 0    0
+0d30 AdobeUpdateService.exe    0 0    0
+0d40 svchost.exe               0 0    0
+0d48 svchost.exe               0 0    0
+0d50 svchost.exe               0 0    0
+0d64 svchost.exe               0 0    0
+0d6c NvTelemetryContainer.exe  0 0    0
+0d74 SecurityHealthService.exe 0 0    0
+0d80 AGMService.exe            0 0    0
+0d88 AGSService.exe            0 0    0
+0d94 MsMpEng.exe               0 0    0
+0df0 svchost.exe               0 0    0
+0e70 svchost.exe               0 0    0
+0eb0 svchost.exe               0 0    0
+0f04 dasHost.exe               0 0    0
+0f60 svchost.exe               0 0    0
+0ff4 svchost.exe               0 0    0
+0c2c svchost.exe               0 0    0
+11b0 svchost.exe               0 0    0
+13c0 sihost.exe                1 36   13   normal       C:\Windows\System32
+13f4 svchost.exe               1 0    1    normal       C:\Windows\System32
+0ce8 svchost.exe               1 0    10   normal       C:\Windows\System32
+141c taskhostw.exe             1 8    6    normal       C:\Windows\System32
+14a8 svchost.exe               0 0    0
+1528 ctfmon.exe                1 0    0
+165c explorer.exe              1 675  736  normal       C:\Windows
+16e8 nvcontainer.exe           1 1    8    normal       C:\Program Files\NVIDIA Corporation\NvContainer
+1700 nvcontainer.exe           1 0    12   normal       C:\Program Files\NVIDIA Corporation\NvContainer
+17c0 svchost.exe               0 0    0
+18ec ShellExperienceHost.exe   1 14   110  normal       C:\Windows\SystemApps\ShellExperienceHost_cw5n1h2txyewy
+1908 dllhost.exe               1 0    5    normal       C:\Windows\System32
+1a04 NisSrv.exe                0 0    0
+1a0c SearchUI.exe              1 14   52   normal       C:\Windows\SystemApps\Microsoft.Windows.Cortana_cw5n1h2txyewy
+1b14 RuntimeBroker.exe         1 0    1    normal       C:\Windows\System32
+1b30 nvsphelper64.exe          1 0    0
+1b48 NVIDIA Share.exe          1 16   31   normal       C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience
+1bec RuntimeBroker.exe         1 40   7    normal       C:\Windows\System32
+1f2c NVIDIA Web Helper.exe     1 2    12   normal       C:\Program Files (x86)\NVIDIA Corporation\NvNode
+1f38 conhost.exe               1 10   3    normal       C:\Windows\System32
+20b4 NVIDIA Share.exe          1 1    1    normal       C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience
+20c0 NVIDIA Share.exe          1 0    1    normal       C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience
+21f4 SettingSyncHost.exe       1 0    4    below normal C:\Windows\System32
+222c GoogleCrashHandler.exe    0 0    0
+2234 GoogleCrashHandler64.exe  0 0    0
+2354 svchost.exe               0 0    0
+20ac RtkNGUI64.exe             1 17   26   normal       C:\Program Files\Realtek\Audio\HDA
+216c Bloody6.exe               1 5305 1345 normal       C:\Program Files (x86)\Bloody6\Bloody6
+1554 svchost.exe               0 0    0
+1424 chrome.exe                1 123  84   normal       C:\Program Files (x86)\Google\Chrome\Application
+04dc chrome.exe                1 0    4    normal       C:\Program Files (x86)\Google\Chrome\Application
+1f90 chrome.exe                1 0    4    normal       C:\Program Files (x86)\Google\Chrome\Application
+146c chrome.exe                1 8    12   normal       C:\Program Files (x86)\Google\Chrome\Application
+1d00 chrome.exe                1 0    0    normal       C:\Program Files (x86)\Google\Chrome\Application
+1c3c chrome.exe                1 0    0    normal       C:\Program Files (x86)\Google\Chrome\Application
+1cec chrome.exe                1 0    0    normal       C:\Program Files (x86)\Google\Chrome\Application
+1da8 chrome.exe                1 0    0    normal       C:\Program Files (x86)\Google\Chrome\Application
+1b10 chrome.exe                1 0    0    normal       C:\Program Files (x86)\Google\Chrome\Application
+26e8 Lightshot.exe             1 64   10   normal       C:\Program Files (x86)\Skillbrains\lightshot\5.4.0.35
+25b0 CCleaner64.exe            1 0    0
+26fc svchost.exe               0 0    0
+0430 SystemSettingsBroker.exe  1 0    2    normal       C:\Windows\System32
+0388 svchost.exe               1 0    1    normal       C:\Windows\System32
+05b4 SgrmBroker.exe            0 0    0
+0418 svchost.exe               0 0    0
+0db4 SearchIndexer.exe         0 0    0
+0c14 svchost.exe               0 0    0
+2570 chrome.exe                1 0    1    normal       C:\Program Files (x86)\Google\Chrome\Application
+1bc0 svchost.exe               0 0    0
+1c70 dllhost.exe               1 0    3    normal       C:\Windows\System32
+1a68 Skype.exe                 1 73   38   normal       C:\Program Files (x86)\Microsoft\Skype for Desktop
+2194 Skype.exe                 1 0    3    normal       C:\Program Files (x86)\Microsoft\Skype for Desktop
+0ca4 Skype.exe                 1 5    9    normal       C:\Program Files (x86)\Microsoft\Skype for Desktop
+2630 Skype.exe                 1 0    15   normal       C:\Program Files (x86)\Microsoft\Skype for Desktop
+11f8 notepad++.exe             1 347  310  normal       C:\Program Files\Notepad++
+0584 AdobeIPCBroker.exe        1 0    7    normal       C:\Program Files (x86)\Common Files\Adobe\OOBE\PDApp\IPC
+1968 CCXProcess.exe            1 0    0    normal       C:\Program Files (x86)\Adobe\Adobe Creative Cloud\CCXProcess
+0c58 node.exe                  1 0    1    normal       C:\Program Files (x86)\Adobe\Adobe Creative Cloud\CCXProcess\libs
+0704 conhost.exe               1 10   3    normal       C:\Windows\System32
+27e0 RuntimeBroker.exe         1 40   5    normal       C:\Windows\System32
+2734 notepad.exe               1 34   26   normal       C:\Windows\System32
+2b70 svchost.exe               0 0    0
+1ad0 ApplicationFrameHost.exe  1 12   3    normal       C:\Windows\System32
+29fc chrome.exe                1 0    0    normal       C:\Program Files (x86)\Google\Chrome\Application
+2198 chrome.exe                1 0    0    normal       C:\Program Files (x86)\Google\Chrome\Application
+121c chrome.exe                1 0    0    normal       C:\Program Files (x86)\Google\Chrome\Application
+2334 audiodg.exe               0 0    0
+1828 chrome.exe                1 0    0    normal       C:\Program Files (x86)\Google\Chrome\Application
+05dc chrome.exe                1 0    0    idle         C:\Program Files (x86)\Google\Chrome\Application
+26a8 launch.exe                1 69   64   normal       D:\Games\NLC 3.01\bin
+1294 conhost.exe               1 18   22   normal       C:\Windows\System32
+1e0c svchost.exe               0 0    0
+1bd0 XR_3DA.exe                1 37   54   normal       D:\Games\NLC 3.01\bin
+2ca4 svchost.exe               0 0    0
+2788 conhost.exe               1 19   21   normal       C:\Windows\System32
+
+hardware:
++ {1ed2bbf9-11f0-4084-b21f-ad83a8e6dcdc}
+  - Fax
+  - Microsoft Print to PDF
+  - Microsoft XPS Document Writer
+  - Корневая очередь печати
++ {36fc9e60-c465-11cf-8056-444553540000}
+  - Корневой USB-концентратор (USB 3.0)
+  - Корневой USB-концентратор (USB 3.0)
+  - Расширяемый хост-контроллер AMD USB 3.0 — 1.0 (Майкрософт)
+  - Расширяемый хост-контроллер AMD USB 3.1 — 1.10 (Майкрософт)
+  - Составное USB устройство
+  - Составное USB устройство
++ {4d36e966-e325-11ce-bfc1-08002be10318}
+  - Компьютер с ACPI на базе x64
++ {4d36e967-e325-11ce-bfc1-08002be10318}
+  - Samsung SSD 860 EVO 250GB
+  - WDC WD10EZEX-08WN4A0
+  - WDC WD5000AADS-00S9B0
++ {4d36e968-e325-11ce-bfc1-08002be10318}
+  - NVIDIA GeForce GTX 660 (driver 24.21.13.9836)
++ {4d36e96a-e325-11ce-bfc1-08002be10318}
+  - Стандартный контроллер SATA AHCI
+  - Стандартный контроллер SATA AHCI
++ {4d36e96b-e325-11ce-bfc1-08002be10318}
+  - Клавиатура HID
+  - Клавиатура HID
+  - Клавиатура HID
+  - Клавиатура HID
++ {4d36e96c-e325-11ce-bfc1-08002be10318}
+  - NVIDIA High Definition Audio (driver 1.3.37.4)
+  - NVIDIA Virtual Audio Device (Wave Extensible) (WDM) (driver 4.6.0.0)
+  - Realtek High Definition Audio (driver 6.0.1.8302)
++ {4d36e96e-e325-11ce-bfc1-08002be10318}
+  - Универсальный монитор PnP
++ {4d36e96f-e325-11ce-bfc1-08002be10318}
+  - HID-совместимая мышь
+  - HID-совместимая мышь
++ {4d36e972-e325-11ce-bfc1-08002be10318}
+  - Evolve Virtual Ethernet Adapter (driver 1.0.0.0)
+  - Microsoft Kernel Debug Network Adapter
+  - Realtek PCIe GBE Family Controller
+  - WAN Miniport (IKEv2)
+  - WAN Miniport (IP)
+  - WAN Miniport (IPv6)
+  - WAN Miniport (L2TP)
+  - WAN Miniport (Network Monitor)
+  - WAN Miniport (PPPOE)
+  - WAN Miniport (PPTP)
+  - WAN Miniport (SSTP)
++ {4d36e978-e325-11ce-bfc1-08002be10318}
+  - Порт принтера (LPT1)
+  - Последовательный порт (COM1)
++ {4d36e97b-e325-11ce-bfc1-08002be10318}
+  - Контроллер дискового пространства (Майкрософт)
++ {4d36e97d-e325-11ce-bfc1-08002be10318}
+  - AMD GPIO Controller (driver 2.2.0.71)
+  - AMD GPIO Controller (driver 2.0.1.0)
+  - AMD PCI (driver 1.0.0.51)
+  - AMD PCI (driver 1.0.0.51)
+  - AMD SMBus (driver 5.12.0.38)
+  - CMOS системы и часы реального времени
+  - Microsoft ACPI-совместимая система
+  - NVVHCI Enumerator (driver 2.2.2151.6378)
+  - PCI Express Root Complex
+  - UMBus перечислитель корневой шины
+  - Базовый видеодрайвер (Майкрософт)
+  - Базовый драйвер отрисовки (Майкрософт)
+  - Встроенный динамик
+  - Высокоточный таймер событий
+  - Диспетчер томов
+  - Драйвер Microsoft System Management BIOS
+  - Интерфейс управления для ACPI Microsoft Windows
+  - Интерфейс управления для ACPI Microsoft Windows
+  - Кнопка питания ACPI
+  - Контроллер High Definition Audio (Microsoft)
+  - Контроллер High Definition Audio (Microsoft)
+  - Контроллер прямого доступа к памяти
+  - Логический интерфейс порта принтера
+  - Перечислитель виртуальных дисков (Майкрософт)
+  - Перечислитель виртуальных сетевых адаптеров NDIS
+  - Перечислитель композитной шины
+  - Перечислитель программных устройств Plug and Play
+  - Порт PCI Express Downstream Switch
+  - Порт PCI Express Downstream Switch
+  - Порт PCI Express Downstream Switch
+  - Порт PCI Express Downstream Switch
+  - Порт PCI Express Root
+  - Порт PCI Express Root
+  - Порт PCI Express Root
+  - Порт PCI Express Root
+  - Порт PCI Express Upstream Switch
+  - Программируемый контроллер прерываний
+  - Ресурсы системной платы
+  - Ресурсы системной платы
+  - Ресурсы системной платы
+  - Ресурсы системной платы
+  - Ресурсы системной платы
+  - Ресурсы системной платы
+  - Системная плата
+  - Системный таймер
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный мост PCI — ISA
+  - Фиксированная функциональная кнопка ACPI
+  - Шина перенаправителя устройств удаленных рабочих столов
++ {50127dc3-0f36-415e-a6cc-4cb3be910b65}
+  - AMD Ryzen 5 1400 Quad-Core Processor
+  - AMD Ryzen 5 1400 Quad-Core Processor
+  - AMD Ryzen 5 1400 Quad-Core Processor
+  - AMD Ryzen 5 1400 Quad-Core Processor
+  - AMD Ryzen 5 1400 Quad-Core Processor
+  - AMD Ryzen 5 1400 Quad-Core Processor
+  - AMD Ryzen 5 1400 Quad-Core Processor
+  - AMD Ryzen 5 1400 Quad-Core Processor
++ {533c5b84-ec70-11d2-9505-00c04f79deaf}
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
++ {62f9c741-b25a-46ce-b54c-9bccce08b6f2}
+  - INNA-PC: Inna:
+  - Microsoft Device Association Root Enumerator
+  - Microsoft Radio Device Enumeration Bus
+  - Microsoft RRAS Root Enumerator
+  - Программный синтезатор звуковой таблицы Microsoft
++ {745a17a0-74d3-11d0-b6fe-00a0c90f57da}
+  - HID-совместимое устройство управления
+  - HID-совместимое устройство управления
+  - HID-совместимое устройство, определенное поставщиком
+  - HID-совместимое устройство, определенное поставщиком
+  - HID-совместимый игровой контроллер
+  - HID-совместимый системный контроллер
+  - HID-совместимый системный контроллер
+  - USB-устройство ввода
+  - USB-устройство ввода
+  - USB-устройство ввода
+  - USB-устройство ввода
+  - USB-устройство ввода
+  - USB-устройство ввода
+  - USB-устройство ввода
++ {c166523c-fe0c-4a94-a586-f1a80cfbbf3e}
+  - Динамики (Realtek High Definition Audio)
+  - Микрофон (Realtek High Definition Audio)
++ {d94ee5d8-d189-4994-83d2-f68d7d41b0e6}
+  - AMD PSP 3.0 Device (driver 4.9.0.0)
+
+cpu registers:
+eax = 0f69f0f4
+ebx = 01d4a12a
+ecx = 0000001a
+edx = 00000000
+esi = 0f69f1ac
+edi = 00000000
+eip = 771db9ba
+esp = 0f69f0c4
+ebp = 0f69f0e0
+
+stack dump:
+0f69f0c4  2c 65 19 e2 58 17 b7 d1 - 0d 00 00 00 8a 84 6a 0e  ,e..X.........j.
+0f69f0d4  ac f1 69 0f 1a 00 00 00 - 1a 00 00 00 00 f1 69 0f  ..i...........i.
+0f69f0e4  3a b8 1d 77 8a 84 6a 0e - ac f1 69 0f 2a a1 d4 01  :..w..j...i.*...
+0f69f0f4  0d 6c 32 00 2c 54 02 00 - 78 64 f4 23 38 f1 69 0f  .l2.,T..xd.#8.i.
+0f69f104  6c 7e f5 75 18 f1 69 0f - 24 f1 69 0f a7 78 d4 01  l~.u..i.$.i..x..
+0f69f114  c8 66 f4 23 45 df c9 2e - 59 79 d4 01 04 10 00 00  .f.#E...Yy......
+0f69f124  08 00 00 00 70 57 f4 23 - 98 24 42 e2 0d 3c fa 30  ....pW.#.$B..<.0
+0f69f134  90 24 42 e2 98 f1 69 0f - 01 7e f5 75 78 f1 69 0f  .$B...i..~.ux.i.
+0f69f144  ac f1 69 0f 00 00 00 00 - 28 00 00 00 04 00 00 00  ..i.....(.......
+0f69f154  fe 0b 00 00 04 00 00 00 - 00 68 df 43 a7 78 d4 01  .........h.C.x..
+0f69f164  8a 84 6a 0e 2a a1 d4 01 - 00 28 a1 53 c5 ff ff ff  ..j.*....(.S....
+0f69f174  01 00 00 00 45 df c9 2e - 59 79 d4 01 45 07 6b 82  ....E...Yy..E.k.
+0f69f184  1e 79 d4 01 2a a1 d4 01 - 0d 6c 32 00 0a 00 00 00  .y..*....l2.....
+0f69f194  a1 01 00 00 04 f2 69 0f - 71 8d 45 02 ac f1 69 0f  ......i.q.E...i.
+0f69f1a4  f6 b0 4e 03 c0 f1 69 0f - 00 15 6c 02 04 00 00 00  ..N...i...l.....
+0f69f1b4  60 cc 1b 2b 3c 00 00 00 - f6 b0 4e 03 04 f2 69 0f  `..+<.....N...i.
+0f69f1c4  9c 07 6c 02 d4 f1 69 0f - 0c aa 40 02 04 f2 69 0f  ..l...i...@...i.
+0f69f1d4  9c f2 69 0f 0c aa 40 02 - 04 f2 69 0f 00 00 00 00  ..i...@...i.....
+0f69f1e4  00 00 00 00 00 00 00 00 - 01 00 00 00 f6 b0 4e 03  ..............N.
+0f69f1f4  3c 00 00 00 60 cc 1b 2b - 60 cc 1b 2b 28 00 00 00  <...`..+`..+(...
+
+disassembling:
+02458d64       public System.SysUtils.Now:      ; function entry point
+02458d64 18863   add     esp, -$20
+02458d67 18864   lea     eax, [esp+8]
+02458d6b         push    eax
+02458d6c       > call    -$4371d ($2415654)     ; Winapi.Windows.GetLocalTime
+02458d71 18865   movzx   ecx, word ptr [esp+$e]
+02458d76         movzx   edx, word ptr [esp+$a]
+02458d7b         movzx   eax, word ptr [esp+8]
+02458d80         call    -$28d ($2458af8)       ; System.SysUtils.EncodeDate
+02458d85         fstp    qword ptr [esp+$18]
+[...]
+
+date/time          : 2018-11-22, 20:01:07, 256ms
+computer name      : DESKTOP-6RM659S
+user name          : VeNoM
+registered owner   : VeNoM
+operating system   : Windows 10 x64 build 17134
+system language    : Russian
+system up time     : 2 days 13 hours
+program up time    : 1 minute 9 seconds
+processors         : 8x AMD Ryzen 5 1400 Quad-Core Processor
+physical memory    : 1511/8145 MB (free/total)
+free disk space    : (C:) 157,56 GB (D:) 336,27 GB
+display mode       : 1920x1080, 32 bit
+process id         : $364c
+allocated memory   : 3,60 GB
+largest free block : 14,75 MB
+command line       : "D:\Games\NLC 3.01\bin\xr_3da.EXE" -noprefetch -no_intro -verbosity 5 -verb_filters PERF -debug_dialogs -start server(venommans_quicksave212/single/alife/load) client(localhost)
+executable         : xr_3da.EXE
+current module     : luaicp.dll
+module date/time   : 2017-12-21 04:53
+version            : 7.1.6564.3224
+compiled with      : Delphi XE8
+madExcept version  : 4.0.18
+callstack crc      : $776a1d85, $0f7435e3, $0f7435e3
+exception number   : 1
+exception class    : EExternalException
+exception message  : External exception C0000017.
+
+gToolThread { TToolThread@=$10F3A264:: luaicp.dll /ID=14988 } ($3a8c): <priority:1>
+776a1d85 +3b ntdll.dll
+77614829 +39 ntdll.dll     RtlAllocateHeap
+74067a7b +0b USER32.dll    DispatchMessageW
+73f68482 +22 KERNEL32.DLL  BaseThreadInitThunk
+
+main ($2b34):
+7760df34 +044 ntdll.dll        RtlEnterCriticalSection
+042f9aa5 +005 xrCore.dll       xrSyncronize.obj
+64a505e9 +039 xrRender_R2.dll  DetailManager.obj
+64a503aa +03a xrRender_R2.dll  DetailManager.obj
+64a19a64 +ba4 xrRender_R2.dll  r2_R_render.obj
+6aa29874 +024 lua5.1.dll       lvm.obj
+6aa01baa +01a lua5.1.dll       lapi.obj
+6aa0b71f +05f lua5.1.dll       ldo.obj
+6aa0bb0b +08b lua5.1.dll       ldo.obj
+6aa0b299 +039 lua5.1.dll       ldo.obj
+6aa29874 +024 lua5.1.dll       lvm.obj
+7763fac5 +075 ntdll.dll        bsearch
+776099d2 +052 ntdll.dll        RtlAppendUnicodeToString
+776180c8 +088 ntdll.dll        RtlGetFullPathName_UstrEx
+74068862 +122 USER32.dll       GetWindowLongW
+7763fac5 +075 ntdll.dll        bsearch
+72f18c1f +04f AcLayers.DLL     NotifyShims
+73f68482 +022 KERNEL32.DLL     BaseThreadInitThunk
+
+THREAD_WATCHDOG { TThreadWatchdog@=$10F39A90:: luaicp.dll /ID=11952 } ($2eb0):
+769a45f3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+769a454d +0d KERNELBASE.dll  WaitForSingleObject
+73f68482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+MemStatCollector { TMemStatCollector@=$10F31A30:: luaicp.dll /ID=17460 } ($4434):
+769a45f3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+769a454d +0d KERNELBASE.dll  WaitForSingleObject
+73f68482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+late@19:59:58.332=15364 ($3c04):
+73f68482 +22 KERNEL32.DLL  BaseThreadInitThunk
+
+TAppLoggingThread@=$12B164F4_M024A0000 ($edc): <priority:1>
+769a45f3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+769a454d +0d KERNELBASE.dll  WaitForSingleObject
+73f68482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+late@19:59:58.334=5872 ($16f0):
+769b597d +12d KERNELBASE.dll  WaitForMultipleObjectsEx
+73f68482 +022 KERNEL32.DLL    BaseThreadInitThunk
+
+AsyncTexLoader#0 { TAsyncTexLoader@=$10F42624:: luaicp.dll /ID=7228 } ($1c3c):
+769a45f3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+769a454d +0d KERNELBASE.dll  WaitForSingleObject
+73f68482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+AsyncTexLoader#1 { TAsyncTexLoader@=$10F42DE4:: luaicp.dll /ID=11340 } ($2c4c):
+769a45f3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+769a454d +0d KERNELBASE.dll  WaitForSingleObject
+73f68482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+AsyncTexLoader#2 { TAsyncTexLoader@=$10F435A4:: luaicp.dll /ID=15556 } ($3cc4):
+769a45f3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+769a454d +0d KERNELBASE.dll  WaitForSingleObject
+73f68482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+AsyncTexLoader#3 { TAsyncTexLoader@=$10F43D64:: luaicp.dll /ID=14148 } ($3744):
+769a45f3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+769a454d +0d KERNELBASE.dll  WaitForSingleObject
+73f68482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+AsyncTexLoader#4 { TAsyncTexLoader@=$10F44524:: luaicp.dll /ID=8592 } ($2190):
+769a45f3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+769a454d +0d KERNELBASE.dll  WaitForSingleObject
+73f68482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+AsyncTexLoader#5 { TAsyncTexLoader@=$10F454A4:: luaicp.dll /ID=13792 } ($35e0):
+769a45f3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+769a454d +0d KERNELBASE.dll  WaitForSingleObject
+73f68482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+AsyncTexLoader#6 { TAsyncTexLoader@=$10F45C64:: luaicp.dll /ID=14372 } ($3824):
+769a45f3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+769a454d +0d KERNELBASE.dll  WaitForSingleObject
+73f68482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+AsyncTexLoader#7 { TAsyncTexLoader@=$10F44CE4:: luaicp.dll /ID=4308 } ($10d4):
+769a45f3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+769a454d +0d KERNELBASE.dll  WaitForSingleObject
+73f68482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+late@20:00:11.825=11816 ($2e28):
+73f68482 +22 KERNEL32.DLL  BaseThreadInitThunk
+
+late@20:00:11.825=2732 ($aac): <priority:15>
+73f68482 +22 KERNEL32.DLL  BaseThreadInitThunk
+
+late@20:00:12.042=7840 ($1ea0): <priority:15>
+769b597d +12d KERNELBASE.dll  WaitForMultipleObjectsEx
+769b5833 +013 KERNELBASE.dll  WaitForMultipleObjects
+73f68482 +022 KERNEL32.DLL    BaseThreadInitThunk
+
+late@20:00:12.046=9528 ($2538): <priority:15>
+769b597d +12d KERNELBASE.dll  WaitForMultipleObjectsEx
+769b5833 +013 KERNELBASE.dll  WaitForMultipleObjects
+73f68482 +022 KERNEL32.DLL    BaseThreadInitThunk
+
+late@20:00:12.086=2764 ($acc): <priority:14>
+769b597d +12d KERNELBASE.dll  WaitForMultipleObjectsEx
+769b5833 +013 KERNELBASE.dll  WaitForMultipleObjects
+73f68482 +022 KERNEL32.DLL    BaseThreadInitThunk
+
+late@20:00:12.170=12644 ($3164): <priority:-15>
+769a45f3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+769a454d +0d KERNELBASE.dll  WaitForSingleObject
+73f68482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+late@20:00:12.171=6228 ($1854): <priority:-15>
+769a45f3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+769a454d +0d KERNELBASE.dll  WaitForSingleObject
+73f68482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+late@20:00:12.170=10376 ($2888): <priority:-15>
+769a45f3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+769a454d +0d KERNELBASE.dll  WaitForSingleObject
+73f68482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+late@20:00:12.171=11272 ($2c08): <priority:-15>
+769a45f3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+769a454d +0d KERNELBASE.dll  WaitForSingleObject
+73f68482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+late@20:00:12.179=12748 ($31cc):
+73f68482 +22 KERNEL32.DLL  BaseThreadInitThunk
+
+late@20:00:12.212=10436 ($28c4): <priority:1>
+769a45f3 +093 KERNELBASE.dll  WaitForSingleObjectEx
+769a454d +00d KERNELBASE.dll  WaitForSingleObject
+7763fac5 +075 ntdll.dll       bsearch
+7760c88e +2be ntdll.dll       LdrGetProcedureAddressForCaller
+769b734b +04b KERNELBASE.dll  GetProcAddressForCaller
+73f64eee +00e KERNEL32.DLL    GetProcAddress
+73f68482 +022 KERNEL32.DLL    BaseThreadInitThunk
+
+late@20:00:12.643=9276 ($243c):
+769a45f3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+769a454d +0d KERNELBASE.dll  WaitForSingleObject
+73f68482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+late@20:00:12.698=10272 ($2820):
+7406a00e +5e USER32.dll    MsgWaitForMultipleObjects
+73f68482 +22 KERNEL32.DLL  BaseThreadInitThunk
+
+late@20:00:19.862=7028 ($1b74): <priority:2>
+7406a0ae +5e USER32.dll    MsgWaitForMultipleObjectsEx
+73f68482 +22 KERNEL32.DLL  BaseThreadInitThunk
+
+late@20:00:21.205=8136 ($1fc8): <priority:1>
+7760df34 +044 ntdll.dll     RtlEnterCriticalSection
+042f9aa5 +005 xrCore.dll    xrSyncronize.obj
+7763296c +10c ntdll.dll     RtlUnwind
+7763c6e1 +021 ntdll.dll     KiUserExceptionDispatcher
+042b5d98 +028 xrCore.dll    _math.obj
+6998c9f8 +07c MSVCR120.dll  _endthread
+73f68482 +022 KERNEL32.DLL  BaseThreadInitThunk
+
+late@20:00:25.714=2312 ($908):
+769b597d +12d KERNELBASE.dll  WaitForMultipleObjectsEx
+769b5833 +013 KERNELBASE.dll  WaitForMultipleObjects
+73f68482 +022 KERNEL32.DLL    BaseThreadInitThunk
+
+late@20:00:26.735=15108 ($3b04): <priority:-15>
+769a45f3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+769a454d +0d KERNELBASE.dll  WaitForSingleObject
+73f68482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+late@20:00:26.735=11196 ($2bbc): <priority:-15>
+769a45f3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+769a454d +0d KERNELBASE.dll  WaitForSingleObject
+73f68482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+late@20:00:26.735=15788 ($3dac): <priority:-15>
+769a45f3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+769a454d +0d KERNELBASE.dll  WaitForSingleObject
+73f68482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+late@20:00:26.735=16268 ($3f8c): <priority:-15>
+769a45f3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+769a454d +0d KERNELBASE.dll  WaitForSingleObject
+73f68482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+late@20:00:28.332=1660 ($67c):
+73f68482 +22 KERNEL32.DLL  BaseThreadInitThunk
+
+late@20:00:28.333=13160 ($3368):
+73f68482 +22 KERNEL32.DLL  BaseThreadInitThunk
+
+BackgroundScanner { TBackgroundScanner@=$10F40724:: luaicp.dll /ID=9012 } ($2334): <priority:-1>
+769a45f3 +93 KERNELBASE.dll  WaitForSingleObjectEx
+769a454d +0d KERNELBASE.dll  WaitForSingleObject
+73f68482 +22 KERNEL32.DLL    BaseThreadInitThunk
+
+modules:
+00400000 xr_3da.EXE             1.7.0.5799          D:\Games\NLC 3.01\bin
+024a0000 luaicp.dll             7.1.6564.3224       D:\Games\NLC 3.01\bin
+04270000 xrCore.dll                                 D:\Games\NLC 3.01\bin
+18960000 xrGame.dll                                 D:\Games\NLC 3.01\bin
+19650000 wrap_oal.dll           2.2.0.5             C:\Windows\system32
+631a0000 nvapi.dll              24.21.13.9836       C:\Windows\SYSTEM32
+635c0000 nvspcap.dll            3.14.0.139          C:\Windows\system32
+637e0000 nvSCPAPI.dll           7.17.13.9836        C:\Program Files (x86)\NVIDIA Corporation\3D Vision
+63890000 nvd3dum.dll            24.21.13.9836       C:\Windows\System32\DriverStore\FileRepository\nv_dispi.inf_amd64_485c1c3102021986
+64790000 Windows.UI.dll         6.2.17134.1         C:\Windows\System32
+64870000 midimap.dll            6.2.17134.1         C:\Windows\SYSTEM32
+64880000 msacm32.drv            6.2.17134.1         C:\Windows\SYSTEM32
+64890000 wdmaud.drv             6.2.17134.1         C:\Windows\SYSTEM32
+648d0000 dsound.dll             6.2.17134.1         C:\Windows\System32
+64960000 ODE.dll                                    D:\Games\NLC 3.01\bin
+649b0000 xrXMLParser.dll                            D:\Games\NLC 3.01\bin
+649d0000 xrParticles.dll                            D:\Games\NLC 3.01\bin
+649f0000 xrRender_R2.dll                            D:\Games\NLC 3.01\bin
+64b00000 OpenAL32.dll           6.14.357.21         D:\Games\NLC 3.01\bin
+64b30000 d3dx9_35.dll           9.19.949.1104       C:\Windows\SYSTEM32
+64ee0000 DINPUT8.dll            6.2.17134.254       C:\Windows\SYSTEM32
+64f20000 xrSound.dll                                D:\Games\NLC 3.01\bin
+66680000 sfc.dll                6.2.17134.1         C:\Windows\SYSTEM32
+67e70000 xrCDB.dll                                  D:\Games\NLC 3.01\bin
+67e90000 xrNetServer.dll                            D:\Games\NLC 3.01\bin
+67ee0000 sxs.dll                6.2.17134.1         C:\Windows\SYSTEM32
+67f70000 FaultRep.dll           6.2.17134.1         C:\Windows\SYSTEM32
+680c0000 MSVFW32.dll            6.2.17134.1         C:\Windows\SYSTEM32
+680f0000 AVIFIL32.dll           6.2.17134.1         C:\Windows\SYSTEM32
+683a0000 EasyECDSA.dll                              D:\Games\NLC 3.01\bin
+68ef0000 xrCPU_Pipe.dll                             D:\Games\NLC 3.01\bin
+68f40000 ksuser.dll             6.2.17134.1         C:\Windows\SYSTEM32
+68fb0000 xrAPI.dll                                  D:\Games\NLC 3.01\bin
+68fc0000 luabind.dll                                D:\Games\NLC 3.01\bin
+69890000 MSVCP120.dll           12.0.21005.1        C:\Windows\SYSTEM32
+69910000 MSVCR120.dll           12.0.21005.1        C:\Windows\SYSTEM32
+6a9e0000 LZ4.dll                                    D:\Games\NLC 3.01\bin
+6a9f0000 SHFolder.dll           6.2.17134.1         C:\Windows\SYSTEM32
+6aa00000 lua5.1.dll                                 D:\Games\NLC 3.01\bin
+6aa40000 wsock32.dll            6.2.17134.1         C:\Windows\SYSTEM32
+6aa50000 COMCTL32.dll           5.82.17134.48       C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_5.82.17134.407_none_40fb4dba4515bc06
+6b720000 nvldumd.dll            24.21.13.9836       C:\Windows\System32\DriverStore\FileRepository\nv_dispi.inf_amd64_485c1c3102021986
+6b9e0000 d3d9.dll               6.2.17134.81        C:\Windows\SYSTEM32
+6c800000 AUDIOSES.DLL           6.2.17134.407       C:\Windows\SYSTEM32
+6d2d0000 dxgi.dll               6.2.17134.112       C:\Windows\SYSTEM32
+6d370000 dcomp.dll              6.2.17134.1         C:\Windows\SYSTEM32
+6e2d0000 TextInputFramework.dll 6.2.17134.376       C:\Windows\System32
+6e980000 MMDevApi.dll           6.2.17134.1         C:\Windows\System32
+70470000 CoreUIComponents.dll   6.2.17134.376       C:\Windows\SYSTEM32
+708f0000 dbghelp.dll            6.2.17134.1         C:\Windows\SYSTEM32
+71080000 wintypes.dll           6.2.17134.407       C:\Windows\SYSTEM32
+71160000 CoreMessaging.dll      6.2.17134.407       C:\Windows\SYSTEM32
+711f0000 inputhost.dll                              C:\Windows\SYSTEM32
+71250000 dbgcore.DLL            6.2.17134.1         C:\Windows\SYSTEM32
+712b0000 HID.DLL                6.2.17134.1         C:\Windows\SYSTEM32
+714d0000 DEVOBJ.dll             6.2.17134.1         C:\Windows\SYSTEM32
+72310000 AVRT.dll               6.2.17134.1         C:\Windows\SYSTEM32
+72b10000 MSACM32.dll            6.2.17134.1         C:\Windows\SYSTEM32
+72e60000 WINSPOOL.DRV           6.2.17134.319       C:\Windows\SYSTEM32
+72ed0000 AcLayers.DLL           6.2.17134.137       C:\Windows\SYSTEM32
+73160000 apphelp.dll            6.2.17134.1         C:\Windows\SYSTEM32
+732d0000 PROPSYS.dll            7.0.17134.112       C:\Windows\SYSTEM32
+73470000 winmmbase.dll          6.2.17134.1         C:\Windows\SYSTEM32
+73630000 WINMM.dll              6.2.17134.1         C:\Windows\SYSTEM32
+73660000 sfc_os.DLL             6.2.17134.1         C:\Windows\SYSTEM32
+73760000 cryptnet.dll           6.2.17134.1         C:\Windows\SYSTEM32
+737a0000 gpapi.dll              6.2.17134.1         C:\Windows\SYSTEM32
+737c0000 dwmapi.dll             6.2.17134.1         C:\Windows\system32
+737f0000 uxtheme.dll            6.2.17134.1         C:\Windows\system32
+73870000 ntmarta.dll            6.2.17134.1         C:\Windows\SYSTEM32
+738a0000 rsaenh.dll             6.2.17134.254       C:\Windows\system32
+738d0000 CRYPTSP.dll            6.2.17134.1         C:\Windows\SYSTEM32
+738f0000 MPR.dll                6.2.17134.1         C:\Windows\SYSTEM32
+73910000 bcrypt.dll             6.2.17134.112       C:\Windows\SYSTEM32
+73de0000 IPHLPAPI.DLL           6.2.17134.1         C:\Windows\SYSTEM32
+73e10000 version.dll            6.2.17134.1         C:\Windows\SYSTEM32
+73e80000 CRYPTBASE.dll          6.2.17134.1         C:\Windows\System32
+73e90000 SspiCli.dll            6.2.17134.376       C:\Windows\System32
+73eb0000 OLEAUT32.dll           6.2.17134.48        C:\Windows\System32
+73f50000 KERNEL32.DLL           6.2.17134.1         C:\Windows\System32
+74030000 USER32.dll             6.2.17134.376       C:\Windows\System32
+741c0000 GDI32.dll              6.2.17134.285       C:\Windows\System32
+741f0000 win32u.dll             6.2.17134.1         C:\Windows\System32
+74210000 SHELL32.dll            6.2.17134.376       C:\Windows\System32
+75560000 IMM32.DLL              6.2.17134.1         C:\Windows\System32
+75590000 advapi32.dll           6.2.17134.319       C:\Windows\System32
+756a0000 ole32.dll              6.2.17134.407       C:\Windows\System32
+757a0000 MSASN1.dll             6.2.17134.1         C:\Windows\System32
+757b0000 CRYPT32.dll            6.2.17134.1         C:\Windows\System32
+759b0000 sechost.dll            6.2.17134.319       C:\Windows\System32
+75a00000 powrprof.dll           6.2.17134.1         C:\Windows\System32
+75a50000 msvcrt.dll             7.0.17134.1         C:\Windows\System32
+75b10000 SETUPAPI.dll           6.2.17134.1         C:\Windows\System32
+75f40000 MSCTF.dll              6.2.17134.376       C:\Windows\System32
+76090000 WS2_32.dll             6.2.17134.1         C:\Windows\System32
+76270000 combase.dll            6.2.17134.407       C:\Windows\System32
+764f0000 RPCRT4.dll             6.2.17134.407       C:\Windows\System32
+765b0000 msvcp_win.dll          6.2.17134.1         C:\Windows\System32
+76630000 profapi.dll            6.2.17134.1         C:\Windows\System32
+76650000 WINTRUST.dll           6.2.17134.81        C:\Windows\System32
+766a0000 gdi32full.dll          6.2.17134.345       C:\Windows\System32
+76810000 FLTLIB.DLL             6.2.17134.1         C:\Windows\System32
+76820000 clbcatq.dll            2001.12.10941.16384 C:\Windows\System32
+768b0000 KERNELBASE.dll         6.2.17134.407       C:\Windows\System32
+76aa0000 cfgmgr32.dll           6.2.17134.1         C:\Windows\System32
+76ae0000 shlwapi.dll            6.2.17134.1         C:\Windows\System32
+76b90000 windows.storage.dll    6.2.17134.407       C:\Windows\System32
+77150000 shcore.dll             6.2.17134.112       C:\Windows\System32
+771e0000 kernel.appcore.dll     6.2.17134.112       C:\Windows\System32
+771f0000 bcryptPrimitives.dll   6.2.17134.345       C:\Windows\System32
+772b0000 imagehlp.dll           6.2.17134.1         C:\Windows\System32
+772e0000 ucrtbase.dll           6.2.17134.319       C:\Windows\System32
+77400000 comdlg32.dll           6.2.17134.1         C:\Windows\System32
+775d0000 ntdll.dll              6.2.17134.376       C:\Windows\SYSTEM32
+
+processes:
+0000 Idle                      0 0    0
+0004 System                    0 0    0
+0078 Registry                  0 0    0
+01b4 smss.exe                  0 0    0
+0270 csrss.exe                 0 0    0
+02cc wininit.exe               0 0    0
+02d4 csrss.exe                 1 0    0
+0314 services.exe              0 0    0
+031c lsass.exe                 0 0    0
+03a4 svchost.exe               0 0    0
+03b8 svchost.exe               0 0    0
+03cc fontdrvhost.exe           0 0    0
+0054 svchost.exe               0 0    0
+0254 svchost.exe               0 0    0
+0358 winlogon.exe              1 0    0
+0410 fontdrvhost.exe           1 0    0
+046c dwm.exe                   1 0    0
+047c svchost.exe               0 0    0
+04dc svchost.exe               0 0    0
+04ec svchost.exe               0 0    0
+0520 svchost.exe               0 0    0
+0564 svchost.exe               0 0    0
+0578 svchost.exe               0 0    0
+05b0 svchost.exe               0 0    0
+061c svchost.exe               0 0    0
+0648 svchost.exe               0 0    0
+065c svchost.exe               0 0    0
+06a0 svchost.exe               0 0    0
+06e4 NVDisplay.Container.exe   0 0    0
+06f0 svchost.exe               0 0    0
+0784 svchost.exe               0 0    0
+0790 svchost.exe               0 0    0
+0798 svchost.exe               0 0    0
+07ac svchost.exe               0 0    0
+04bc svchost.exe               0 0    0
+05dc Memory Compression        0 0    0
+081c svchost.exe               0 0    0
+0870 svchost.exe               0 0    0
+0878 svchost.exe               0 0    0
+0880 svchost.exe               0 0    0
+093c svchost.exe               0 0    0
+0944 svchost.exe               0 0    0
+0a0c NVDisplay.Container.exe   1 0    0
+0a98 svchost.exe               0 0    0
+0ae8 svchost.exe               0 0    0
+0be4 svchost.exe               0 0    0
+0bec svchost.exe               0 0    0
+0904 svchost.exe               0 0    0
+0b0c svchost.exe               0 0    0
+0c14 spoolsv.exe               0 0    0
+0c30 sihost.exe                1 0    15   normal       C:\Windows\System32
+0c58 svchost.exe               1 0    1    normal       C:\Windows\System32
+0cc8 svchost.exe               0 0    0
+0d18 svchost.exe               1 4    8    normal       C:\Windows\System32
+0da4 schedul2.exe              0 0    0
+0db4 svchost.exe               0 0    0
+0dbc svchost.exe               0 0    0
+0dc4 svchost.exe               0 0    0
+0dd4 svchost.exe               0 0    0
+0dcc AdobeUpdateService.exe    0 0    0
+0de8 svchost.exe               0 0    0
+0df4 AGMService.exe            0 0    0
+0e10 svchost.exe               0 0    0
+0e28 AGSService.exe            0 0    0
+0e54 svchost.exe               0 0    0
+0e5c NvTelemetryContainer.exe  0 0    0
+0e84 svchost.exe               0 0    0
+0e94 nvcontainer.exe           0 0    0
+0ec0 SecurityHealthService.exe 0 0    0
+0ec8 svchost.exe               0 0    0
+0ed4 MsMpEng.exe               0 0    0
+0ee8 svchost.exe               0 0    0
+0f2c taskhostw.exe             1 8    6    normal       C:\Windows\System32
+0fa0 svchost.exe               0 0    0
+0fbc svchost.exe               0 0    0
+0fe0 svchost.exe               0 0    0
+0cf8 dasHost.exe               0 0    0
+1068 schedhlp.exe              1 0    4    normal       C:\Program Files (x86)\Common Files\Acronis\Schedule2
+111c svchost.exe               0 0    0
+1178 svchost.exe               0 0    0
+124c ctfmon.exe                1 0    0
+1418 svchost.exe               0 0    0
+14d0 svchost.exe               0 0    0
+1724 svchost.exe               0 0    0
+17f8 nvcontainer.exe           1 1    8    normal       C:\Program Files\NVIDIA Corporation\NvContainer
+08a4 nvcontainer.exe           1 0    13   normal       C:\Program Files\NVIDIA Corporation\NvContainer
+1848 svchost.exe               0 0    0
+1a48 dllhost.exe               1 0    6    normal       C:\Windows\System32
+1a8c nvsphelper64.exe          1 0    0
+1aa4 NVIDIA Share.exe          1 52   49   normal       C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience
+1bb8 RuntimeBroker.exe         1 36   2    normal       C:\Windows\System32
+1bdc NisSrv.exe                0 0    0
+1864 RuntimeBroker.exe         1 40   8    normal       C:\Windows\System32
+1f04 NVIDIA Web Helper.exe     1 2    13   normal       C:\Program Files (x86)\NVIDIA Corporation\NvNode
+1f1c conhost.exe               1 10   3    normal       C:\Windows\System32
+2158 NVIDIA Share.exe          1 1    1    normal       C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience
+0d10 NVIDIA Share.exe          1 0    1    normal       C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience
+0b48 SettingSyncHost.exe       1 0    4    below normal C:\Windows\System32
+211c GoogleCrashHandler.exe    0 0    0
+210c GoogleCrashHandler64.exe  0 0    0
+0ddc svchost.exe               0 0    0
+2554 RtkNGUI64.exe             1 17   26   normal       C:\Program Files\Realtek\Audio\HDA
+258c Bloody6.exe               1 5307 1347 normal       C:\Program Files (x86)\Bloody6\Bloody6
+2ac4 CCleaner64.exe            1 0    0
+2948 svchost.exe               0 0    0
+0d58 svchost.exe               1 0    1    normal       C:\Windows\System32
+21f0 svchost.exe               0 0    0
+2be0 sedsvc.exe                0 0    0
+2900 SgrmBroker.exe            0 0    0
+03b0 svchost.exe               0 0    0
+19ec SearchIndexer.exe         0 0    0
+29f0 svchost.exe               0 0    0
+1dc8 dllhost.exe               1 0    3    normal       C:\Windows\System32
+14e8 svchost.exe               0 0    0
+1680 svchost.exe               0 0    0
+08f4 explorer.exe              1 109  76   normal       C:\Windows
+0a80 taskhostw.exe             1 0    0
+2e0c ApplicationFrameHost.exe  1 12   3    normal       C:\Windows\System32
+2f6c AdobeIPCBroker.exe        1 0    7    normal       C:\Program Files (x86)\Common Files\Adobe\OOBE\PDApp\IPC
+05e8 CCXProcess.exe            1 0    0    normal       C:\Program Files (x86)\Adobe\Adobe Creative Cloud\CCXProcess
+2d14 node.exe                  1 0    1    normal       C:\Program Files (x86)\Adobe\Adobe Creative Cloud\CCXProcess\libs
+11e4 conhost.exe               1 10   3    normal       C:\Windows\System32
+2cd8 dllhost.exe               0 0    0
+282c svchost.exe               0 0    0
+3ca0 explorer.exe              1 100  51   normal       C:\Windows
+2f3c explorer.exe              1 680  1088 normal       C:\Windows
+26c4 ShellExperienceHost.exe   1 14   100  normal       C:\Windows\SystemApps\ShellExperienceHost_cw5n1h2txyewy
+44f8 SearchUI.exe              1 14   51   normal       C:\Windows\SystemApps\Microsoft.Windows.Cortana_cw5n1h2txyewy
+32c4 SystemSettingsBroker.exe  1 0    2    normal       C:\Windows\System32
+44e8 Skype.exe                 1 28   35   normal       C:\Program Files (x86)\Microsoft\Skype for Desktop
+42c4 Skype.exe                 1 0    3    normal       C:\Program Files (x86)\Microsoft\Skype for Desktop
+1f2c Skype.exe                 1 5    9    normal       C:\Program Files (x86)\Microsoft\Skype for Desktop
+33dc Skype.exe                 1 0    14   idle         C:\Program Files (x86)\Microsoft\Skype for Desktop
+4344 chrome.exe                1 117  80   normal       C:\Program Files (x86)\Google\Chrome\Application
+4bec chrome.exe                1 0    4    normal       C:\Program Files (x86)\Google\Chrome\Application
+3630 chrome.exe                1 0    4    normal       C:\Program Files (x86)\Google\Chrome\Application
+4030 chrome.exe                1 8    9    normal       C:\Program Files (x86)\Google\Chrome\Application
+43b8 chrome.exe                1 0    0    normal       C:\Program Files (x86)\Google\Chrome\Application
+2e90 chrome.exe                1 0    0    normal       C:\Program Files (x86)\Google\Chrome\Application
+3f50 chrome.exe                1 0    1    normal       C:\Program Files (x86)\Google\Chrome\Application
+4174 chrome.exe                1 0    0    normal       C:\Program Files (x86)\Google\Chrome\Application
+04fc chrome.exe                1 0    0    normal       C:\Program Files (x86)\Google\Chrome\Application
+3378 chrome.exe                1 0    0    normal       C:\Program Files (x86)\Google\Chrome\Application
+2f14 sedlauncher.exe           0 0    0
+0c78 RuntimeBroker.exe         1 40   4    normal       C:\Windows\System32
+18e4 GameBar.exe               1 4    14   normal       C:\Program Files\WindowsApps\Microsoft.XboxGamingOverlay_1.16.1012.0_x64__8wekyb3d8bbwe
+47c0 notepad++.exe             1 287  237  normal       C:\Program Files\Notepad++
+1320 audiodg.exe               0 0    0
+40b0 chrome.exe                1 0    0    normal       C:\Program Files (x86)\Google\Chrome\Application
+3058 chrome.exe                1 0    0    idle         C:\Program Files (x86)\Google\Chrome\Application
+1dcc svchost.exe               0 0    0
+3700 smartscreen.exe           1 0    2    normal       C:\Windows\System32
+4684 WTV.exe                   1 15   24   normal       D:\soft\DDS file viewer
+206c svchost.exe               0 0    0
+354c launch.exe                1 69   64   normal       D:\Games\NLC 3.01\bin
+0af4 svchost.exe               0 0    0
+3e28 conhost.exe               1 18   21   normal       C:\Windows\System32
+364c XR_3DA.exe                1 35   54   normal       D:\Games\NLC 3.01\bin
+0b40 conhost.exe               1 19   18   normal       C:\Windows\System32
+
+hardware:
++ {1ed2bbf9-11f0-4084-b21f-ad83a8e6dcdc}
+  - Fax
+  - Microsoft Print to PDF
+  - Microsoft XPS Document Writer
+  - Корневая очередь печати
++ {36fc9e60-c465-11cf-8056-444553540000}
+  - Корневой USB-концентратор (USB 3.0)
+  - Корневой USB-концентратор (USB 3.0)
+  - Расширяемый хост-контроллер AMD USB 3.0 — 1.0 (Майкрософт)
+  - Расширяемый хост-контроллер AMD USB 3.1 — 1.10 (Майкрософт)
+  - Составное USB устройство
+  - Составное USB устройство
++ {4d36e966-e325-11ce-bfc1-08002be10318}
+  - Компьютер с ACPI на базе x64
++ {4d36e967-e325-11ce-bfc1-08002be10318}
+  - Samsung SSD 860 EVO 250GB
+  - WDC WD10EZEX-08WN4A0
+  - WDC WD5000AADS-00S9B0
++ {4d36e968-e325-11ce-bfc1-08002be10318}
+  - NVIDIA GeForce GTX 660 (driver 24.21.13.9836)
++ {4d36e96a-e325-11ce-bfc1-08002be10318}
+  - Стандартный контроллер SATA AHCI
+  - Стандартный контроллер SATA AHCI
++ {4d36e96b-e325-11ce-bfc1-08002be10318}
+  - Клавиатура HID
+  - Клавиатура HID
+  - Клавиатура HID
+  - Клавиатура HID
++ {4d36e96c-e325-11ce-bfc1-08002be10318}
+  - NVIDIA High Definition Audio (driver 1.3.37.4)
+  - NVIDIA Virtual Audio Device (Wave Extensible) (WDM) (driver 4.6.0.0)
+  - Realtek High Definition Audio (driver 6.0.1.8302)
++ {4d36e96e-e325-11ce-bfc1-08002be10318}
+  - Универсальный монитор PnP
++ {4d36e96f-e325-11ce-bfc1-08002be10318}
+  - HID-совместимая мышь
+  - HID-совместимая мышь
++ {4d36e972-e325-11ce-bfc1-08002be10318}
+  - Evolve Virtual Ethernet Adapter (driver 1.0.0.0)
+  - Microsoft Kernel Debug Network Adapter
+  - Realtek PCIe GBE Family Controller
+  - WAN Miniport (IKEv2)
+  - WAN Miniport (IP)
+  - WAN Miniport (IPv6)
+  - WAN Miniport (L2TP)
+  - WAN Miniport (Network Monitor)
+  - WAN Miniport (PPPOE)
+  - WAN Miniport (PPTP)
+  - WAN Miniport (SSTP)
++ {4d36e978-e325-11ce-bfc1-08002be10318}
+  - Порт принтера (LPT1)
+  - Последовательный порт (COM1)
++ {4d36e97b-e325-11ce-bfc1-08002be10318}
+  - Контроллер дискового пространства (Майкрософт)
++ {4d36e97d-e325-11ce-bfc1-08002be10318}
+  - AMD GPIO Controller (driver 2.2.0.71)
+  - AMD GPIO Controller (driver 2.0.1.0)
+  - AMD PCI (driver 1.0.0.51)
+  - AMD PCI (driver 1.0.0.51)
+  - AMD SMBus (driver 5.12.0.38)
+  - CMOS системы и часы реального времени
+  - Microsoft ACPI-совместимая система
+  - NVVHCI Enumerator (driver 2.2.2151.6378)
+  - PCI Express Root Complex
+  - UMBus перечислитель корневой шины
+  - Базовый видеодрайвер (Майкрософт)
+  - Базовый драйвер отрисовки (Майкрософт)
+  - Встроенный динамик
+  - Высокоточный таймер событий
+  - Диспетчер томов
+  - Драйвер Microsoft System Management BIOS
+  - Интерфейс управления для ACPI Microsoft Windows
+  - Интерфейс управления для ACPI Microsoft Windows
+  - Кнопка питания ACPI
+  - Контроллер High Definition Audio (Microsoft)
+  - Контроллер High Definition Audio (Microsoft)
+  - Контроллер прямого доступа к памяти
+  - Логический интерфейс порта принтера
+  - Перечислитель виртуальных дисков (Майкрософт)
+  - Перечислитель виртуальных сетевых адаптеров NDIS
+  - Перечислитель композитной шины
+  - Перечислитель программных устройств Plug and Play
+  - Порт PCI Express Downstream Switch
+  - Порт PCI Express Downstream Switch
+  - Порт PCI Express Downstream Switch
+  - Порт PCI Express Downstream Switch
+  - Порт PCI Express Root
+  - Порт PCI Express Root
+  - Порт PCI Express Root
+  - Порт PCI Express Root
+  - Порт PCI Express Upstream Switch
+  - Программируемый контроллер прерываний
+  - Ресурсы системной платы
+  - Ресурсы системной платы
+  - Ресурсы системной платы
+  - Ресурсы системной платы
+  - Ресурсы системной платы
+  - Ресурсы системной платы
+  - Системная плата
+  - Системный таймер
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный главный мост PCI — ЦП
+  - Стандартный мост PCI — ISA
+  - Фиксированная функциональная кнопка ACPI
+  - Шина перенаправителя устройств удаленных рабочих столов
++ {50127dc3-0f36-415e-a6cc-4cb3be910b65}
+  - AMD Ryzen 5 1400 Quad-Core Processor
+  - AMD Ryzen 5 1400 Quad-Core Processor
+  - AMD Ryzen 5 1400 Quad-Core Processor
+  - AMD Ryzen 5 1400 Quad-Core Processor
+  - AMD Ryzen 5 1400 Quad-Core Processor
+  - AMD Ryzen 5 1400 Quad-Core Processor
+  - AMD Ryzen 5 1400 Quad-Core Processor
+  - AMD Ryzen 5 1400 Quad-Core Processor
++ {533c5b84-ec70-11d2-9505-00c04f79deaf}
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
+  - Универсальная теневая копия тома
++ {62f9c741-b25a-46ce-b54c-9bccce08b6f2}
+  - INNA-PC: Inna:
+  - Microsoft Device Association Root Enumerator
+  - Microsoft Radio Device Enumeration Bus
+  - Microsoft RRAS Root Enumerator
+  - Программный синтезатор звуковой таблицы Microsoft
++ {745a17a0-74d3-11d0-b6fe-00a0c90f57da}
+  - HID-совместимое устройство управления
+  - HID-совместимое устройство управления
+  - HID-совместимое устройство, определенное поставщиком
+  - HID-совместимое устройство, определенное поставщиком
+  - HID-совместимый игровой контроллер
+  - HID-совместимый системный контроллер
+  - HID-совместимый системный контроллер
+  - USB-устройство ввода
+  - USB-устройство ввода
+  - USB-устройство ввода
+  - USB-устройство ввода
+  - USB-устройство ввода
+  - USB-устройство ввода
+  - USB-устройство ввода
++ {c166523c-fe0c-4a94-a586-f1a80cfbbf3e}
+  - Динамики (Realtek High Definition Audio)
+  - Микрофон (Realtek High Definition Audio)
++ {d94ee5d8-d189-4994-83d2-f68d7d41b0e6}
+  - AMD PSP 3.0 Device (driver 4.9.0.0)
+
+cpu registers:
+eax = 1323f0f0
+ebx = 1323f188
+ecx = 000e57c0
+edx = 0000000c
+esi = 00880000
+edi = 000e57b4
+eip = 776a1d85
+esp = 1323f0f0
+ebp = 1323f148
+
+stack dump:
+1323f0f0  17 00 00 c0 00 00 00 00 - 00 00 00 00 85 1d 6a 77  ..............jw
+1323f100  01 00 00 00 c0 57 0e 00 - e8 4d e1 01 d3 22 61 77  .....W...M..."aw
+1323f110  f8 ca 01 00 a0 57 0e 00 - 92 3d 84 84 00 00 2a 00  .....W...=....*.
+1323f120  00 00 88 00 88 f1 23 13 - dc f1 23 13 18 f1 23 13  ......#...#...#.
+1323f130  76 3a cb e0 dc f1 23 13 - 40 25 64 77 1e 3d cb e0  v:....#.@%dw.=..
+1323f140  fe ff ff ff 9e 3d 84 84 - 80 f1 23 13 74 f5 65 77  .....=....#.t.ew
+1323f150  29 6f 01 00 00 00 88 00 - 00 00 88 00 c0 57 0e 00  )o...........W..
+1323f160  50 90 88 00 00 00 00 00 - 03 00 00 00 00 00 00 00  P...............
+1323f170  b4 57 0e 00 0c 00 00 00 - 00 00 00 00 d0 00 00 00  .W..............
+1323f180  a0 f1 23 13 2e 48 61 77 - 28 b1 58 03 2e 48 61 77  ..#..Haw(.X..Haw
+1323f190  0c 00 00 00 00 00 00 00 - a0 57 0e 00 28 b1 58 03  .........W..(.X.
+1323f1a0  bc f1 23 13 87 05 76 02 - 00 00 88 00 0c 00 00 00  ..#...v.........
+1323f1b0  b4 57 0e 00 00 00 88 00 - b4 57 0e 00 d4 f1 23 13  .W.......W....#.
+1323f1c0  f2 14 76 02 f3 ca 01 00 - 00 c1 48 76 b4 57 0e 00  ..v.......Hv.W..
+1323f1d0  28 b1 58 03 18 f2 23 13 - 4c 07 76 02 e8 f1 23 13  (.X...#.L.v...#.
+1323f1e0  0c aa 4a 02 18 f2 23 13 - 30 f2 23 13 0c aa 4a 02  ..J...#.0.#...J.
+1323f1f0  18 f2 23 13 00 00 00 00 - 00 00 00 00 00 00 00 00  ..#.............
+1323f200  02 00 00 00 28 b1 58 03 - b4 57 0e 00 6c 04 c8 12  ....(.X..W..l...
+1323f210  00 00 00 00 a0 57 0e 00 - 28 f2 23 13 e5 08 76 02  .....W..(.#...v.
+1323f220  00 00 00 00 a0 57 0e 00 - 70 f2 23 13 b9 0b 76 02  .....W..p.#...v.
+
+disassembling:
+[...]
+776a1d68   mov     dword ptr [ebp-$58], $c0000017
+776a1d6f   mov     dword ptr [ebp-$48], 1
+776a1d76   mov     [ebp-$44], ecx
+776a1d79   mov     dword ptr [ebp-$4c], $7764ec90  ; RtlRaiseException (ntdll.dll)
+776a1d80   call    -$530f5 ($7764ec90)    ; RtlRaiseException (ntdll.dll)
+776a1d85 > mov     ecx, [ebp-4]
+776a1d88   xor     ecx, ebp
+776a1d8a   call    -$65a1f ($7763c370)
+776a1d8f   mov     esp, ebp
+776a1d91   pop     ebp
+776a1d92   ret
+

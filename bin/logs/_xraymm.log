@@ -1,0 +1,92 @@
+[25.03.19 20:50:07.827]. ExeParams: 
+[25.03.19 20:50:07.828]. #DBG: global xrMemory Memory at $00A932A8
+[25.03.19 20:50:07.828]. [~T]. #DBG: Process Heap  = $420000
+[25.03.19 20:50:07.828]. XrayMM: Initialization completed
+[25.03.19 20:52:04.190]. ExeParams: 
+[25.03.19 20:52:04.191]. #DBG: global xrMemory Memory at $00A932A8
+[25.03.19 20:52:04.191]. [~T]. #DBG: Process Heap  = $300000
+[25.03.19 20:52:04.191]. XrayMM: Initialization completed
+[25.03.19 20:54:40.988]. ExeParams: 
+[25.03.19 20:54:40.988]. #DBG: global xrMemory Memory at $00A932A8
+[25.03.19 20:54:40.988]. [~T]. #DBG: Process Heap  = $460000
+[25.03.19 20:54:40.988]. XrayMM: Initialization completed
+[25.03.19 20:59:27.201]. ExeParams: 
+[25.03.19 20:59:27.201]. #DBG: global xrMemory Memory at $00A932A8
+[25.03.19 20:59:27.201]. [~T]. #DBG: Process Heap  = $620000
+[25.03.19 20:59:27.201]. XrayMM: Initialization completed
+[25.03.19 22:18:29.018]. ExeParams: 
+[25.03.19 22:18:29.019]. #DBG: global xrMemory Memory at $00A932A8
+[25.03.19 22:18:29.019]. [~T]. #DBG: Process Heap  = $4A0000
+[25.03.19 22:18:29.019]. XrayMM: Initialization completed
+[25.03.19 22:32:18.045]. ExeParams: 
+[25.03.19 22:32:18.046]. #DBG: global xrMemory Memory at $00A932A8
+[25.03.19 22:32:18.046]. [~T]. #DBG: Process Heap  = $440000
+[25.03.19 22:32:18.046]. XrayMM: Initialization completed
+[25.03.19 22:38:35.532]. ExeParams: -attach_to|3708
+[25.03.19 22:38:35.533]. #DBG: global xrMemory Memory at $00A932A8
+[25.03.19 22:38:35.533]. [~T]. #DBG: Process Heap  = $540000
+[25.03.19 22:38:35.533]. XrayMM: Initialization completed
+[25.03.19 22:40:45.914]. ExeParams: 
+[25.03.19 22:40:45.914]. #DBG: global xrMemory Memory at $00A932A8
+[25.03.19 22:40:45.914]. [~T]. #DBG: Process Heap  = $420000
+[25.03.19 22:40:45.914]. XrayMM: Initialization completed
+[25.03.19 22:54:50.450]. ExeParams: 
+[25.03.19 22:54:50.450]. #DBG: global xrMemory Memory at $00A932A8
+[25.03.19 22:54:50.450]. [~T]. #DBG: Process Heap  = $400000
+[25.03.19 22:54:50.450]. XrayMM: Initialization completed
+[25.03.19 23:01:30.246]. ExeParams: 
+[25.03.19 23:01:30.246]. #DBG: global xrMemory Memory at $00A932A8
+[25.03.19 23:01:30.246]. [~T]. #DBG: Process Heap  = $580000
+[25.03.19 23:01:30.246]. XrayMM: Initialization completed
+[25.03.19 23:53:22.533]. ExeParams: 
+[25.03.19 23:53:22.533]. #DBG: global xrMemory Memory at $00A932A8
+[25.03.19 23:53:22.534]. [~T]. #DBG: Process Heap  = $480000
+[25.03.19 23:53:22.534]. XrayMM: Initialization completed
+[25.03.19 23:57:51.695]. ExeParams: 
+[25.03.19 23:57:51.696]. #DBG: global xrMemory Memory at $00A932A8
+[25.03.19 23:57:51.696]. [~T]. #DBG: Process Heap  = $340000
+[25.03.19 23:57:51.696]. XrayMM: Initialization completed
+[26.03.19 00:00:24.195]. ExeParams: 
+[26.03.19 00:00:24.195]. #DBG: global xrMemory Memory at $00A932A8
+[26.03.19 00:00:24.195]. [~T]. #DBG: Process Heap  = $500000
+[26.03.19 00:00:24.195]. XrayMM: Initialization completed
+[26.03.19 01:18:33.791]. ExeParams: 
+[26.03.19 01:18:33.791]. #DBG: global xrMemory Memory at $00A932A8
+[26.03.19 01:18:33.791]. [~T]. #DBG: Process Heap  = $520000
+[26.03.19 01:18:33.791]. XrayMM: Initialization completed
+[26.03.19 01:24:50.376]. ExeParams: 
+[26.03.19 01:24:50.376]. #DBG: global xrMemory Memory at $00A932A8
+[26.03.19 01:24:50.376]. [~T]. #DBG: Process Heap  = $3E0000
+[26.03.19 01:24:50.376]. XrayMM: Initialization completed
+[26.03.19 01:26:53.187]. ExeParams: 
+[26.03.19 01:26:53.188]. #DBG: global xrMemory Memory at $00A932A8
+[26.03.19 01:26:53.188]. [~T]. #DBG: Process Heap  = $2A0000
+[26.03.19 01:26:53.188]. XrayMM: Initialization completed
+[26.03.19 01:37:04.406]. ExeParams: 
+[26.03.19 01:37:04.406]. #DBG: global xrMemory Memory at $00A932A8
+[26.03.19 01:37:04.406]. [~T]. #DBG: Process Heap  = $5C0000
+[26.03.19 01:37:04.406]. XrayMM: Initialization completed
+[26.03.19 01:40:00.830]. ExeParams: 
+[26.03.19 01:40:00.831]. #DBG: global xrMemory Memory at $00A932A8
+[26.03.19 01:40:00.831]. [~T]. #DBG: Process Heap  = $360000
+[26.03.19 01:40:00.831]. XrayMM: Initialization completed
+[26.03.19 01:41:47.413]. ExeParams: 
+[26.03.19 01:41:47.413]. #DBG: global xrMemory Memory at $00A932A8
+[26.03.19 01:41:47.413]. [~T]. #DBG: Process Heap  = $420000
+[26.03.19 01:41:47.414]. XrayMM: Initialization completed
+[26.03.19 01:42:27.065]. ExeParams: 
+[26.03.19 01:42:27.065]. #DBG: global xrMemory Memory at $00A932A8
+[26.03.19 01:42:27.065]. [~T]. #DBG: Process Heap  = $5A0000
+[26.03.19 01:42:27.067]. XrayMM: Initialization completed
+[26.03.19 19:36:25.764]. ExeParams: 
+[26.03.19 19:36:25.765]. #DBG: global xrMemory Memory at $00A932A8
+[26.03.19 19:36:25.765]. [~T]. #DBG: Process Heap  = $260000
+[26.03.19 19:36:25.765]. XrayMM: Initialization completed
+[26.03.19 19:41:17.274]. ExeParams: 
+[26.03.19 19:41:17.274]. #DBG: global xrMemory Memory at $00A932A8
+[26.03.19 19:41:17.274]. [~T]. #DBG: Process Heap  = $5A0000
+[26.03.19 19:41:17.274]. XrayMM: Initialization completed
+[26.03.19 19:52:58.435]. ExeParams: 
+[26.03.19 19:52:58.435]. #DBG: global xrMemory Memory at $00A932A8
+[26.03.19 19:52:58.435]. [~T]. #DBG: Process Heap  = $5E0000
+[26.03.19 19:52:58.436]. XrayMM: Initialization completed
